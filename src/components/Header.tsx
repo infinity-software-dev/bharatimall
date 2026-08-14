@@ -21,13 +21,15 @@ import {
   Ship,
   Building2,
   ShieldAlert,
-  Dog
+  Dog,
+  Search
 } from "lucide-react";
 import Image from 'next/image';
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [user, setUser] = useState<{ fullName: string; email: string } | null>(null);
 
   // Dropdown states

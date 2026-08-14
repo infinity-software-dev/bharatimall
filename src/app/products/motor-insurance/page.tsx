@@ -97,7 +97,12 @@ export default function MotorInsurancePage() {
         <MotorCtaBanner
           onGetQuoteClick={() => {
             if (MOTOR_PLANS_DATA.length > 0) {
-              setSelectedPlanForModal(MOTOR_PLANS_DATA[0]);
+              setSelectedPlanForModal({
+                name: MOTOR_PLANS_DATA[0].name,
+                price: MOTOR_PLANS_DATA[0].twoWheelerCompPrice,
+                planType: "Comprehensive",
+                features: MOTOR_PLANS_DATA[0].features
+              });
             }
           }}
         />
