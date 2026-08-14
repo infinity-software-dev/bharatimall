@@ -4,17 +4,36 @@ import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Mail, Lock, Sparkles, CheckCircle } from "lucide-react";
+import { Mail, Lock, CheckCircle } from "lucide-react";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (email && password) {
+    setError("");
+
+    const usersJSON = localStorage.getItem("bharatimall_users");
+    const users = usersJSON ? JSON.parse(usersJSON) : [];
+
+    const matchedUser = users.find(
+      (u: any) => u.email.toLowerCase() === email.toLowerCase() && u.password === password
+    );
+
+    if (matchedUser) {
+      sessionStorage.setItem("bharatimall_active_user", JSON.stringify({
+        fullName: matchedUser.fullName,
+        email: matchedUser.email
+      }));
       setIsSuccess(true);
+      setTimeout(() => {
+        window.location.href = "/dashboard"; // Redirect to customer dashboard
+      }, 1500);
+    } else {
+      setError("Invalid email or password. Please try again.");
     }
   };
 
@@ -55,57 +74,65 @@ export default function LoginPage() {
               </Link>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div>
-                <label className="block text-[10px] uppercase font-bold text-zinc-400 mb-1.5">Registered Email</label>
-                <div className="relative text-left">
-                  <input
-                    type="email"
-                    required
-                    placeholder="customer@email.com"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 pl-10 pr-4 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-[#2076C7]"
-                  />
-                  <Mail className="w-4 h-4 text-zinc-600 absolute left-3.5 top-3" />
+            <>
+              {error && (
+                <div className="p-3.5 bg-red-500/10 border border-red-500/20 text-red-400 text-xs rounded-xl text-left font-semibold">
+                  {error}
                 </div>
-              </div>
+              )}
 
-              <div>
-                <label className="block text-[10px] uppercase font-bold text-zinc-400 mb-1.5">Password</label>
-                <div className="relative text-left">
-                  <input
-                    type="password"
-                    required
-                    placeholder="••••••••"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 pl-10 pr-4 text-xs text-white placeholder-zinc-600 focus:outline-none focus:border-[#2076C7]"
-                  />
-                  <Lock className="w-4 h-4 text-zinc-600 absolute left-3.5 top-3" />
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <label className="block text-[10px] uppercase font-bold text-zinc-400 mb-1.5">Registered Email</label>
+                  <div className="relative text-left">
+                    <input
+                      type="email"
+                      required
+                      placeholder="customer@email.com"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 pl-10 pr-4 text-xs text-white placeholder-zinc-650 focus:outline-none focus:border-[#2076C7]"
+                    />
+                    <Mail className="w-4 h-4 text-zinc-600 absolute left-3.5 top-3" />
+                  </div>
                 </div>
-              </div>
 
-              <div className="text-right">
-                <button type="button" className="text-[10px] font-bold text-zinc-500 hover:text-[#2076C7]">
-                  Forgot Password?
+                <div>
+                  <label className="block text-[10px] uppercase font-bold text-zinc-400 mb-1.5">Password</label>
+                  <div className="relative text-left">
+                    <input
+                      type="password"
+                      required
+                      placeholder="••••••••"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 pl-10 pr-4 text-xs text-white placeholder-zinc-650 focus:outline-none focus:border-[#2076C7]"
+                    />
+                    <Lock className="w-4 h-4 text-zinc-600 absolute left-3.5 top-3" />
+                  </div>
+                </div>
+
+                <div className="text-right">
+                  <button type="button" className="text-[10px] font-bold text-zinc-500 hover:text-[#2076C7]">
+                    Forgot Password?
+                  </button>
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] hover:shadow-lg transition-all cursor-pointer"
+                >
+                  Sign In
                 </button>
-              </div>
 
-              <button
-                type="submit"
-                className="w-full py-3.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] hover:shadow-lg transition-all cursor-pointer"
-              >
-                Sign In
-              </button>
-
-              <div className="text-center pt-2 text-xs text-zinc-500">
-                New customer?{" "}
-                <Link href="/register" className="font-bold text-[#2076C7] hover:underline">
-                  Create an account
-                </Link>
-              </div>
-            </form>
+                <div className="text-center pt-2 text-xs text-zinc-500">
+                  New customer?{" "}
+                  <Link href="/register" className="font-bold text-[#2076C7] hover:underline">
+                    Create an account
+                  </Link>
+                </div>
+              </form>
+            </>
           )}
 
         </div>

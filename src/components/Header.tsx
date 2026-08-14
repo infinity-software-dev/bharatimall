@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { 
@@ -17,6 +17,24 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [user, setUser] = useState<{ fullName: string; email: string } | null>(null);
+
+  useEffect(() => {
+    const active = sessionStorage.getItem("bharatimall_active_user");
+    if (active) {
+      try {
+        setUser(JSON.parse(active));
+      } catch (e) {
+        console.error("Failed to parse active user session", e);
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("bharatimall_active_user");
+    setUser(null);
+    window.location.href = "/"; // Redirect and reload to clear state
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -95,24 +113,43 @@ export default function Header() {
           </Link>
 
           {/* User Account Operations - B2C Customer Customization */}
-          <div className="hidden sm:flex items-center gap-2 xl:gap-3">
-            <Link
-              href="/login"
-              className={`px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] hover:shadow-md hover:shadow-[#2076C7]/15 active:scale-95 transition-all text-center ${
-                pathname === "/login" ? "brightness-95" : ""
-              }`}
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              className={`px-5 py-2 rounded-xl text-xs font-bold text-[#1CADA3] border-2 border-[#1CADA3] bg-white hover:bg-[#E8F6FA] active:scale-95 transition-all text-center ${
-                pathname === "/register" ? "bg-zinc-50" : ""
-              }`}
-            >
-              Register
-            </Link>
-          </div>
+          {user ? (
+            <div className="hidden sm:flex items-center gap-3">
+              <Link 
+                href="/dashboard"
+                className="text-xs font-bold text-zinc-700 flex items-center gap-1.5 bg-zinc-50 border border-zinc-200 hover:border-zinc-300 pl-3 pr-3.5 py-2.5 rounded-xl transition-all"
+              >
+                <User className="w-3.5 h-3.5 text-[#2076C7] shrink-0" />
+                Hi, {user.fullName.split(" ")[0]}!
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="p-2.5 rounded-xl border border-zinc-200 hover:border-zinc-300 hover:text-red-500 text-zinc-400 hover:bg-zinc-50 transition-colors cursor-pointer"
+                title="Sign Out"
+              >
+                <LogOut className="w-4 h-4" />
+              </button>
+            </div>
+          ) : (
+            <div className="hidden sm:flex items-center gap-2 xl:gap-3">
+              <Link
+                href="/login"
+                className={`px-5 py-2.5 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] hover:shadow-md hover:shadow-[#2076C7]/15 active:scale-95 transition-all text-center ${
+                  pathname === "/login" ? "brightness-95" : ""
+                }`}
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                className={`px-5 py-2 rounded-xl text-xs font-bold text-[#1CADA3] border-2 border-[#1CADA3] bg-white hover:bg-[#E8F6FA] active:scale-95 transition-all text-center ${
+                  pathname === "/register" ? "bg-zinc-50" : ""
+                }`}
+              >
+                Register
+              </Link>
+            </div>
+          )}
 
           {/* Mobile Menu Toggle */}
           <button
@@ -156,22 +193,42 @@ export default function Header() {
             })}
           </div>
 
-          <div className="flex flex-col gap-2 pt-2 border-t border-zinc-100">
-            <Link
-              href="/login"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-center"
-            >
-              Login
-            </Link>
-            <Link
-              href="/register"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full py-2.5 rounded-xl text-xs font-bold text-[#1CADA3] border-2 border-[#1CADA3] bg-white text-center"
-            >
-              Register
-            </Link>
-          </div>
+          {user ? (
+            <div className="flex flex-col gap-2 pt-2 border-t border-zinc-100">
+              <Link 
+                href="/dashboard"
+                onClick={() => setMobileMenuOpen(false)}
+                className="text-xs font-bold text-zinc-700 flex items-center gap-1.5 px-3 py-2 bg-zinc-50 border border-zinc-200 rounded-xl hover:border-zinc-300 transition-all"
+              >
+                <User className="w-3.5 h-3.5 text-[#2076C7]" />
+                Hi, {user.fullName}!
+              </Link>
+              <button
+                onClick={handleLogout}
+                className="w-full py-3 rounded-xl text-xs font-bold text-white bg-red-500 hover:bg-red-650 text-center flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <LogOut className="w-4 h-4" />
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div className="flex flex-col gap-2 pt-2 border-t border-zinc-100">
+              <Link
+                href="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 rounded-xl text-xs font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-center"
+              >
+                Login
+              </Link>
+              <Link
+                href="/register"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-2.5 rounded-xl text-xs font-bold text-[#1CADA3] border-2 border-[#1CADA3] bg-white text-center"
+              >
+                Register
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </header>
