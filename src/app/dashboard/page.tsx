@@ -1,29 +1,16 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { 
-  User, 
-  BookOpen, 
-  TrendingUp, 
-  CreditCard, 
-  Settings, 
-  LogOut, 
-  Sparkles, 
-  ArrowUpRight, 
-  ArrowDownRight, 
-  CheckCircle, 
-  FileText,
-  Clock,
-  Building2,
-  Layers,
-  Percent,
-  IndianRupee,
+import {
+  User,
+  BookOpen,
+  TrendingUp, Settings,
+  LogOut, FileText, Building2,
+  Layers, IndianRupee,
   ShieldCheck,
-  Bell,
-  Search,
-  Calculator as CalcIcon,
+  Bell, Calculator as CalcIcon,
   HelpCircle,
   QrCode,
   Smartphone,
