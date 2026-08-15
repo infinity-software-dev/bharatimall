@@ -119,7 +119,7 @@ export default function FDCalculator() {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight mb-2 text-[#171717]">
-                            Fixed Deposit <span className="text-[#F4C430]">Calculator</span>
+                            Fixed Deposit <span className="text-[#E91E63]">Calculator</span>
                         </h2>
                         <p className="text-[#6B6B6B] text-xs sm:text-sm max-w-xl font-normal">
                             Calculate your Fixed Deposit compounding returns, interest earnings, and maturity values.
@@ -284,7 +284,7 @@ export default function FDCalculator() {
                                 cy="80"
                                 r="65"
                                 fill="transparent"
-                                stroke="#F4C430"
+                                stroke="#E91E63"
                                 strokeWidth="18"
                                 strokeDasharray={`${(fdResults.interestRatio / 100) * C} ${C}`}
                                 strokeDashoffset="0"
@@ -311,7 +311,7 @@ export default function FDCalculator() {
                             <span className="text-xs text-[#292929] font-semibold">Principal ({fdResults.principalRatio.toFixed(0)}%)</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span className="w-3 h-3 rounded-full bg-[#F4C430] inline-block" />
+                            <span className="w-3 h-3 rounded-full bg-[#E91E63] inline-block" />
                             <span className="text-xs text-[#292929] font-semibold">Interest ({fdResults.interestRatio.toFixed(0)}%)</span>
                         </div>
                     </div>
@@ -343,14 +343,14 @@ export default function FDCalculator() {
             <div className="border-t border-[#E5E5E0] bg-white p-6 sm:p-8 lg:p-10 text-left">
                 {/* Title */}
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#171717] tracking-tight mb-6">
-                    Key Investment <span className="text-[#F4C430]">Insights</span>
+                    Key Investment <span className="text-[#E91E63]">Insights</span>
                 </h3>
 
                 {/* 2-Column Insights Bullets */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 gap-x-8 text-xs sm:text-sm text-[#292929] leading-relaxed mb-8">
                     {/* Bullet 1 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             Your investment of <span className="bg-[#F5F5F3] text-[#171717] font-extrabold px-2 py-0.5 rounded border border-[#E5E5E0]">{formatCurrency(principalAmount)}</span> will grow to <span className="bg-[#FFF8D6] text-[#171717] font-extrabold px-2 py-0.5 rounded border border-[#F4C430]/40">{formatCurrency(fdResults.maturityAmount)}</span> in {tenureYears} years at {effectiveRate}% interest
                         </p>
@@ -358,7 +358,7 @@ export default function FDCalculator() {
 
                     {/* Bullet 2 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             You will earn <span className="bg-[#FFF8D6] text-[#198754] font-extrabold px-2 py-0.5 rounded border border-[#198754]/30">{formatCurrency(fdResults.totalInterest)}</span> in interest, which is <span className="bg-[#FFF8D6] text-[#198754] font-extrabold px-2 py-0.5 rounded border border-[#198754]/30">{fdResults.interestPercentOfPrincipal}%</span> of your principal amount
                         </p>
@@ -366,7 +366,7 @@ export default function FDCalculator() {
 
                     {/* Bullet 3 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             Your FD will generate <span className="bg-[#FFF8D6] text-[#171717] font-extrabold px-2 py-0.5 rounded border border-[#F4C430]/40">{formatCurrency(fdResults.annualAverage)}</span> average annual interest
                         </p>
@@ -374,7 +374,7 @@ export default function FDCalculator() {
 
                     {/* Bullet 4 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             A 1% higher interest rate could earn you an extra <span className="bg-[#FFF8D6] text-[#198754] font-extrabold px-2 py-0.5 rounded border border-[#198754]/30">{formatCurrency(fdResults.extraInterest1Pct)}</span>
                         </p>
@@ -382,7 +382,7 @@ export default function FDCalculator() {
 
                     {/* Bullet 5 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             Your FD generates <span className="bg-[#FFF8D6] text-[#171717] font-extrabold px-2 py-0.5 rounded border border-[#F4C430]/40">₹{fdResults.dailyInterest}</span> per day in interest income
                         </p>
@@ -390,7 +390,7 @@ export default function FDCalculator() {
 
                     {/* Bullet 6 */}
                     <div className="flex items-start gap-2">
-                        <span className="w-2 h-2 rounded-full bg-[#F4C430] shrink-0 mt-1.5" />
+                        <span className="w-2 h-2 rounded-full bg-[#E91E63] shrink-0 mt-1.5" />
                         <p>
                             At this rate, your money will double in <span className="bg-[#F5F5F3] text-[#171717] font-extrabold px-2 py-0.5 rounded border border-[#E5E5E0]">{fdResults.doublingYears} years</span> (using the Rule of 72)
                         </p>

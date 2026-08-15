@@ -17,7 +17,7 @@ const BankVsNBFC = () => {
                     <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight">
                         Bank FD vs NBFC FD
                     </h2>
-                    <div className="w-20 h-1 mx-auto rounded-full mb-4 bg-[#F4C430]" />
+                    <div className="w-20 h-1 mx-auto rounded-full mb-4 bg-[#E91E63]" />
                     <p className="text-[#6B6B6B] max-w-2xl mx-auto text-base font-normal">
                         Understanding the key differences helps you choose the right balance between safety and higher returns for your wealth growth.
                     </p>
@@ -87,7 +87,7 @@ const BankVsNBFC = () => {
                         className="bg-white rounded-2xl shadow-md border border-[#E5E5E0] relative overflow-hidden group hover:-translate-y-1.5 transition-all duration-300 hover:border-[#F4C430]"
                     >
                         {/* Top bar */}
-                        <div className="h-1.5 w-full bg-[#F4C430]" />
+                        <div className="h-1.5 w-full bg-[#E91E63]" />
 
                         <div className="p-8">
                             {/* Card Header */}
@@ -96,7 +96,7 @@ const BankVsNBFC = () => {
                                     <Building2 size={28} className="text-[#171717]" />
                                 </div>
                                 <div>
-                                    <h3 className="text-2xl font-bold text-[#171717]">NBFC FD</h3>
+                                    <h3 className="text-2xl font-bold text-[#E91E63]">NBFC FD</h3>
                                 </div>
                             </div>
 

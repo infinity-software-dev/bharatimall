@@ -73,12 +73,12 @@ export default function NPSWithdrawal() {
                                     <section.icon className="w-8 h-8 text-[#171717]" />
                                 </div>
 
-                                <h3 className="relative z-20 text-xl font-bold text-[#171717] mb-6 text-center tracking-tight">{section.category}</h3>
+                                <h3 className="relative z-20 text-xl font-bold text-[#E91E63] mb-6 text-center tracking-tight">{section.category}</h3>
 
                                 <ul className="space-y-4">
                                     {section.rules.map((rule, idx) => (
                                         <li key={idx} className="flex items-start gap-3.5">
-                                            <div className="mt-1.5 w-2 h-2 rounded-full bg-[#F4C430] shrink-0" />
+                                            <div className="mt-1.5 w-2 h-2 rounded-full bg-[#E91E63] shrink-0" />
                                             <p className="text-[#292929] text-sm leading-relaxed font-normal">{rule}</p>
                                         </li>
                                     ))}

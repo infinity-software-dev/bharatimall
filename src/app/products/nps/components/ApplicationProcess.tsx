@@ -48,7 +48,7 @@ export default function ApplicationProcess({ onApply }: ApplicationProcessProps)
                     className="text-center max-w-3xl mx-auto mb-16 md:mb-20"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF8D6] border border-[#F4C430]/40 text-[#171717] font-bold text-xs mb-6 uppercase tracking-widest shadow-xs">
-                        <Zap size={14} className="text-[#F4C430] animate-pulse" />
+                        <Zap size={14} className="text-[#E91E63] animate-pulse" />
                         Simple &amp; Fast
                     </div>
 
@@ -92,7 +92,7 @@ export default function ApplicationProcess({ onApply }: ApplicationProcessProps)
                                 </div>
 
                                 {/* Content */}
-                                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#171717] transition-colors">
+                                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 text-[#171717] group-hover:text-[#E91E63] transition-colors">
                                     {step.title}
                                 </h3>
 

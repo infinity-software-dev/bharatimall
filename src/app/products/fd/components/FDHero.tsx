@@ -37,7 +37,7 @@ export default function FDHero({ openLogin, onApply, scrollToCalculator }: FDHer
 
                         <h1 className="font-sans text-3xl sm:text-4xl md:text-5xl lg:text-[64px] font-extrabold mb-4 sm:mb-6 leading-tight tracking-tight px-4 sm:px-0 text-[#171717]">
                             Grow Your Wealth With <br />
-                            <span className="text-[#F4C430]">Fixed Deposits</span>
+                            <span className="text-[#E91E63]">Fixed Deposits</span>
                         </h1>
 
                         <p className="text-base sm:text-lg md:text-xl text-[#6B6B6B] mb-6 lg:mb-8 leading-relaxed max-w-xl font-normal">

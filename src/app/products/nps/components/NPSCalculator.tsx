@@ -247,11 +247,11 @@ export default function NPSCalculator() {
                             <div className="text-center xl:text-left">
                                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-2 tracking-tight text-[#171717]">
                                     {activeTab === 'retirement' ? (
-                                        <>NPS Retirement <span className="text-[#F4C430]">Calculator</span></>
+                                        <>NPS Retirement <span className="text-[#E91E63]">Calculator</span></>
                                     ) : activeTab === 'tax' ? (
-                                        <>NPS Tax Savings <span className="text-[#F4C430]">Calculator</span></>
+                                        <>NPS Tax Savings <span className="text-[#E91E63]">Calculator</span></>
                                     ) : (
-                                        <>Retirement Corpus <span className="text-[#F4C430]">Calculator</span></>
+                                        <>Retirement Corpus <span className="text-[#E91E63]">Calculator</span></>
                                     )}
                                 </h2>
                                 <p className="text-[#6B6B6B] text-xs sm:text-sm max-w-xl mx-auto xl:mx-0 font-normal">
@@ -476,7 +476,7 @@ export default function NPSCalculator() {
                                             cy="80"
                                             r="65"
                                             fill="transparent"
-                                            stroke="#F4C430"
+                                            stroke="#E91E63"
                                             strokeWidth="18"
                                             strokeDasharray={`${(retirementResults.wealthRatio / 100) * C} ${C}`}
                                             strokeDashoffset="0"
@@ -491,7 +491,7 @@ export default function NPSCalculator() {
                                             cy="80"
                                             r="65"
                                             fill="transparent"
-                                            stroke="#F4C430"
+                                            stroke="#E91E63"
                                             strokeWidth="18"
                                             strokeDasharray={`${(corpusResults.wealthRatio / 100) * C} ${C}`}
                                             strokeDashoffset="0"
@@ -507,7 +507,7 @@ export default function NPSCalculator() {
                                                 cy="80"
                                                 r="65"
                                                 fill="transparent"
-                                                stroke="#F4C430"
+                                                stroke="#E91E63"
                                                 strokeWidth="18"
                                                 strokeDasharray={`${(taxResults.totalDeduction > 0 ? (taxResults.claimed80CCD1B / taxResults.totalDeduction) * C : 0)} ${C}`}
                                                 strokeDashoffset="0"
@@ -552,7 +552,7 @@ export default function NPSCalculator() {
                                             <span className="text-xs text-[#292929] font-semibold">Invested Amount</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <span className="w-3 h-3 rounded-full bg-[#F4C430] inline-block" />
+                                            <span className="w-3 h-3 rounded-full bg-[#E91E63] inline-block" />
                                             <span className="text-xs text-[#292929] font-semibold">Wealth Gained</span>
                                         </div>
                                     </>
@@ -564,7 +564,7 @@ export default function NPSCalculator() {
                                             <span className="text-xs text-[#6B6B6B] font-semibold">80CCD(1)</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <span className="w-3 h-3 rounded-full bg-[#F4C430] inline-block" />
+                                            <span className="w-3 h-3 rounded-full bg-[#E91E63] inline-block" />
                                             <span className="text-xs text-[#292929] font-semibold">80CCD(1B) Extra</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
@@ -580,7 +580,7 @@ export default function NPSCalculator() {
                                             <span className="text-xs text-[#292929] font-semibold">Total Invested</span>
                                         </div>
                                         <div className="flex items-center gap-1.5">
-                                            <span className="w-3 h-3 rounded-full bg-[#F4C430] inline-block" />
+                                            <span className="w-3 h-3 rounded-full bg-[#E91E63] inline-block" />
                                             <span className="text-xs text-[#292929] font-semibold">Compounded Growth</span>
                                         </div>
                                     </>
@@ -658,31 +658,31 @@ export default function NPSCalculator() {
                                 <Lightbulb className="w-5 h-5 text-[#171717]" />
                             </div>
                             <h3 className="text-lg sm:text-xl font-extrabold text-[#171717] tracking-tight">
-                                Key Retirement <span className="text-[#F4C430]">Insights</span>
+                                Key Retirement <span className="text-[#E91E63]">Insights</span>
                             </h3>
                         </div>
 
                         <div className="grid md:grid-cols-2 gap-4 sm:gap-6 text-left">
                             <div className="flex gap-3">
-                                <ChevronRight className="mt-0.5 text-[#F4C430] shrink-0 w-4 h-4" />
+                                <ChevronRight className="mt-0.5 text-[#E91E63] shrink-0 w-4 h-4" />
                                 <p className="text-[#292929] font-medium text-xs sm:text-sm leading-relaxed">
                                     By investing <span className="bg-[#F5F5F3] text-[#171717] font-bold px-1.5 py-0.5 rounded border border-[#E5E5E0]">{formatCurrency(contribution)}</span> monthly for {retirementResults.years} years, you accumulate a corpus of <span className="bg-[#FFF8D6] text-[#171717] font-bold px-1.5 py-0.5 rounded border border-[#F4C430]/40">{formatCurrency(retirementResults.totalCorpus)}</span>.
                                 </p>
                             </div>
                             <div className="flex gap-3">
-                                <ChevronRight className="mt-0.5 text-[#F4C430] shrink-0 w-4 h-4" />
+                                <ChevronRight className="mt-0.5 text-[#E91E63] shrink-0 w-4 h-4" />
                                 <p className="text-[#292929] font-medium text-xs sm:text-sm leading-relaxed">
                                     With {annuityPercentage}% annuity, you secure a monthly pension of <span className="bg-[#FFF8D6] text-[#198754] font-bold px-1.5 py-0.5 rounded border border-[#198754]/30">{formatCurrency(retirementResults.monthlyPension)}</span> for life post-retirement.
                                 </p>
                             </div>
                             <div className="flex gap-3">
-                                <ChevronRight className="mt-0.5 text-[#F4C430] shrink-0 w-4 h-4" />
+                                <ChevronRight className="mt-0.5 text-[#E91E63] shrink-0 w-4 h-4" />
                                 <p className="text-[#292929] font-medium text-xs sm:text-sm leading-relaxed">
                                     NPS offers an exclusive additional tax deduction of <span className="bg-[#FFF8D6] text-[#171717] font-bold px-1.5 py-0.5 rounded border border-[#F4C430]/40">₹50,000</span> under Section 80CCD(1B) over and above 80C.
                                 </p>
                             </div>
                             <div className="flex gap-3">
-                                <ChevronRight className="mt-0.5 text-[#F4C430] shrink-0 w-4 h-4" />
+                                <ChevronRight className="mt-0.5 text-[#E91E63] shrink-0 w-4 h-4" />
                                 <p className="text-[#292929] font-medium text-xs sm:text-sm leading-relaxed">
                                     Starting earlier gives you the greatest advantage of compounding, growing exponentially over long horizons.
                                 </p>
