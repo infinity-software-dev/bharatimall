@@ -19,32 +19,27 @@ export const metadata: Metadata = {
   // title: "Bharti Mall | Premium B2C Share Market Portal",
   // description: "Explore Bharti Mall - Reimagining customer-first retail, financial literacy and market analysis products.",
   title: {
-    default: "Bharti Mall | Financial Literacy & Share Market Education",
-    template: "%s | Bharti Mall",
+    default: "Bharti Financial Mall",
+    template: "%s | Bharti Financial Mall",
   },
 
-  description:
-    "Bharti Mall is a financial literacy and share market education platform offering learning resources, courses and educational insights for aspiring investors.",
+  description: "Bharti Financial Mall Pvt. Ltd. is a customer-focused company committed to delivering innovative products, services and solutions designed to create lasting value.",
 
   keywords: [
+    "Bharti Financial Mall",
+    "Bharti Financial Mall Pvt Ltd",
     "Bharti Mall",
-    "Bharti Share Market",
-    "share market education",
-    "stock market education",
-    "financial literacy",
-    "share market learning",
-    "stock market courses",
-    "investment education India",
+    "Bharti Financial",
   ],
 
   authors: [
     {
-      name: "Bharti Mall",
+      name: "Bharti Financial Mall Pvt. Ltd.",
     },
   ],
 
-  creator: "Bharti Mall",
-  publisher: "Bharti Mall",
+  creator: "Bharti Financial Mall Pvt. Ltd.",
+  publisher: "Bharti Financial Mall Pvt. Ltd.",
 
   robots: {
     index: true,
@@ -62,10 +57,10 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_IN",
-    siteName: "Bharti Mall",
-    title: "Bharti Mall | Financial Literacy & Share Market Education",
-    description:
-      "Explore financial literacy, share market education and learning resources from Bharti Mall.",
+    siteName: "Bharti Financial Mall",
+    title: "Bharti Financial Mall Pvt. Ltd.",
+    description: "Discover Bharti Financial Mall Pvt. Ltd. and learn more about our company, products, services and vision.",
+    url: "https://www.bhartimall.com",
   },
 
   icons: {
