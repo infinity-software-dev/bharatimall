@@ -106,13 +106,12 @@ export default function NPSProductPage() {
             <p className="text-sm sm:text-base md:text-lg mb-8 text-[#6B6B6B] max-w-2xl mx-auto leading-relaxed font-normal">
               Start your journey towards a stress-free retirement. Invest in National Pension System today for better returns and maximum tax benefits.
             </p>
-            <button
-              type="button"
-              onClick={() => openModalWithTitle("Request an NPS Advisory Callback")}
-              className="bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
+            <Link
+              href="/enquiry"
+              className="inline-block bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-md hover:shadow-lg active:scale-95 cursor-pointer"
             >
               Request a Callback
-            </button>
+            </Link>
           </div>
         </section>
 

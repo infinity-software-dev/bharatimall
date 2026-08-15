@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClipboardCheck, Zap, ShieldCheck, Rocket, ChevronRight } from "lucide-react";
 
@@ -114,13 +115,12 @@ export default function FDStepProcess({ onApplyClick }: FDStepProcessProps) {
                     transition={{ delay: 1 }}
                     className="mt-12 sm:mt-20 text-center"
                 >
-                    <button
-                        type="button"
-                        onClick={onApplyClick}
-                        className="px-8 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base"
+                    <Link
+                        href="/enquiry"
+                        className="inline-block px-8 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base"
                     >
                         Start Your Investment Journey
-                    </button>
+                    </Link>
                 </motion.div>
 
             </div>

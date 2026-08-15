@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
     TrendingUp,
     ChevronDown,
@@ -1085,17 +1086,12 @@ export default function BankList({ onApplyBank }: BankListProps) {
 
                                                             {/* Action Button */}
                                                             <td className="py-4 px-4 text-center">
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => {
-                                                                        if (onApplyBank) {
-                                                                            onApplyBank(bank.name);
-                                                                        }
-                                                                    }}
-                                                                    className="px-5 py-2.5 rounded-xl font-extrabold text-xs text-[#171717] uppercase tracking-wider bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs hover:shadow-md active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                                                                <Link
+                                                                    href="/enquiry"
+                                                                    className="inline-block px-5 py-2.5 rounded-xl font-extrabold text-xs text-[#171717] uppercase tracking-wider bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs hover:shadow-md active:scale-95 transition-all cursor-pointer whitespace-nowrap"
                                                                 >
                                                                     Apply Now
-                                                                </button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
                                                     );
@@ -1215,16 +1211,12 @@ export default function BankList({ onApplyBank }: BankListProps) {
                                             </div>
                                         </div>
 
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setIsCompareModalOpen(false);
-                                                if (onApplyBank) onApplyBank(b.name);
-                                            }}
-                                            className="w-full mt-4 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs cursor-pointer active:scale-95 transition-all"
+                                        <Link
+                                            href="/enquiry"
+                                            className="inline-block text-center w-full mt-4 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs cursor-pointer active:scale-95 transition-all"
                                         >
                                             Apply for this FD
-                                        </button>
+                                        </Link>
                                     </div>
                                 );
                             })}
