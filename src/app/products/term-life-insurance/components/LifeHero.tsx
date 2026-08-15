@@ -11,8 +11,8 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
   return (
     <section className="relative overflow-hidden pt-6 pb-16 lg:pb-24">
       {/* Subtle Background Glows */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-20 right-10 w-80 h-80 bg-teal-100/40 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FFF8D6] rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-20 right-10 w-80 h-80 bg-[#FFF8D6] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -20,19 +20,19 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
           {/* Hero Left Content */}
           <div className="lg:col-span-7 space-y-6">
             {/* Pill Tag */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/90 border border-blue-200/60 text-[#2076C7] text-xs font-bold tracking-wide uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E5E5E0] text-[#171717] text-xs font-bold tracking-wide uppercase">
               <span>TRUSTED BY 50,000+ INDIAN FAMILIES</span>
             </div>
 
             {/* Main Heading */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#1660A7] leading-[1.12]">
+            <h1 className="text-4xl sm:text-5xl lg:text-[56px] font-extrabold tracking-tight text-[#171717] leading-[1.12]">
               Securing Lives,<br />
               Building Legacies.
             </h1>
 
             {/* Subtitle */}
-            <p className="text-base sm:text-lg text-zinc-600 max-w-xl font-normal leading-relaxed">
-              Sophisticated life insurance solutions for absolute financial peace of mind.
+            <p className="text-base sm:text-lg text-[#6B6B6B] max-w-xl font-normal leading-relaxed">
+              Sophisticated term life insurance solutions for absolute financial peace of mind.
             </p>
 
             {/* CTA Action */}
@@ -40,7 +40,7 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
               <button
                 type="button"
                 onClick={onApplyNow}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-gradient-to-r from-[#17859c] to-[#127083] hover:from-[#137488] hover:to-[#0f5c6c] text-white font-semibold text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer group"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#F4C430] hover:from-[#F4C430] hover:to-[#FFD21F] text-[#171717] font-semibold text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer group"
               >
                 <span>Apply Now</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -48,39 +48,39 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
             </div>
 
             {/* Hero Stats */}
-            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-zinc-200/80 max-w-lg">
+            <div className="pt-6 grid grid-cols-3 gap-4 border-t border-[#E5E5E0] max-w-lg">
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#1660A7] tracking-tight">
+                <div className="text-2xl sm:text-3xl font-black text-[#171717] tracking-tight">
                   99.8%
                 </div>
-                <div className="text-[11px] font-bold text-zinc-800 uppercase tracking-wider mt-0.5">
+                <div className="text-[11px] font-bold text-[#292929] uppercase tracking-wider mt-0.5">
                   CLAIM SETTLEMENT
                 </div>
-                <div className="text-[10px] text-zinc-400 font-medium">
+                <div className="text-[10px] text-[#6B6B6B] font-medium">
                   Industry Leading
                 </div>
               </div>
 
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#1660A7] tracking-tight">
+                <div className="text-2xl sm:text-3xl font-black text-[#171717] tracking-tight">
                   25+
                 </div>
-                <div className="text-[11px] font-bold text-zinc-800 uppercase tracking-wider mt-0.5">
+                <div className="text-[11px] font-bold text-[#292929] uppercase tracking-wider mt-0.5">
                   TRUSTED PARTNERS
                 </div>
-                <div className="text-[10px] text-zinc-400 font-medium">
+                <div className="text-[10px] text-[#6B6B6B] font-medium">
                   Leading Insurers
                 </div>
               </div>
 
               <div>
-                <div className="text-2xl sm:text-3xl font-black text-[#1660A7] tracking-tight">
+                <div className="text-2xl sm:text-3xl font-black text-[#171717] tracking-tight">
                   100%
                 </div>
-                <div className="text-[11px] font-bold text-zinc-800 uppercase tracking-wider mt-0.5">
+                <div className="text-[11px] font-bold text-[#292929] uppercase tracking-wider mt-0.5">
                   SECURE OPERATIONS
                 </div>
-                <div className="text-[10px] text-zinc-400 font-medium">
+                <div className="text-[10px] text-[#6B6B6B] font-medium">
                   Enterprise Security
                 </div>
               </div>
@@ -89,32 +89,32 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
 
           {/* Hero Right Visual Card */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[420px] aspect-square rounded-3xl bg-gradient-to-b from-white via-[#fcfdff] to-[#f4f7fb] border border-zinc-200/80 shadow-xl p-8 flex flex-col items-center justify-center text-center">
+            <div className="relative w-full max-w-[420px] aspect-square rounded-3xl bg-gradient-to-b from-white via-[#fcfdff] to-[#FFD21F] border border-[#E5E5E0] shadow-xl p-8 flex flex-col items-center justify-center text-center">
               
               {/* Floating Badges */}
-              <div className="absolute top-6 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/90 border border-zinc-200 shadow-xs text-[10px] font-bold tracking-wider text-zinc-700 uppercase">
-                <ShieldCheck className="w-3.5 h-3.5 text-[#2076C7]" />
+              <div className="absolute top-6 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFFFFF]/90 border border-[#E5E5E0] shadow-xs text-[10px] font-bold tracking-wider text-[#292929] uppercase">
+                <ShieldCheck className="w-3.5 h-3.5 text-[#171717]" />
                 <span>SECURE</span>
               </div>
 
-              <div className="absolute bottom-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/90 border border-zinc-200 shadow-xs text-[10px] font-bold tracking-wider text-zinc-700 uppercase">
-                <Building2 className="w-3.5 h-3.5 text-[#2076C7]" />
+              <div className="absolute bottom-6 left-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFFFFF]/90 border border-[#E5E5E0] shadow-xs text-[10px] font-bold tracking-wider text-[#292929] uppercase">
+                <Building2 className="w-3.5 h-3.5 text-[#171717]" />
                 <span>TRUSTED</span>
               </div>
 
-              <div className="absolute bottom-6 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-white/90 border border-zinc-200 shadow-xs text-[10px] font-bold tracking-wider text-zinc-700 uppercase">
-                <Heart className="w-3.5 h-3.5 text-teal-600" />
+              <div className="absolute bottom-6 right-6 inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-[#FFFFFF]/90 border border-[#E5E5E0] shadow-xs text-[10px] font-bold tracking-wider text-[#292929] uppercase">
+                <Heart className="w-3.5 h-3.5 text-[#171717]" />
                 <span>PROTECT</span>
               </div>
 
               {/* Card Central Graphic */}
               <div className="space-y-4 my-auto">
-                <h3 className="text-xl font-bold tracking-wider text-zinc-800 uppercase">
+                <h3 className="text-xl font-bold tracking-wider text-[#292929] uppercase">
                   PROTECT
                 </h3>
 
                 <div className="relative mx-auto w-36 h-36 flex items-center justify-center">
-                  <div className="absolute inset-0 bg-blue-100/60 rounded-full blur-xl animate-pulse" />
+                  <div className="absolute inset-0 bg-[#FFF8D6] rounded-full blur-xl animate-pulse" />
                   
                   <svg viewBox="0 0 100 110" className="w-full h-full drop-shadow-md">
                     <path
@@ -144,11 +144,11 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
                 </div>
 
                 <div className="space-y-0.5">
-                  <div className="text-xl font-black tracking-wider text-zinc-800 uppercase">
+                  <div className="text-xl font-black tracking-wider text-[#292929] uppercase">
                     GROW
                   </div>
-                  <div className="text-xl font-black tracking-wider text-zinc-800 uppercase">
-                    LIFE
+                  <div className="text-xl font-black tracking-wider text-[#292929] uppercase">
+                    TERM
                   </div>
                 </div>
               </div>

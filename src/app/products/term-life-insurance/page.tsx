@@ -17,11 +17,9 @@ import SimpleSteps from "./components/SimpleSteps";
 import TrustedInsurers from "./components/TrustedInsurers";
 import LifeFaq from "./components/LifeFaq";
 import LifeCtaBanner from "./components/LifeCtaBanner";
-import LifeQuoteModal from "./components/LifeQuoteModal";
 
-export default function LifeInsurancePage() {
+export default function TermLifeInsurancePage() {
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [selectedBlueprint, setSelectedBlueprint] = useState<InsuranceBlueprint | null>(null);
 
   const scrollToBlueprints = () => {
     const el = document.getElementById("blueprints-section");
@@ -35,7 +33,7 @@ export default function LifeInsurancePage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-zinc-900 flex flex-col selection:bg-[#2076C7]/20 selection:text-[#2076C7]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#171717] flex flex-col selection:bg-[#F4C430] selection:text-[#171717]">
       <Header />
 
       <main className="flex-1">
@@ -43,7 +41,7 @@ export default function LifeInsurancePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-zinc-200 bg-white text-xs font-semibold text-zinc-600 hover:text-[#2076C7] hover:border-[#2076C7]/40 shadow-xs transition-all"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-semibold text-[#6B6B6B] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Home
@@ -63,7 +61,6 @@ export default function LifeInsurancePage() {
         <LifeBlueprintsGrid
           selectedCategory={selectedCategory}
           onSelectCategory={(cat) => setSelectedCategory(cat)}
-          onSelectBlueprint={(bp) => setSelectedBlueprint(bp)}
         />
 
         {/* 5. Blueprints Comparison */}
@@ -78,13 +75,7 @@ export default function LifeInsurancePage() {
         />
 
         {/* 7. Simple Steps to Secure Life */}
-        <SimpleSteps
-          onStartApplication={() => {
-            if (BLUEPRINTS_DATA.length > 0) {
-              setSelectedBlueprint(BLUEPRINTS_DATA[0]);
-            }
-          }}
-        />
+        <SimpleSteps />
 
         {/* 8. Supported by India's Trusted Insurers */}
         <TrustedInsurers />
@@ -93,31 +84,18 @@ export default function LifeInsurancePage() {
         <LifeFaq />
 
         {/* 10. Bottom Call to Action Banner */}
-        <LifeCtaBanner
-          onTalkToExpert={() => {
-            if (BLUEPRINTS_DATA.length > 0) {
-              setSelectedBlueprint(BLUEPRINTS_DATA[0]);
-            }
-          }}
-          onExploreBlueprints={scrollToBlueprints}
-        />
+        <LifeCtaBanner />
       </main>
 
       {/* Floating Scroll to Top */}
       <button
         type="button"
         onClick={scrollToTop}
-        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#1b6fa8] hover:bg-[#145d8f] text-white shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        className="fixed bottom-6 right-6 z-40 w-11 h-11 rounded-full bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] shadow-lg flex items-center justify-center hover:scale-105 active:scale-95 transition-all cursor-pointer"
         title="Scroll to Top"
       >
         <ChevronUp className="w-5 h-5" />
       </button>
-
-      {/* Quote Inquiry Modal */}
-      <LifeQuoteModal
-        blueprint={selectedBlueprint}
-        onClose={() => setSelectedBlueprint(null)}
-      />
 
       <Footer />
     </div>

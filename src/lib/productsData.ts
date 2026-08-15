@@ -18,25 +18,18 @@ export interface InsuranceProduct {
 }
 
 export const INSURANCE_TABS = [
-  { id: "all", name: "All Insurance", icon: "ShieldCheck", slug: "all" },
-  { id: "life-insurance", name: "Life Insurance", icon: "HeartHandshake", slug: "life-insurance", description: "Term life, endowment, whole life & retirement protection plans" },
+  { id: "term-life-insurance", name: "Term Life Insurance", icon: "HeartHandshake", slug: "term-life-insurance", description: "High cover pure term life protection to safeguard your family's future" },
   { id: "health-insurance", name: "Health Insurance", icon: "Activity", slug: "health-insurance", description: "Comprehensive hospitalization, family floater & critical illness cover" },
   { id: "motor-insurance", name: "Motor Insurance", icon: "Car", slug: "motor-insurance", description: "Zero-depreciation, comprehensive cover for car & 2-wheelers" },
-  { id: "travel-insurance", name: "Travel Insurance", icon: "Plane", slug: "travel-insurance", description: "Medical emergency, baggage loss & trip cancellation worldwide" },
-  { id: "fire-insurance", name: "Fire Insurance", icon: "Flame", slug: "fire-insurance", description: "Protect commercial property, factory, home & inventory from fire hazard" },
-  { id: "cattle-insurance", name: "Cattle Insurance", icon: "Beef", slug: "cattle-insurance", description: "Livestock security, dairy cow, bullock & herd mortality coverage" },
-  { id: "marine-insurance", name: "Marine Insurance", icon: "Ship", slug: "marine-insurance", description: "Inland transit, ocean cargo, freight and vessel safety protection" },
-  { id: "corporate-insurance", name: "Corporate Insurance", icon: "Building2", slug: "corporate-insurance", description: "Group Mediclaim, Director liability & Workmen Compensation" },
-  { id: "loan-protector", name: "Loan Protector", icon: "ShieldAlert", slug: "loan-protector", description: "Secure your home & business EMI payments against unforeseen events" },
-  { id: "pet-insurance", name: "Pet Insurance", icon: "Dog", slug: "pet-insurance", description: "Veterinary treatments, pet surgeries & third-party liability cover" },
+  { id: "general-insurance", name: "General Insurance", icon: "Building2", slug: "general-insurance", description: "Protect your business, properties, liability risks & assets" },
 ];
 
 export const ALL_PRODUCTS_DATA: InsuranceProduct[] = [
-  // LIFE INSURANCE
+  // TERM LIFE INSURANCE
   {
     id: "ins-life-1",
     title: "Term Life Shield 360",
-    subCategory: "life-insurance",
+    subCategory: "term-life-insurance",
     category: "Insurance",
     tagline: "High Cover Pure Term Life Protection",
     description: "Guaranteed financial safeguard for your family with critical illness riders and accidental death benefit up to 85 years.",
@@ -50,40 +43,6 @@ export const ALL_PRODUCTS_DATA: InsuranceProduct[] = [
     features: ["99.3% Claim Settlement Ratio", "Tax Benefit u/s 80C", "Zero cost return of premium option", "Instant policy issuance"],
     csrOrMetric: "99.3% Claim Ratio",
     popular: true
-  },
-  {
-    id: "ins-life-2",
-    title: "Guaranteed Savings & Wealth Plan",
-    subCategory: "life-insurance",
-    category: "Insurance",
-    tagline: "Tax-Free Maturity + Life Cover",
-    description: "Build a long-term corpus for child education or retirement with guaranteed fixed annual returns plus life protection.",
-    coverAmount: "₹25 Lakh to ₹1 Crore",
-    startingPrice: "₹2,500",
-    period: "per month",
-    rating: 4.8,
-    reviewsCount: 920,
-    badge: "Guaranteed Returns",
-    icon: "💎",
-    features: ["100% Tax Free Maturity u/s 10(10D)", "Assured Annual Bonuses", "Flexible payment terms (5/10 yrs)", "Loan facility against policy"],
-    csrOrMetric: "100% Tax-Free Returns"
-  },
-  {
-    id: "ins-life-3",
-    title: "Senior Citizens Pension & Annuity Plan",
-    subCategory: "life-insurance",
-    category: "Insurance",
-    tagline: "Guaranteed Lifetime Monthly Pension",
-    description: "Ensure stress-free retirement with regular lifelong pension payouts and refund of purchase price to nominees.",
-    coverAmount: "Lifetime Annuity",
-    startingPrice: "₹5,000",
-    period: "per month",
-    rating: 4.7,
-    reviewsCount: 640,
-    badge: "Senior Citizen",
-    icon: "👴",
-    features: ["Immediate or deferred pension", "Joint life spouse continuity", "Fixed interest locked for life", "No medical tests required"],
-    csrOrMetric: "Lifelong Guaranteed Pension"
   },
 
   // HEALTH INSURANCE
@@ -194,161 +153,13 @@ export const ALL_PRODUCTS_DATA: InsuranceProduct[] = [
     csrOrMetric: "Fleet Specialists"
   },
 
-  // TRAVEL INSURANCE
-  {
-    id: "ins-travel-1",
-    title: "International Travel Protect Elite",
-    subCategory: "travel-insurance",
-    category: "Insurance",
-    tagline: "Worldwide Travel & Medical Cover",
-    description: "Schengen, USA & worldwide approved travel policy covering medical emergencies, lost passport, baggage delay, and flight hijack.",
-    coverAmount: "$50,000 to $500,000",
-    startingPrice: "₹45",
-    period: "per day",
-    rating: 4.8,
-    reviewsCount: 930,
-    badge: "Schengen Approved",
-    icon: "✈️",
-    features: ["Cashless international hospitalization", "Loss of checked-in baggage & passport", "Trip cancellation & delay reimbursement", "24/7 global multilingual helpline"],
-    csrOrMetric: "Global Cashless Help",
-    popular: true
-  },
-  {
-    id: "ins-travel-2",
-    title: "Student Overseas Explorer Insurance",
-    subCategory: "travel-insurance",
-    category: "Insurance",
-    tagline: "Foreign University Compliant",
-    description: "Meets university visa requirements for USA, UK, Canada & Europe with sponsor protection and medical evacuation.",
-    coverAmount: "Up to $250,000",
-    startingPrice: "₹1,200",
-    period: "per month",
-    rating: 4.9,
-    reviewsCount: 540,
-    badge: "University Waiver Ready",
-    icon: "🎓",
-    features: ["University medical waiver compliant", "Study interruption compensation", "Sponsor protection benefit", "Bail bond & compassionate visit"],
-    csrOrMetric: "Visa Verified"
-  },
-
-  // FIRE INSURANCE
-  {
-    id: "ins-fire-1",
-    title: "Bharat Sookshma & Laghu Udyam Fire Cover",
-    subCategory: "fire-insurance",
-    category: "Insurance",
-    tagline: "SME Factory & Shop Fire Protection",
-    description: "IRDAI standard fire & special perils policy covering plant, machinery, raw material stocks, and building structures.",
-    coverAmount: "₹50 Lakh to ₹50 Crore",
-    startingPrice: "₹2,800",
-    period: "per year",
-    rating: 4.8,
-    reviewsCount: 610,
-    badge: "IRDAI Compliant",
-    icon: "🔥",
-    features: ["Covers fire, lightning, explosion, storm & flood", "Stock & inventory replacement value", "Terrorism risk rider available", "Quick business interruption loss settlement"],
-    csrOrMetric: "Full Asset Security",
-    popular: true
-  },
-  {
-    id: "ins-fire-2",
-    title: "Bharat Griha Raksha (Home Fire & Structure)",
-    subCategory: "fire-insurance",
-    category: "Insurance",
-    tagline: "Home & Household Goods Protection",
-    description: "Protects your flat, bungalow, home appliances, furniture, and jewelry against accidental fires, gas cylinder blasts, and earthquakes.",
-    coverAmount: "₹25 Lakh to ₹5 Crore",
-    startingPrice: "₹999",
-    period: "per year",
-    rating: 4.9,
-    reviewsCount: 880,
-    badge: "Homeowners Choice",
-    icon: "🏡",
-    features: ["Structure and home contents cover", "Covers natural disasters & short-circuit fire", "Alternative accommodation rent allowance", "Zero paper instant valuation"],
-    csrOrMetric: "100% Rebuilding Cost"
-  },
-
-  // CATTLE INSURANCE
-  {
-    id: "ins-cattle-1",
-    title: "Gramin Livestock & Cattle Suraksha",
-    subCategory: "cattle-insurance",
-    category: "Insurance",
-    tagline: "Protection for Dairy Cows, Buffaloes & Oxen",
-    description: "Government subsidized and private cattle insurance guarding farmers against mortality due to contagious diseases, accidents, and calving complications.",
-    coverAmount: "₹30,000 to ₹1,50,000 per animal",
-    startingPrice: "₹450",
-    period: "per year / per animal",
-    rating: 4.9,
-    reviewsCount: 1450,
-    badge: "Govt Subsidized",
-    icon: "🐄",
-    features: ["Covers crossbred cows, indigenous cattle & buffaloes", "Ear-tagging microchip assistance", "Death due to disease, flood, snake bite or lightning", "Fast surveyor spot verification"],
-    csrOrMetric: "Farmer Friendly",
-    popular: true
-  },
-  {
-    id: "ins-cattle-2",
-    title: "Commercial Dairy Farm Herd Package",
-    subCategory: "cattle-insurance",
-    category: "Insurance",
-    tagline: "Multi-Animal Herd Group Policy",
-    description: "Designed for commercial dairy farms and gaushalas covering total herd health, milk yield loss protection, and epidemics.",
-    coverAmount: "₹5 Lakh to ₹50 Lakh Total Herd",
-    startingPrice: "₹3,999",
-    period: "per year",
-    rating: 4.7,
-    reviewsCount: 320,
-    badge: "Bulk Herd Discount",
-    icon: "🥛",
-    features: ["Group rates for 20+ cattle", "Veterinary expense coverage assistance", "Transit cover for cattle purchase", "Dedicated rural claim officer"],
-    csrOrMetric: "Comprehensive Herd Care"
-  },
-
-  // MARINE INSURANCE
-  {
-    id: "ins-marine-1",
-    title: "Marine Cargo Transit Insurance (Open / Single Voyage)",
-    subCategory: "marine-insurance",
-    category: "Insurance",
-    tagline: "Goods & Freight Protection in Transit",
-    description: "Protects goods transported via road, rail, air, or sea freight against damage, vessel sinking, theft, and pilferage.",
-    coverAmount: "Custom Consignment Value",
-    startingPrice: "₹1,500",
-    period: "per consignment",
-    rating: 4.8,
-    reviewsCount: 510,
-    badge: "ICC(A) All Risk",
-    icon: "🚢",
-    features: ["Institute Cargo Clauses (A, B, C) coverage", "Door-to-door transit protection", "Customs duty insurance rider", "Worldwide surveyor inspection network"],
-    csrOrMetric: "All-Risk Protection",
-    popular: true
-  },
-  {
-    id: "ins-marine-2",
-    title: "Marine Hull & Vessel Machinery Insurance",
-    subCategory: "marine-insurance",
-    category: "Insurance",
-    tagline: "Boats, Barges & Coastal Vessels",
-    description: "Safeguards fishing trawlers, cargo barges, and tugboats against structural damage, collision, and machinery breakdown.",
-    coverAmount: "Vessel Agreed Value",
-    startingPrice: "₹8,500",
-    period: "per year",
-    rating: 4.7,
-    reviewsCount: 190,
-    badge: "Maritime Specialist",
-    icon: "⚓",
-    features: ["Hull & machinery breakdown cover", "Third-party collision liability", "Salvage & towage expense recovery", "Port and open sea operational coverage"],
-    csrOrMetric: "Maritime Certified"
-  },
-
-  // CORPORATE INSURANCE
+  // GENERAL INSURANCE
   {
     id: "ins-corporate-1",
     title: "Group Mediclaim (GMC) for Employees",
-    subCategory: "corporate-insurance",
+    subCategory: "general-insurance",
     category: "Insurance",
-    tagline: "Corporate Employee Healthcare Plan",
+    tagline: "Business & Employee Healthcare Plan",
     description: "Customizable health benefits for startups and enterprises with day-1 pre-existing disease cover and maternity riders.",
     coverAmount: "₹3 Lakh to ₹10 Lakh per employee",
     startingPrice: "₹299",
@@ -364,7 +175,7 @@ export const ALL_PRODUCTS_DATA: InsuranceProduct[] = [
   {
     id: "ins-corporate-2",
     title: "Directors & Officers (D&O) Liability",
-    subCategory: "corporate-insurance",
+    subCategory: "general-insurance",
     category: "Insurance",
     tagline: "Leadership Legal & Financial Defense",
     description: "Guards board directors and executives against legal claims, regulatory fines, and legal defense costs arising from managerial decisions.",
@@ -377,80 +188,6 @@ export const ALL_PRODUCTS_DATA: InsuranceProduct[] = [
     icon: "⚖️",
     features: ["Legal defense costs advancing", "Regulatory investigation cover", "Shareholder derivative lawsuit defense", "Worldwide jurisdictional protection"],
     csrOrMetric: "Global Defense Shield"
-  },
-
-  // LOAN PROTECTOR
-  {
-    id: "ins-loan-protector-1",
-    title: "Home Loan EMI Shield & Credit Protect",
-    subCategory: "loan-protector",
-    category: "Insurance",
-    tagline: "Guaranteed Loan Payoff in Crisis",
-    description: "Ensures your family never loses their dream home by paying off the entire remaining loan balance in case of disability or demise.",
-    coverAmount: "Full Outstanding Loan Balance",
-    startingPrice: "₹650",
-    period: "per month",
-    rating: 4.9,
-    reviewsCount: 1120,
-    badge: "Zero Burden on Family",
-    icon: "🛡️",
-    features: ["Direct loan settlement to bank / NBFC", "Decreasing term cover aligned with loan schedule", "Critical illness and disability coverage", "Single or regular premium options"],
-    csrOrMetric: "100% Debt Elimination",
-    popular: true
-  },
-  {
-    id: "ins-loan-protector-2",
-    title: "Business Loan & Working Capital Shield",
-    subCategory: "loan-protector",
-    category: "Insurance",
-    tagline: "Protects Enterprise Loan Liabilities",
-    description: "Shields business partners and family members from commercial bank loan recoveries in the event of unexpected key person demise.",
-    coverAmount: "₹25 Lakh to ₹10 Crore",
-    startingPrice: "₹1,800",
-    period: "per month",
-    rating: 4.8,
-    reviewsCount: 430,
-    badge: "Business Continuity",
-    icon: "💼",
-    features: ["Keyman insurance compatibility", "Collateral release protection", "Protects personal guarantees & assets", "Tax deductions under business expenses"],
-    csrOrMetric: "Asset Release Guaranteed"
-  },
-
-  // PET INSURANCE
-  {
-    id: "ins-pet-1",
-    title: "PawProtect Comprehensive Dog & Cat Cover",
-    subCategory: "pet-insurance",
-    category: "Insurance",
-    tagline: "Veterinary, Surgery & Third-Party Protection",
-    description: "Takes care of heavy vet bills, emergency operations, diagnostics, tick-fever treatment, and accidental damage for dogs & cats.",
-    coverAmount: "₹20,000 to ₹1,50,000",
-    startingPrice: "₹299",
-    period: "per month",
-    rating: 4.9,
-    reviewsCount: 1210,
-    badge: "Puppies & Adults",
-    icon: "🐾",
-    features: ["Surgery & hospitalization expenses up to 80%", "Third-party bite / property damage liability", "Accidental injury & terminal illness", "OPD consultation & vaccination discounts"],
-    csrOrMetric: "1,500+ Vet Clinics",
-    popular: true
-  },
-  {
-    id: "ins-pet-2",
-    title: "Pet Wellness & Critical Surgery Shield",
-    subCategory: "pet-insurance",
-    category: "Insurance",
-    tagline: "Advanced Veterinary Care & Illness Cover",
-    description: "High-tier coverage for specialized canine orthopedic surgeries, cancer therapy, MRI/CT scans, and lost-pet recovery reward.",
-    coverAmount: "Up to ₹3,00,000",
-    startingPrice: "₹599",
-    period: "per month",
-    rating: 4.7,
-    reviewsCount: 460,
-    badge: "Advanced Care",
-    icon: "🐕",
-    features: ["Major surgery & anesthesia cover", "Lost pet advertising & reward fund", "Death & burial expense benefit", "No pedigree certificate compulsory"],
-    csrOrMetric: "Zero Pre-Test under 4 Yrs"
   }
 ];
 

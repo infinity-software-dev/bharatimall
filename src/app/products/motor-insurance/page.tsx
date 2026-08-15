@@ -16,27 +16,15 @@ import MotorCoverageComparison from "./components/MotorCoverageComparison";
 import MotorClaimsProcess from "./components/MotorClaimsProcess";
 import MotorFaq from "./components/MotorFaq";
 import MotorCtaBanner from "./components/MotorCtaBanner";
-import MotorQuoteModal, { SelectedMotorQuotePlan } from "./components/MotorQuoteModal";
-
 export default function MotorInsurancePage() {
   const [selectedVehicleType, setSelectedVehicleType] = useState<"Two Wheeler" | "Car" | "Commercial" | "Misc D">("Two Wheeler");
-  const [selectedPlanForModal, setSelectedPlanForModal] = useState<SelectedMotorQuotePlan | null>(null);
-  const [initialRegNo, setInitialRegNo] = useState("");
 
-  const handleHeroGetQuote = (data: { regNo: string; email: string; phone: string }) => {
-    setInitialRegNo(data.regNo);
-    if (MOTOR_PLANS_DATA.length > 0) {
-      setSelectedPlanForModal({
-        name: MOTOR_PLANS_DATA[0].name,
-        price: MOTOR_PLANS_DATA[0].twoWheelerCompPrice,
-        planType: "Comprehensive",
-        features: MOTOR_PLANS_DATA[0].features
-      });
-    }
+  const handleHeroGetQuote = () => {
+    // Left empty since modal is removed
   };
 
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-zinc-900 flex flex-col selection:bg-[#2076C7]/20 selection:text-[#2076C7]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#171717] flex flex-col selection:bg-[#F4C430] selection:text-[#171717]">
       <Header />
 
       <main className="flex-1">
@@ -44,7 +32,7 @@ export default function MotorInsurancePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-zinc-200 bg-white text-xs font-semibold text-zinc-600 hover:text-[#2076C7] hover:border-[#2076C7]/40 shadow-xs transition-all"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-semibold text-[#6B6B6B] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Home
@@ -52,7 +40,7 @@ export default function MotorInsurancePage() {
         </div>
 
         {/* 1. Hero Section */}
-        <MotorHero onGetQuote={handleHeroGetQuote} />
+        <MotorHero />
 
         {/* 2. Our Motor Insurance Products (4 Cards) */}
         <MotorProductCategories
@@ -63,22 +51,11 @@ export default function MotorInsurancePage() {
         <MotorPriceComparison
           selectedVehicleType={selectedVehicleType}
           onSelectVehicleType={(type) => setSelectedVehicleType(type)}
-          onSelectPlanForDetails={(plan) => setSelectedPlanForModal(plan)}
         />
 
         {/* 4. Estimated Premium Calculator */}
         <MotorInsuranceCalculator
           vehicleType={selectedVehicleType === "Car" ? "car" : selectedVehicleType === "Commercial" ? "commercial" : "bike"}
-          onGetDetailedQuote={() => {
-            if (MOTOR_PLANS_DATA.length > 0) {
-              setSelectedPlanForModal({
-                name: MOTOR_PLANS_DATA[0].name,
-                price: MOTOR_PLANS_DATA[0].twoWheelerCompPrice,
-                planType: "Comprehensive",
-                features: MOTOR_PLANS_DATA[0].features
-              });
-            }
-          }}
         />
 
         {/* 5. Key Advantages & Add-on Covers */}
@@ -94,26 +71,8 @@ export default function MotorInsurancePage() {
         <MotorFaq />
 
         {/* 9. Bottom Call to Action Banner */}
-        <MotorCtaBanner
-          onGetQuoteClick={() => {
-            if (MOTOR_PLANS_DATA.length > 0) {
-              setSelectedPlanForModal({
-                name: MOTOR_PLANS_DATA[0].name,
-                price: MOTOR_PLANS_DATA[0].twoWheelerCompPrice,
-                planType: "Comprehensive",
-                features: MOTOR_PLANS_DATA[0].features
-              });
-            }
-          }}
-        />
+        <MotorCtaBanner />
       </main>
-
-      {/* Quote Details & Callback Modal */}
-      <MotorQuoteModal
-        plan={selectedPlanForModal}
-        initialRegNo={initialRegNo}
-        onClose={() => setSelectedPlanForModal(null)}
-      />
 
       <Footer />
     </div>

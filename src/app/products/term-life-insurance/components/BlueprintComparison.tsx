@@ -17,80 +17,80 @@ export default function BlueprintComparison() {
       stars: 5,
     },
     {
-      name: "Sanchay Plus",
+      name: "Click 2 Protect",
       insurer: "HDFC LIFE",
-      category: "Savings Plan",
-      primaryBenefit: "Guaranteed Income",
-      cover: "SA + Maturity",
-      payout: "Maturity/Income",
-      uniqueFeature: "Fixed Returns",
+      category: "Term Insurance",
+      primaryBenefit: "Elite Protection",
+      cover: "₹1 Cr+",
+      payout: "Immediate",
+      uniqueFeature: "Parent Protect Care",
       rating: "4.8 / 5.0",
       stars: 5,
     },
     {
-      name: "SmartKid",
+      name: "iProtect Smart",
       insurer: "ICICI PRU",
-      category: "Child Plan",
-      primaryBenefit: "Education Security",
-      cover: "Education Goal",
-      payout: "Milestone",
-      uniqueFeature: "Waiver of Premium",
+      category: "Term Insurance",
+      primaryBenefit: "Milestone Cover",
+      cover: "₹1 Cr+",
+      payout: "Instant",
+      uniqueFeature: "Milestone increase",
       rating: "4.8 / 5.0",
       stars: 5,
     },
     {
-      name: "Param Raksha",
+      name: "Sampoorna Raksha",
       insurer: "TATA AIA",
-      category: "Combo Plan",
-      primaryBenefit: "360° Safety",
-      cover: "Life + Health + Acc.",
-      payout: "Multi-event",
-      uniqueFeature: "Hospital Cash",
+      category: "Term Insurance",
+      primaryBenefit: "Premium Back",
+      cover: "₹1 Cr+",
+      payout: "Regular",
+      uniqueFeature: "Defer premium option",
       rating: "4.7 / 5.0",
       stars: 5,
     },
     {
-      name: "Pension",
-      insurer: "HDFC LIFE",
-      category: "Retirement",
-      primaryBenefit: "Retirement Income",
-      cover: "Pension for Life",
-      payout: "Annuity",
-      uniqueFeature: "Market Linked",
+      name: "iSecure II",
+      insurer: "BAJAJ LIFE",
+      category: "Term Insurance",
+      primaryBenefit: "Flexible Eligibility",
+      cover: "₹1 Cr+",
+      payout: "Lump-sum",
+      uniqueFeature: "ITR / Bank Statement",
       rating: "4.7 / 5.0",
       stars: 5,
     },
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-[#fbfcfe] relative overflow-hidden font-sans border-t border-slate-100">
+    <section className="py-16 md:py-24 bg-[#fbfcfe] relative overflow-hidden font-sans border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-sans text-[#175ea1] tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-extrabold font-sans text-[#171717] tracking-tight">
             Insurance Blueprints Comparison
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base font-normal leading-relaxed">
+          <p className="text-[#6B6B6B] text-sm sm:text-base font-normal leading-relaxed">
             Find the right fit for your lifelong financial protection.
           </p>
         </div>
 
         {/* Comparison Table Container */}
-        <div className="max-w-6xl mx-auto bg-white rounded-3xl border border-slate-200/90 shadow-lg overflow-hidden">
+        <div className="max-w-6xl mx-auto bg-[#FFFFFF] rounded-3xl border border-[#E5E5E0] shadow-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[760px]">
               
               {/* Header Row */}
               <thead>
-                <tr className="bg-gradient-to-r from-[#1772ba] to-[#0e939e] text-white">
+                <tr className="bg-[#FFF8D6] text-[#171717]">
                   <th className="py-5 px-6 font-extrabold text-xs uppercase tracking-wider w-[22%]">
                     ATTRIBUTES
                   </th>
                   {plans.map((p, idx) => (
                     <th key={idx} className="py-5 px-4 font-bold text-center w-[15.6%]">
                       <div className="text-sm font-black tracking-tight leading-tight">{p.name}</div>
-                      <div className="text-[10px] font-bold tracking-widest text-sky-100/90 uppercase mt-0.5">
+                      <div className="text-[10px] font-bold tracking-widest text-[#292929]/90 uppercase mt-0.5">
                         {p.insurer}
                       </div>
                     </th>
@@ -101,81 +101,81 @@ export default function BlueprintComparison() {
               {/* Rows */}
               <tbody className="divide-y divide-slate-100 text-xs">
                 {/* Plan Category */}
-                <tr className="hover:bg-slate-50/70 transition-colors">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     PLAN CATEGORY
                   </td>
                   {plans.map((p, i) => (
-                    <td key={i} className="py-4 px-4 text-center font-medium text-slate-700">
+                    <td key={i} className="py-4 px-4 text-center font-medium text-[#292929]">
                       {p.category}
                     </td>
                   ))}
                 </tr>
 
                 {/* Primary Benefit */}
-                <tr className="hover:bg-slate-50/70 transition-colors bg-slate-50/30">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors bg-[#F5F5F3]">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     PRIMARY BENEFIT
                   </td>
                   {plans.map((p, i) => (
-                    <td key={i} className="py-4 px-4 text-center font-semibold text-slate-800">
+                    <td key={i} className="py-4 px-4 text-center font-semibold text-[#171717]">
                       {p.primaryBenefit}
                     </td>
                   ))}
                 </tr>
 
                 {/* Life Cover / SA */}
-                <tr className="hover:bg-slate-50/70 transition-colors">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     LIFE COVER / SA
                   </td>
                   {plans.map((p, i) => (
-                    <td key={i} className="py-4 px-4 text-center font-bold text-slate-900">
+                    <td key={i} className="py-4 px-4 text-center font-bold text-[#171717]">
                       {p.cover}
                     </td>
                   ))}
                 </tr>
 
                 {/* Payout Structure */}
-                <tr className="hover:bg-slate-50/70 transition-colors bg-slate-50/30">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors bg-[#F5F5F3]">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     PAYOUT STRUCTURE
                   </td>
                   {plans.map((p, i) => (
-                    <td key={i} className="py-4 px-4 text-center font-medium text-slate-600">
+                    <td key={i} className="py-4 px-4 text-center font-medium text-[#292929]">
                       {p.payout}
                     </td>
                   ))}
                 </tr>
 
                 {/* Unique Feature */}
-                <tr className="hover:bg-slate-50/70 transition-colors">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     UNIQUE FEATURE
                   </td>
                   {plans.map((p, i) => (
-                    <td key={i} className="py-4 px-4 text-center font-bold text-[#0e939e]">
+                    <td key={i} className="py-4 px-4 text-center font-bold text-[#171717]">
                       {p.uniqueFeature}
                     </td>
                   ))}
                 </tr>
 
                 {/* Expert Rating */}
-                <tr className="hover:bg-slate-50/70 transition-colors bg-slate-50/30">
-                  <td className="py-4 px-6 font-extrabold text-slate-700 uppercase tracking-wider text-[11px]">
+                <tr className="hover:bg-[#F5F5F3] transition-colors bg-[#F5F5F3]">
+                  <td className="py-4 px-6 font-extrabold text-[#292929] uppercase tracking-wider text-[11px]">
                     EXPERT RATING*
-                    <span className="block text-[9px] font-normal text-slate-400 normal-case mt-0.5">
+                    <span className="block text-[9px] font-normal text-[#6B6B6B] normal-case mt-0.5">
                       Source: CRISIL &amp; Independent Audit
                     </span>
                   </td>
                   {plans.map((p, i) => (
                     <td key={i} className="py-4 px-4 text-center">
-                      <div className="flex items-center justify-center gap-0.5 text-[#2076C7] mb-0.5">
+                      <div className="flex items-center justify-center gap-0.5 text-[#171717] mb-0.5">
                         {[...Array(5)].map((_, s) => (
-                          <Star key={s} className="w-3 h-3 fill-[#2076C7]" />
+                          <Star key={s} className="w-3 h-3 fill-[#F4C430]" />
                         ))}
                       </div>
-                      <span className="text-xs font-black text-slate-800">{p.rating}</span>
+                      <span className="text-xs font-black text-[#171717]">{p.rating}</span>
                     </td>
                   ))}
                 </tr>
@@ -186,12 +186,12 @@ export default function BlueprintComparison() {
 
         {/* Bottom Certification Pills */}
         <div className="flex flex-wrap items-center justify-center gap-4 mt-8">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-200/70 text-emerald-700 text-xs font-bold shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E5E5E0] text-emerald-700 text-xs font-bold shadow-2xs">
             <CheckCircle2 className="w-3.5 h-3.5" />
             <span>DIGITAL CLAIM GUARANTEE</span>
           </div>
 
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50 border border-blue-200/70 text-[#2076C7] text-xs font-bold shadow-2xs">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F5F5F3] border border-[#E5E5E0] text-[#171717] text-xs font-bold shadow-2xs">
             <ShieldCheck className="w-3.5 h-3.5" />
             <span>IRDAI CERTIFIED PLANS</span>
           </div>

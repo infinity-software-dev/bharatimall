@@ -2,11 +2,7 @@
 
 import React from "react";
 
-export default function HealthCtaBanner() {
-  const scrollToPlans = () => {
-    document.getElementById("plans-grid")?.scrollIntoView({ behavior: "smooth" });
-  };
-
+export default function LifeCtaBanner() {
   return (
     <section
       className="py-16 text-[#171717] text-center relative overflow-hidden"
@@ -17,14 +13,14 @@ export default function HealthCtaBanner() {
           Ready to Secure Your Financial Future?
         </h2>
         <p className="text-sm sm:text-base text-[#171717]/90 max-w-xl mx-auto font-medium">
-          Get personalized advice from our IRDAI-certified insurance experts today. Compare plans and save up to 25% on your annual premiums.
+          Get personalized term insurance advice and ₹1 Crore cover starting at ₹490/month from certified advisors.
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
           <div className="px-7 py-3.5 rounded-xl bg-[#F4C430] text-[#171717] font-bold text-xs sm:text-sm shadow-lg select-none">
             Talk to an Expert
           </div>
           <div className="px-7 py-3.5 rounded-xl bg-black/20 border border-[#E5E5E0] text-[#171717] font-bold text-xs sm:text-sm select-none">
-            Explore All Plans
+            Explore All Blueprints
           </div>
         </div>
       </div>

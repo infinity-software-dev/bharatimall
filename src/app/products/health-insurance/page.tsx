@@ -17,13 +17,10 @@ import DocumentationGuide from "./components/DocumentationGuide";
 import ProcessAndEligibility from "./components/ProcessAndEligibility";
 import HealthFaq from "./components/HealthFaq";
 import HealthCtaBanner from "./components/HealthCtaBanner";
-import HealthConsultModal from "./components/HealthConsultModal";
 
 export default function HealthInsurancePage() {
-  const [selectedPlanForModal, setSelectedPlanForModal] = useState<HealthPlan | null>(null);
-
   return (
-    <div className="min-h-screen bg-[#f8fafc] text-zinc-900 flex flex-col selection:bg-[#2076C7]/20 selection:text-[#2076C7]">
+    <div className="min-h-screen bg-[#FFFFFF] text-[#171717] flex flex-col selection:bg-[#F4C430] selection:text-[#171717]">
       <Header />
 
       <main className="flex-1">
@@ -31,7 +28,7 @@ export default function HealthInsurancePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-zinc-200 bg-white text-xs font-semibold text-zinc-600 hover:text-[#2076C7] hover:border-[#2076C7]/40 shadow-xs transition-all"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-semibold text-[#6B6B6B] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             Back to Home
@@ -42,16 +39,16 @@ export default function HealthInsurancePage() {
         <HealthHero />
 
         {/* 2. Health Plans Grid */}
-        <HealthPlansGrid onSelectPlan={(plan) => setSelectedPlanForModal(plan)} />
+        <HealthPlansGrid />
 
         {/* 3. Premium Calculator Section */}
-        <section id="calculator-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-sky-50/30 to-teal-50/20 border-t border-zinc-200/70">
+        <section id="calculator-section" className="py-14 lg:py-20 bg-gradient-to-b from-white via-sky-50/30 to-[#FFF8D6] border-t border-[#E5E5E0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
             <div className="text-center max-w-2xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Premium Calculator
               </h2>
-              <p className="text-sm sm:text-base text-gray-500">
+              <p className="text-sm sm:text-base text-[#6B6B6B]">
                 Get instant premium estimates for you and your family
               </p>
             </div>
@@ -81,14 +78,8 @@ export default function HealthInsurancePage() {
         <HealthFaq />
 
         {/* 10. Bottom Call to Action Banner */}
-        <HealthCtaBanner onTalkToExpert={() => setSelectedPlanForModal(HEALTH_PLANS_DATA[0])} />
+        <HealthCtaBanner />
       </main>
-
-      {/* Consult an Advisor Modal */}
-      <HealthConsultModal
-        plan={selectedPlanForModal}
-        onClose={() => setSelectedPlanForModal(null)}
-      />
 
       <Footer />
     </div>

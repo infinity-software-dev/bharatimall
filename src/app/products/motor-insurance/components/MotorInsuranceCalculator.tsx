@@ -175,42 +175,35 @@ export default function MotorInsuranceCalculator({
     return Math.round(premium).toLocaleString("en-IN");
   };
 
-  const handleDetailedQuote = () => {
-    if (onGetDetailedQuote) {
-      onGetDetailedQuote();
-    } else {
-      document.getElementById("price-comparison")?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   return (
-    <section id="calculator" className="py-12 bg-white text-gray-900 relative overflow-hidden border-t border-zinc-200/70">
+    <section id="calculator" className="py-12 bg-[#FFFFFF] text-[#171717] relative overflow-hidden border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 md:px-6 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-2 capitalize bg-gradient-to-r from-[#2076C7] to-[#1CADA3] bg-clip-text text-transparent drop-shadow-xs">
+          <h2 className="text-3xl md:text-4xl font-extrabold mb-2 capitalize drop-shadow-xs text-[#171717]">
             Calculate Your Estimated Premium
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#6B6B6B]">
             Accurate, real-time motor insurance estimates calibrated with IRDAI regulatory tariffs.
           </p>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto border border-gray-200">
-          <div className="bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white py-4 px-4 sm:px-8 text-center">
+        <div className="bg-[#FFFFFF] rounded-2xl shadow-xl overflow-hidden max-w-6xl mx-auto border border-[#E5E5E0]">
+          <div className="bg-[#FFF8D6] text-[#171717] py-4 px-4 sm:px-8 text-center">
             <h3 className="text-xl sm:text-2xl md:text-3xl font-bold mb-1 sm:mb-2">
               Premium Calculator
             </h3>
-            <p className="text-blue-100 text-sm sm:text-base">
+            <p className="text-[#F4C430] text-sm sm:text-base">
               We&apos;ve designed our calculator to give you the most accurate estimates based on your vehicle details and coverage preferences.
             </p>
           </div>
 
           <div className="p-4 md:p-8 relative overflow-hidden">
             {/* Top Selection Bar */}
-            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-4 pb-4 border-b border-gray-100">
+            <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-4 pb-4 border-b border-[#E5E5E0]">
               <div className="w-full lg:w-1/2">
-                <label className="text-gray-700 font-semibold mb-1 block text-sm uppercase tracking-wider">Premium Type</label>
-                <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200/80">
+                <label className="text-[#292929] font-semibold mb-1 block text-sm uppercase tracking-wider">Premium Type</label>
+                <div className="flex bg-[#F5F5F3] p-1 rounded-xl border border-[#E5E5E0]">
                   {["third-party", "comprehensive", "own-damage"].map((type) => (
                     <button
                       key={type}
@@ -218,8 +211,8 @@ export default function MotorInsuranceCalculator({
                       onClick={() => setPremiumType(type)}
                       className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold capitalize transition-all duration-300 cursor-pointer ${
                         premiumType === type
-                          ? "bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white shadow-md"
-                          : "text-gray-500 hover:text-gray-800 hover:bg-white"
+                          ? "bg-[#F4C430] text-[#171717] shadow-md"
+                          : "text-[#6B6B6B] hover:text-[#292929] hover:bg-[#FFFFFF]"
                       }`}
                     >
                       {type.replace("-", " ")}
@@ -230,8 +223,8 @@ export default function MotorInsuranceCalculator({
 
               {!lockedType && (
                 <div className="w-full lg:w-1/2">
-                  <label className="text-gray-700 font-semibold mb-1 block text-sm uppercase tracking-wider">Vehicle Type</label>
-                  <div className="flex bg-gray-50 p-1 rounded-xl border border-gray-200/80">
+                  <label className="text-[#292929] font-semibold mb-1 block text-sm uppercase tracking-wider">Vehicle Type</label>
+                  <div className="flex bg-[#F5F5F3] p-1 rounded-xl border border-[#E5E5E0]">
                     {["bike", "car", "commercial"].map((type) => (
                       <button
                         key={type}
@@ -239,8 +232,8 @@ export default function MotorInsuranceCalculator({
                         onClick={() => setVehicleType(type)}
                         className={`flex-1 py-2.5 px-3 rounded-lg text-xs font-bold capitalize transition-all duration-300 cursor-pointer ${
                           vehicleType === type
-                            ? "bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white shadow-md"
-                            : "text-gray-500 hover:text-gray-800 hover:bg-white"
+                            ? "bg-[#F4C430] text-[#171717] shadow-md"
+                            : "text-[#6B6B6B] hover:text-[#292929] hover:bg-[#FFFFFF]"
                         }`}
                       >
                         {type}
@@ -254,19 +247,19 @@ export default function MotorInsuranceCalculator({
             {/* Main Controls Flow */}
             <div className="space-y-4">
               {/* Section 1: Vehicle Information Grid */}
-              <div className="bg-white p-4 rounded-2xl border border-gray-100 shadow-sm">
+              <div className="bg-[#FFFFFF] p-4 rounded-2xl border border-[#E5E5E0] shadow-sm">
                 <div className="flex items-center gap-2 mb-3">
-                  <div className="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center">
-                    <Shield size={14} className="text-[#2076C7]" />
+                  <div className="w-6 h-6 rounded-lg bg-[#F5F5F3] flex items-center justify-center">
+                    <Shield size={14} className="text-[#171717]" />
                   </div>
-                  <h4 className="text-gray-900 font-bold text-sm uppercase tracking-wider">Vehicle Details</h4>
+                  <h4 className="text-[#171717] font-bold text-sm uppercase tracking-wider">Vehicle Details</h4>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Manufacturer</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Manufacturer</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={make}
                       onChange={(e) => setMake(e.target.value)}
                     >
@@ -304,44 +297,44 @@ export default function MotorInsuranceCalculator({
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Model</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Model</label>
                     <input
                       type="text"
                       value={model}
                       onChange={(e) => setModel(e.target.value)}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all"
                       placeholder="Vehicle Model"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Variant</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Variant</label>
                     <input
                       type="text"
                       value={variant}
                       onChange={(e) => setVariant(e.target.value)}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all"
                       placeholder="Vehicle Variant"
                     />
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">
                       {vehicleType === "commercial" ? "GVW (kg)" : "Engine CC"}
                     </label>
                     <input
                       type="number"
                       value={engineCC}
                       onChange={(e) => setEngineCC(Number(e.target.value))}
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all"
                       placeholder={vehicleType === "commercial" ? "e.g. 7500" : "e.g. 1200"}
                     />
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Reg. Year</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Reg. Year</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={regYear}
                       onChange={(e) => {
                         setRegYear(Number(e.target.value));
@@ -355,9 +348,9 @@ export default function MotorInsuranceCalculator({
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">RTO City</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">RTO City</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={city}
                       onChange={(e) => {
                         const selectedCity = e.target.value;
@@ -381,9 +374,9 @@ export default function MotorInsuranceCalculator({
                   {vehicleType === "car" && (
                     <>
                       <div>
-                        <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Fuel Type</label>
+                        <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Fuel Type</label>
                         <select
-                          className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                          className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                           value={fuelType}
                           onChange={(e) => setFuelType(e.target.value)}
                         >
@@ -393,9 +386,9 @@ export default function MotorInsuranceCalculator({
                         </select>
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Seating</label>
+                        <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Seating</label>
                         <select
-                          className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                          className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                           value={carSeating}
                           onChange={(e) => setCarSeating(Number(e.target.value))}
                         >
@@ -410,9 +403,9 @@ export default function MotorInsuranceCalculator({
                   {vehicleType === "commercial" && (
                     <>
                       <div>
-                        <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Category</label>
+                        <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Category</label>
                         <select
-                          className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                          className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                           value={commCategory}
                           onChange={(e) => setCommCategory(e.target.value)}
                         >
@@ -421,7 +414,7 @@ export default function MotorInsuranceCalculator({
                         </select>
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Weight/Seating</label>
+                        <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Weight/Seating</label>
                         <input
                           type="number"
                           value={commCategory === "Goods Carrier" ? gvw : commSeating}
@@ -429,16 +422,16 @@ export default function MotorInsuranceCalculator({
                             if (commCategory === "Goods Carrier") setGvw(Number(e.target.value));
                             else setCommSeating(Number(e.target.value));
                           }}
-                          className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all"
+                          className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all"
                         />
                       </div>
                     </>
                   )}
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">NCB (%)</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">NCB (%)</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={ncb}
                       onChange={(e) => setNcb(Number(e.target.value))}
                     >
@@ -449,9 +442,9 @@ export default function MotorInsuranceCalculator({
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Owner Type</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Owner Type</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={ownerType}
                       onChange={(e) => setOwnerType(e.target.value)}
                     >
@@ -461,9 +454,9 @@ export default function MotorInsuranceCalculator({
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Prev. Policy</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Prev. Policy</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={prevPolicyType}
                       onChange={(e) => setPrevPolicyType(e.target.value)}
                     >
@@ -474,9 +467,9 @@ export default function MotorInsuranceCalculator({
                   </div>
 
                   <div>
-                    <label className="text-[10px] font-bold text-gray-400 uppercase mb-1 block">Policy Format</label>
+                    <label className="text-[10px] font-bold text-[#6B6B6B] uppercase mb-1 block">Policy Format</label>
                     <select
-                      className="w-full p-2 bg-gray-50 border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#2076C7] transition-all cursor-pointer"
+                      className="w-full p-2 bg-[#F5F5F3] border border-gray-300 rounded-lg text-xs outline-none focus:ring-2 ring-blue-500/20 focus:border-[#F4C430] transition-all cursor-pointer"
                       value={policyFormat}
                       onChange={(e) => setPolicyFormat(e.target.value)}
                     >
@@ -493,24 +486,24 @@ export default function MotorInsuranceCalculator({
               {/* Section 2: Covers & Addons */}
               <div className="space-y-2">
                 {/* Additional Cover Accordion */}
-                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="bg-[#FFFFFF] rounded-2xl border border-[#E5E5E0] shadow-sm overflow-hidden">
                   <button
                     type="button"
                     onClick={() => setIsAdditionalOpen(!isAdditionalOpen)}
-                    className="w-full p-3.5 flex items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer"
+                    className="w-full p-3.5 flex items-center justify-between hover:bg-[#F5F5F3] transition-colors cursor-pointer"
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center">
-                        <Plus size={12} className="text-[#2076C7]" />
+                      <div className="w-6 h-6 rounded-lg bg-[#F5F5F3] flex items-center justify-center">
+                        <Plus size={12} className="text-[#171717]" />
                       </div>
-                      <h4 className="text-gray-900 font-bold text-xs uppercase tracking-wider">Additional Cover</h4>
+                      <h4 className="text-[#171717] font-bold text-xs uppercase tracking-wider">Additional Cover</h4>
                       {selectedAddOns.filter((a) => ![
                         "Zero Depreciation Cover", "Consumables", "Return to Invoice", "Engine Protector",
                         "Emergency Cover", "Tyre Cover", "NCB Protection", "Loss of Key",
                         "Loss of personal Belonging", "Road Side Assistance", "Passenger Assist cover",
                         "Hydrostatic Lock Cover", "Hospital Cash Cover", "Conveyance Benefit", "Smart Saver"
                       ].includes(a.replace("_bike", ""))).length > 0 && (
-                        <span className="bg-[#2076C7] text-white text-[10px] px-1.5 py-0.5 rounded-full font-black">
+                        <span className="bg-[#F4C430] text-[#171717] text-[10px] px-1.5 py-0.5 rounded-full font-black">
                           {selectedAddOns.filter((a) => ![
                             "Zero Depreciation Cover", "Consumables", "Return to Invoice", "Engine Protector",
                             "Emergency Cover", "Tyre Cover", "NCB Protection", "Loss of Key",
@@ -520,10 +513,10 @@ export default function MotorInsuranceCalculator({
                         </span>
                       )}
                     </div>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${isAdditionalOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 text-[#6B6B6B] transition-transform duration-300 ${isAdditionalOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isAdditionalOpen && (
-                    <div className="px-4 pb-4 border-t border-gray-100 pt-3">
+                    <div className="px-4 pb-4 border-t border-[#E5E5E0] pt-3">
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                         {[
                           "Electrical Accessory?",
@@ -536,9 +529,9 @@ export default function MotorInsuranceCalculator({
                           "Fiber-Glass Fuel Tank?"
                         ].map((addon) => (
                           <label key={addon} className="flex items-center gap-2 cursor-pointer group">
-                            <div className={`w-4 h-4 rounded border-2 transition-all flex items-center justify-center shrink-0 ${selectedAddOns.includes(addon) ? "bg-[#2076C7] border-[#2076C7]" : "border-gray-300 bg-white"}`}>
+                            <div className={`w-4 h-4 rounded border-2 transition-all flex items-center justify-center shrink-0 ${selectedAddOns.includes(addon) ? "bg-[#F4C430] border-[#F4C430]" : "border-gray-300 bg-[#FFFFFF]"}`}>
                               {selectedAddOns.includes(addon) && (
-                                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                                <svg className="w-3 h-3 text-[#171717]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                               )}
@@ -552,7 +545,7 @@ export default function MotorInsuranceCalculator({
                                 }}
                               />
                             </div>
-                            <span className="text-[11px] font-medium text-gray-600 group-hover:text-gray-900 leading-tight">{addon}</span>
+                            <span className="text-[11px] font-medium text-[#292929] group-hover:text-[#171717] leading-tight">{addon}</span>
                           </label>
                         ))}
                       </div>
@@ -561,24 +554,24 @@ export default function MotorInsuranceCalculator({
                 </div>
 
                 {/* AddOn Cover Accordion */}
-                <div className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden">
+                <div className="bg-[#FFFFFF] rounded-2xl border border-[#E5E5E0] shadow-sm overflow-hidden">
                   <button
                     type="button"
                     onClick={() => setIsAddonsOpen(!isAddonsOpen)}
-                    className="w-full p-3.5 flex items-center justify-between hover:bg-gray-50/50 transition-colors cursor-pointer"
+                    className="w-full p-3.5 flex items-center justify-between hover:bg-[#F5F5F3] transition-colors cursor-pointer"
                   >
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-lg bg-blue-50 flex items-center justify-center">
-                        <Plus size={12} className="text-[#2076C7]" />
+                      <div className="w-6 h-6 rounded-lg bg-[#F5F5F3] flex items-center justify-center">
+                        <Plus size={12} className="text-[#171717]" />
                       </div>
-                      <h4 className="text-gray-900 font-bold text-xs uppercase tracking-wider">AddOn Cover</h4>
+                      <h4 className="text-[#171717] font-bold text-xs uppercase tracking-wider">AddOn Cover</h4>
                       {selectedAddOns.filter((a) => [
                         "Zero Depreciation Cover", "Consumables", "Return to Invoice", "Engine Protector",
                         "Emergency Cover", "Tyre Cover", "NCB Protection", "Loss of Key",
                         "Loss of personal Belonging", "Road Side Assistance", "Passenger Assist cover",
                         "Hydrostatic Lock Cover", "Hospital Cash Cover", "Conveyance Benefit", "Smart Saver"
                       ].includes(a.replace("_bike", ""))).length > 0 && (
-                        <span className="bg-[#1CADA3] text-white text-[10px] px-1.5 py-0.5 rounded-full font-black">
+                        <span className="bg-[#F4C430] text-[#171717] text-[10px] px-1.5 py-0.5 rounded-full font-black">
                           {selectedAddOns.filter((a) => [
                             "Zero Depreciation Cover", "Consumables", "Return to Invoice", "Engine Protector",
                             "Emergency Cover", "Tyre Cover", "NCB Protection", "Loss of Key",
@@ -588,10 +581,10 @@ export default function MotorInsuranceCalculator({
                         </span>
                       )}
                     </div>
-                    <ChevronDown className={`w-4 h-4 text-gray-400 transition-transform duration-300 ${isAddonsOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 text-[#6B6B6B] transition-transform duration-300 ${isAddonsOpen ? "rotate-180" : ""}`} />
                   </button>
                   {isAddonsOpen && (
-                    <div className="px-4 pb-4 border-t border-gray-100 pt-3">
+                    <div className="px-4 pb-4 border-t border-[#E5E5E0] pt-3">
                       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
                         {(vehicleType === "bike"
                           ? [
@@ -619,9 +612,9 @@ export default function MotorInsuranceCalculator({
                             ]
                         ).map((addon) => (
                           <label key={addon} className="flex items-center gap-2 cursor-pointer group">
-                            <div className={`w-4 h-4 rounded border-2 transition-all flex items-center justify-center shrink-0 ${selectedAddOns.includes(addon) ? "bg-[#2076C7] border-[#2076C7]" : "border-gray-300 bg-white"}`}>
+                            <div className={`w-4 h-4 rounded border-2 transition-all flex items-center justify-center shrink-0 ${selectedAddOns.includes(addon) ? "bg-[#F4C430] border-[#F4C430]" : "border-gray-300 bg-[#FFFFFF]"}`}>
                               {selectedAddOns.includes(addon) && (
-                                <svg className="w-3 h-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
+                                <svg className="w-3 h-3 text-[#171717]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="4">
                                   <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                 </svg>
                               )}
@@ -635,7 +628,7 @@ export default function MotorInsuranceCalculator({
                                 }}
                               />
                             </div>
-                            <span className="text-[11px] font-medium text-gray-600 group-hover:text-gray-900 leading-tight">{addon}</span>
+                            <span className="text-[11px] font-medium text-[#292929] group-hover:text-[#171717] leading-tight">{addon}</span>
                           </label>
                         ))}
                       </div>
@@ -646,10 +639,10 @@ export default function MotorInsuranceCalculator({
 
               {/* Section 3: Result & Value Summary */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-stretch mt-2">
-                <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex flex-col justify-center">
-                  <label className="text-gray-700 font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
-                    <IndianRupee size={18} className="text-[#2076C7]" /> Set Vehicle Value (IDV)
-                    <span className="text-[#2076C7] font-black text-xl ml-auto">₹{idv.toLocaleString("en-IN")}</span>
+                <div className="bg-[#FFFFFF] p-5 rounded-2xl border border-[#E5E5E0] shadow-sm flex flex-col justify-center">
+                  <label className="text-[#292929] font-bold mb-3 flex items-center gap-2 text-sm uppercase tracking-wider">
+                    <IndianRupee size={18} className="text-[#171717]" /> Set Vehicle Value (IDV)
+                    <span className="text-[#171717] font-black text-xl ml-auto">₹{idv.toLocaleString("en-IN")}</span>
                   </label>
                   <input
                     type="range"
@@ -658,37 +651,35 @@ export default function MotorInsuranceCalculator({
                     step="5000"
                     value={idv}
                     onChange={(e) => setIdv(Number(e.target.value))}
-                    className="w-full h-2 bg-blue-50 rounded-lg appearance-none cursor-pointer accent-[#2076C7]"
+                    className="w-full h-2 bg-[#F5F5F3] rounded-lg appearance-none cursor-pointer accent-[#F4C430]"
                   />
-                  <div className="flex justify-between mt-2 text-[10px] font-black text-gray-400 uppercase tracking-wider">
+                  <div className="flex justify-between mt-2 text-[10px] font-black text-[#6B6B6B] uppercase tracking-wider">
                     <span>Min: ₹{vehicleType === "bike" ? "10k" : "50k"}</span>
                     <span>Max: ₹{vehicleType === "bike" ? "3L" : "20L"}</span>
                   </div>
                 </div>
 
-                <div className="bg-gray-50 rounded-2xl p-5 border border-gray-200 flex flex-col justify-between">
+                <div className="bg-[#F5F5F3] rounded-2xl p-5 border border-[#E5E5E0] flex flex-col justify-between">
                   <div>
-                    <p className="text-gray-400 text-[10px] font-bold uppercase tracking-widest mb-1">Estimated Premium</p>
+                    <p className="text-[#6B6B6B] text-[10px] font-bold uppercase tracking-widest mb-1">Estimated Premium</p>
                     <div className="flex items-baseline gap-1">
-                      <span className="text-xl font-bold text-[#1CADA3]">₹</span>
-                      <span className="text-3xl font-black text-gray-900">
+                      <span className="text-xl font-bold text-[#171717]">₹</span>
+                      <span className="text-3xl font-black text-[#171717]">
                         {calculatePremium()}
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">/year</span>
+                      <span className="text-xs text-[#6B6B6B] font-medium">/year</span>
                     </div>
                   </div>
 
                   <div className="space-y-2 mt-4">
-                    <button
-                      type="button"
-                      onClick={handleDetailedQuote}
-                      className="w-full py-3 bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white rounded-xl font-black text-sm hover:brightness-110 transform hover:scale-[1.01] active:scale-[0.99] transition-all flex items-center justify-center gap-2 group shadow-lg cursor-pointer"
+                    <div
+                      className="w-full py-3 bg-[#F4C430] text-[#171717] rounded-xl font-black text-sm flex items-center justify-center gap-2 shadow-lg select-none"
                     >
                       <span>Get Detailed Quote</span>
-                      <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                    </button>
-                    <div className="p-2 bg-blue-50/60 rounded-xl border border-blue-100/50">
-                      <p className="text-gray-600 text-xs leading-relaxed text-center font-medium">
+                      <ArrowRight size={16} />
+                    </div>
+                    <div className="p-2 bg-[#F5F5F3] rounded-xl border border-[#E5E5E0]">
+                      <p className="text-[#292929] text-xs leading-relaxed text-center font-medium">
                         Indicative Internal Advisory Estimates based on IRDAI factors.
                       </p>
                     </div>

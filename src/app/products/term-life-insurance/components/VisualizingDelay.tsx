@@ -20,15 +20,15 @@ export default function VisualizingDelay() {
   const xWealthLabels = ["0 Yr", "5 Yrs", "10 Yrs", "15 Yrs", "20 Yrs", "25 Yrs"];
 
   return (
-    <section className="py-16 md:py-24 bg-white relative overflow-hidden font-sans border-t border-slate-100">
+    <section className="py-16 md:py-24 bg-[#FFFFFF] relative overflow-hidden font-sans border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-sans bg-gradient-to-r from-[#2076C7] to-[#1CADA3] bg-clip-text text-transparent drop-shadow-xs">
+          <h2 className="text-3xl md:text-4xl font-extrabold font-sans drop-shadow-xs text-[#171717]">
             Visualizing the Impact of Delay
           </h2>
-          <p className="text-slate-500 text-sm sm:text-base font-normal leading-relaxed">
+          <p className="text-[#6B6B6B] text-sm sm:text-base font-normal leading-relaxed">
             Don&apos;t just take our word for it. Analyze the numbers and see how time affects your premium costs and long-term wealth growth.
           </p>
         </div>
@@ -37,16 +37,16 @@ export default function VisualizingDelay() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
           
           {/* Card 1: Cost of Delay */}
-          <div className="bg-[#fafbfd] rounded-3xl border border-slate-200/80 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-all">
+          <div className="bg-[#fafbfd] rounded-3xl border border-[#E5E5E0] p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-all">
             <div>
               {/* Header */}
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 flex items-center justify-center text-[#2076C7]">
+                <div className="w-10 h-10 rounded-xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center text-[#171717]">
                   <Info className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-slate-800">Cost of Delay</h3>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                  <h3 className="text-lg font-bold text-[#171717]">Cost of Delay</h3>
+                  <p className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-widest">
                     ANNUAL PREMIUM BY ENTRY AGE
                   </p>
                 </div>
@@ -55,14 +55,14 @@ export default function VisualizingDelay() {
               {/* Bar Chart Area */}
               <div className="h-64 sm:h-72 w-full flex items-end pt-6 pb-2 relative">
                 {/* Y-Axis Grid & Labels */}
-                <div className="flex flex-col justify-between h-full pr-3 text-[10px] font-semibold text-slate-400 select-none">
+                <div className="flex flex-col justify-between h-full pr-3 text-[10px] font-semibold text-[#6B6B6B] select-none">
                   {yCostLabels.map((lbl, idx) => (
                     <span key={idx} className="leading-none">{lbl}</span>
                   ))}
                 </div>
 
                 {/* Bars Container */}
-                <div className="flex-1 h-full border-b border-l border-slate-200 grid grid-cols-6 items-end gap-2 sm:gap-4 px-2 sm:px-4 relative">
+                <div className="flex-1 h-full border-b border-l border-[#E5E5E0] grid grid-cols-6 items-end gap-2 sm:gap-4 px-2 sm:px-4 relative">
                   {/* Subtle horizontal grid lines */}
                   <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-30">
                     {yCostLabels.map((_, i) => (
@@ -81,7 +81,7 @@ export default function VisualizingDelay() {
                       >
                         {/* Tooltip on hover */}
                         {isHovered && (
-                          <div className="absolute -top-7 bg-slate-900 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow-md whitespace-nowrap z-20 animate-fade-in">
+                          <div className="absolute -top-7 bg-slate-900 text-[#171717] text-[10px] font-bold px-2 py-0.5 rounded shadow-md whitespace-nowrap z-20 animate-fade-in">
                             {item.cost}/yr
                           </div>
                         )}
@@ -89,11 +89,11 @@ export default function VisualizingDelay() {
                         {/* Bar */}
                         <div
                           style={{ height: `${item.heightPercent}%` }}
-                          className="w-full max-w-[42px] bg-gradient-to-t from-[#1CADA3] to-[#2076C7] rounded-t-lg transition-all duration-300 group-hover:brightness-110 group-hover:scale-y-[1.02] shadow-xs"
+                          className="w-full max-w-[42px] bg-[#FFF8D6] rounded-t-lg transition-all duration-300 group-hover:brightness-110 group-hover:scale-y-[1.02] shadow-xs"
                         />
 
                         {/* X-Label */}
-                        <span className="text-[10px] font-bold text-slate-500 mt-2 whitespace-nowrap">
+                        <span className="text-[10px] font-bold text-[#6B6B6B] mt-2 whitespace-nowrap">
                           {item.age}
                         </span>
                       </div>
@@ -104,26 +104,26 @@ export default function VisualizingDelay() {
             </div>
 
             {/* Bottom Insight Alert */}
-            <div className="mt-8 p-4 rounded-2xl bg-blue-50/70 border border-blue-100 flex items-start gap-2.5">
-              <Info className="w-4 h-4 text-[#2076C7] shrink-0 mt-0.5" />
-              <p className="text-xs text-slate-600 leading-relaxed">
-                <strong className="text-slate-800">Audit Insight:</strong> Starting cover at age 25 vs 35 can save you up to <strong className="text-[#2076C7]">₹4.2 Lakhs</strong> in lifetime premiums.
+            <div className="mt-8 p-4 rounded-2xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-start gap-2.5">
+              <Info className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
+              <p className="text-xs text-[#292929] leading-relaxed">
+                <strong className="text-[#171717]">Audit Insight:</strong> Starting cover at age 25 vs 35 can save you up to <strong className="text-[#171717]">₹4.2 Lakhs</strong> in lifetime premiums.
               </p>
             </div>
           </div>
 
           {/* Card 2: Wealth Growth Comparison */}
-          <div className="bg-[#fafbfd] rounded-3xl border border-slate-200/80 p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-all">
+          <div className="bg-[#fafbfd] rounded-3xl border border-[#E5E5E0] p-6 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-md transition-all">
             <div>
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-teal-50 border border-teal-100 flex items-center justify-center text-[#1CADA3]">
+                  <div className="w-10 h-10 rounded-xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center text-[#171717]">
                     <TrendingUp className="w-5 h-5" />
                   </div>
                   <div>
-                    <h3 className="text-lg font-bold text-slate-800">Wealth Growth Comparison</h3>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                    <h3 className="text-lg font-bold text-[#171717]">Wealth Growth Comparison</h3>
+                    <p className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-widest">
                       GROWTH OF ₹1.5L ANNUAL INVESTMENT OVER 25 YEARS
                     </p>
                   </div>
@@ -131,10 +131,10 @@ export default function VisualizingDelay() {
               </div>
 
               {/* Legend */}
-              <div className="flex items-center justify-end gap-4 text-[10px] font-bold text-slate-600 mb-2">
+              <div className="flex items-center justify-end gap-4 text-[10px] font-bold text-[#292929] mb-2">
                 <div className="flex items-center gap-1.5">
-                  <span className="w-2.5 h-2.5 rounded-xs bg-[#1CADA3]" />
-                  <span>Life Insurance ULIP</span>
+                  <span className="w-2.5 h-2.5 rounded-xs bg-[#F4C430]" />
+                  <span>Term Life Insurance</span>
                 </div>
                 <div className="flex items-center gap-1.5">
                   <span className="w-3 h-0.5 border-t border-dashed border-slate-400" />
@@ -145,14 +145,14 @@ export default function VisualizingDelay() {
               {/* Line / Area Chart Area */}
               <div className="h-64 sm:h-72 w-full flex items-end pt-2 pb-2 relative">
                 {/* Y-Axis Labels */}
-                <div className="flex flex-col justify-between h-full pr-3 text-[10px] font-semibold text-slate-400 select-none">
+                <div className="flex flex-col justify-between h-full pr-3 text-[10px] font-semibold text-[#6B6B6B] select-none">
                   {yWealthLabels.map((lbl, idx) => (
                     <span key={idx} className="leading-none">{lbl}</span>
                   ))}
                 </div>
 
                 {/* SVG Graph Container */}
-                <div className="flex-1 h-full border-b border-l border-slate-200 relative flex flex-col justify-end">
+                <div className="flex-1 h-full border-b border-l border-[#E5E5E0] relative flex flex-col justify-end">
                   {/* Grid Lines */}
                   <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-30">
                     {yWealthLabels.map((_, i) => (
@@ -168,8 +168,8 @@ export default function VisualizingDelay() {
                   >
                     <defs>
                       <linearGradient id="ulipGradient" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#1CADA3" stopOpacity="0.35" />
-                        <stop offset="100%" stopColor="#1CADA3" stopOpacity="0.0" />
+                        <stop offset="0%" stopColor="#FFD21F" stopOpacity="0.35" />
+                        <stop offset="100%" stopColor="#FFD21F" stopOpacity="0.0" />
                       </linearGradient>
                     </defs>
 
@@ -192,25 +192,25 @@ export default function VisualizingDelay() {
                     <path
                       d="M 15 228 Q 120 220 220 180 T 380 90 T 485 24"
                       fill="none"
-                      stroke="#1CADA3"
+                      stroke="#FFD21F"
                       strokeWidth="3.5"
                       strokeLinecap="round"
                     />
 
                     {/* Data Points on ULIP */}
-                    <circle cx="15" cy="228" r="4" fill="#ffffff" stroke="#1CADA3" strokeWidth="2.5" />
-                    <circle cx="110" cy="216" r="4" fill="#ffffff" stroke="#1CADA3" strokeWidth="2.5" />
-                    <circle cx="210" cy="184" r="4" fill="#ffffff" stroke="#1CADA3" strokeWidth="2.5" />
-                    <circle cx="310" cy="138" r="4" fill="#ffffff" stroke="#1CADA3" strokeWidth="2.5" />
-                    <circle cx="410" cy="74" r="4" fill="#ffffff" stroke="#1CADA3" strokeWidth="2.5" />
-                    <circle cx="485" cy="24" r="4.5" fill="#ffffff" stroke="#1CADA3" strokeWidth="3" />
+                    <circle cx="15" cy="228" r="4" fill="#ffffff" stroke="#FFD21F" strokeWidth="2.5" />
+                    <circle cx="110" cy="216" r="4" fill="#ffffff" stroke="#FFD21F" strokeWidth="2.5" />
+                    <circle cx="210" cy="184" r="4" fill="#ffffff" stroke="#FFD21F" strokeWidth="2.5" />
+                    <circle cx="310" cy="138" r="4" fill="#ffffff" stroke="#FFD21F" strokeWidth="2.5" />
+                    <circle cx="410" cy="74" r="4" fill="#ffffff" stroke="#FFD21F" strokeWidth="2.5" />
+                    <circle cx="485" cy="24" r="4.5" fill="#ffffff" stroke="#FFD21F" strokeWidth="3" />
 
                     {/* Data Points on FD */}
                     <circle cx="485" cy="130" r="3.5" fill="#ffffff" stroke="#94a3b8" strokeWidth="2" />
                   </svg>
 
                   {/* X-Axis Labels */}
-                  <div className="w-full flex justify-between pt-2 px-1 text-[10px] font-bold text-slate-500 select-none">
+                  <div className="w-full flex justify-between pt-2 px-1 text-[10px] font-bold text-[#6B6B6B] select-none">
                     {xWealthLabels.map((lbl, idx) => (
                       <span key={idx}>{lbl}</span>
                     ))}
@@ -220,10 +220,10 @@ export default function VisualizingDelay() {
             </div>
 
             {/* Bottom Insight Alert */}
-            <div className="mt-8 p-4 rounded-2xl bg-teal-50/70 border border-teal-100 flex items-start gap-2.5">
-              <TrendingUp className="w-4 h-4 text-[#1CADA3] shrink-0 mt-0.5" />
-              <p className="text-xs text-slate-600 leading-relaxed">
-                <strong className="text-slate-800">Multiplier Effect:</strong> Tax-free compounding beats traditional FDs by over <strong className="text-[#1CADA3]">2.1x</strong> in overall returns.
+            <div className="mt-8 p-4 rounded-2xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-start gap-2.5">
+              <TrendingUp className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
+              <p className="text-xs text-[#292929] leading-relaxed">
+                <strong className="text-[#171717]">Multiplier Effect:</strong> Tax-free compounding beats traditional FDs by over <strong className="text-[#171717]">2.1x</strong> in overall returns.
               </p>
             </div>
           </div>
