@@ -299,11 +299,7 @@ const FILTER_CATEGORIES = [
   "Young Adults"
 ];
 
-interface HealthPlansGridProps {
-  onSelectPlan: (plan: HealthPlan) => void;
-}
-
-export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) {
+export default function HealthPlansGrid() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -327,14 +323,14 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
   }, [selectedCategory, searchTerm]);
 
   return (
-    <section id="plans-grid" className="py-12 lg:py-16 bg-white border-t border-zinc-200/70">
+    <section id="plans-grid" className="py-12 lg:py-16 bg-[#FFFFFF] border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1660A7] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             Compare Top Health Insurance Plans
           </h2>
-          <p className="text-sm sm:text-base text-zinc-600">
+          <p className="text-sm sm:text-base text-[#6B6B6B]">
             Explore handpicked medical insurance policies from leading insurers with instant cashless settlement.
           </p>
         </div>
@@ -350,10 +346,10 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     isSelected
-                      ? "text-white shadow-sm"
-                      : "bg-zinc-50 hover:bg-zinc-100 text-zinc-600 border border-zinc-200/80"
+                      ? "text-[#171717] shadow-sm"
+                      : "bg-[#F5F5F3] hover:bg-[#F5F5F3] text-[#6B6B6B] border border-[#E5E5E0]"
                   }`}
-                  style={isSelected ? { background: "linear-gradient(to right, #2076C7, #1CADA3)" } : {}}
+                  style={isSelected ? { background: "linear-gradient(to right, #F4C430, #FFD21F)" } : {}}
                 >
                   {cat}
                 </button>
@@ -363,18 +359,18 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
 
           {/* Search Input */}
           <div className="relative w-full lg:w-72">
-            <Search className="w-4 h-4 text-zinc-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+            <Search className="w-4 h-4 text-[#6B6B6B] absolute left-3.5 top-1/2 -translate-y-1/2" />
             <input
               type="text"
               placeholder="Search plan or insurer..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white border border-zinc-200 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-[#2076C7] focus:ring-2 focus:ring-[#2076C7]/15 transition-all shadow-2xs"
+              className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-[#FFFFFF] border border-[#E5E5E0] text-xs text-[#292929] placeholder-zinc-400 focus:outline-none focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/15 transition-all shadow-2xs"
             />
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm("")}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-zinc-600"
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-[#6B6B6B] hover:text-[#6B6B6B]"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
@@ -384,16 +380,16 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
 
         {/* Plans Grid */}
         {filteredPlans.length === 0 ? (
-          <div className="py-16 text-center space-y-3 bg-zinc-50 rounded-2xl border border-zinc-200/80">
-            <Activity className="w-12 h-12 text-zinc-400 mx-auto" />
-            <h3 className="text-base font-bold text-zinc-700">No health plans matched your search</h3>
-            <p className="text-xs text-zinc-500">Try searching for Care, Star Health, Niva Bupa, or reset filters.</p>
+          <div className="py-16 text-center space-y-3 bg-[#F5F5F3] rounded-2xl border border-[#E5E5E0]">
+            <Activity className="w-12 h-12 text-[#6B6B6B] mx-auto" />
+            <h3 className="text-base font-bold text-[#292929]">No health plans matched your search</h3>
+            <p className="text-xs text-[#6B6B6B]">Try searching for Care, Star Health, Niva Bupa, or reset filters.</p>
             <button
               onClick={() => {
                 setSelectedCategory("All");
                 setSearchTerm("");
               }}
-              className="px-4 py-2 text-xs font-semibold text-[#2076C7] hover:underline cursor-pointer"
+              className="px-4 py-2 text-xs font-semibold text-[#171717] hover:underline cursor-pointer"
             >
               Reset Filters
             </button>
@@ -403,50 +399,50 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
             {filteredPlans.map((plan) => (
               <div
                 key={plan.id}
-                className="bg-white rounded-2xl border border-gray-100 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-5 sm:p-6 relative group hover:-translate-y-1"
+                className="bg-[#FFFFFF] rounded-2xl border border-[#E5E5E0] shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between p-5 sm:p-6 relative group hover:-translate-y-1"
               >
                 <div>
-                  <p className="text-[10px] sm:text-[11px] font-bold text-gray-400 uppercase tracking-wider text-center mb-2">
+                  <p className="text-[10px] sm:text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider text-center mb-2">
                     {plan.targetAudience}
                   </p>
 
-                  <h3 className="text-sm sm:text-base font-extrabold text-[#1A4E8C] text-center tracking-tight leading-snug min-h-[44px] flex items-center justify-center uppercase">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#171717] text-center tracking-tight leading-snug min-h-[44px] flex items-center justify-center uppercase">
                     {plan.title}
                   </h3>
 
                   <div className="text-center my-3">
-                    <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold block mb-0.5">
+                    <span className="text-[10px] uppercase tracking-wider text-[#6B6B6B] font-bold block mb-0.5">
                       STARTING AT
                     </span>
                     <div className="flex items-baseline justify-center gap-0.5">
-                      <span className="text-2xl sm:text-3xl font-extrabold text-zinc-900 tracking-tight">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
                         {plan.startingAt}
                       </span>
-                      <span className="text-xs text-gray-400 font-medium">/mo*</span>
+                      <span className="text-xs text-[#6B6B6B] font-medium">/mo*</span>
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-2 my-4 bg-gray-50/80 rounded-xl p-2.5 border border-gray-100 text-center">
+                  <div className="grid grid-cols-2 gap-2 my-4 bg-[#F5F5F3] rounded-xl p-2.5 border border-[#E5E5E0] text-center">
                     <div>
-                      <p className="text-[9px] text-gray-400 uppercase font-bold tracking-wider">
+                      <p className="text-[9px] text-[#6B6B6B] uppercase font-bold tracking-wider">
                         SUM INSURED
                       </p>
-                      <p className="text-xs font-bold text-gray-800 mt-0.5 truncate">
+                      <p className="text-xs font-bold text-[#292929] mt-0.5 truncate">
                         {plan.sumInsured}
                       </p>
                     </div>
                     <div>
-                      <p className="text-[9px] text-gray-400 uppercase font-bold tracking-wider">
+                      <p className="text-[9px] text-[#6B6B6B] uppercase font-bold tracking-wider">
                         CASHLESS
                       </p>
-                      <p className="text-xs font-bold text-gray-800 mt-0.5 truncate">
+                      <p className="text-xs font-bold text-[#292929] mt-0.5 truncate">
                         {plan.cashlessHospitals}
                       </p>
                     </div>
                   </div>
 
                   <div className="flex justify-center mb-4">
-                    <span className="px-3 py-0.5 bg-teal-50 text-teal-600 border border-teal-200/60 rounded-full text-[10px] font-bold tracking-wider uppercase">
+                    <span className="px-3 py-0.5 bg-[#F5F5F3] text-[#171717] border border-[#E5E5E0] rounded-full text-[10px] font-bold tracking-wider uppercase">
                       CSR {plan.csr}
                     </span>
                   </div>
@@ -454,10 +450,10 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
                   <div className="space-y-2.5 pt-1 pb-4">
                     {plan.features.map((feature, idx) => (
                       <div key={idx} className="flex items-start gap-2.5">
-                        <div className="w-4 h-4 rounded-full bg-teal-50 border border-teal-200 flex items-center justify-center shrink-0 mt-0.5 text-teal-600">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#1CADA3]" />
+                        <div className="w-4 h-4 rounded-full bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center shrink-0 mt-0.5 text-[#171717]">
+                          <CheckCircle2 className="w-3.5 h-3.5 text-[#171717]" />
                         </div>
-                        <span className="text-xs font-medium text-gray-600 leading-snug">
+                        <span className="text-xs font-medium text-[#292929] leading-snug">
                           {feature}
                         </span>
                       </div>
@@ -466,25 +462,20 @@ export default function HealthPlansGrid({ onSelectPlan }: HealthPlansGridProps) 
                 </div>
 
                 <div className="pt-2 space-y-2">
-                  <button
-                    type="button"
-                    onClick={() => onSelectPlan(plan)}
-                    className="group relative w-full h-11 text-white rounded-xl font-bold text-xs tracking-wider shadow-md hover:brightness-110 active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-1.5 overflow-hidden"
-                    style={{ background: "linear-gradient(to right, #2076C7, #1CADA3)" }}
+                  <div
+                    className="group relative w-full h-11 text-[#171717] rounded-xl font-bold text-xs tracking-wider shadow-md flex items-center justify-center gap-1.5 overflow-hidden select-none"
+                    style={{ background: "#F4C430" }}
                   >
                     <span className="relative z-10 flex items-center gap-1.5">
                       Consult an Advisor
-                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
                     </span>
-                  </button>
+                  </div>
 
-                  <button
-                    type="button"
-                    onClick={() => onSelectPlan(plan)}
-                    className="w-full text-center text-[10px] font-bold uppercase tracking-widest text-gray-400 hover:text-[#2076C7] transition-colors py-1 cursor-pointer"
+                  <div
+                    className="w-full text-center text-[10px] font-bold uppercase tracking-widest text-[#6B6B6B] py-1 select-none"
                   >
                     TALK TO ADVISOR
-                  </button>
+                  </div>
                 </div>
               </div>
             ))}

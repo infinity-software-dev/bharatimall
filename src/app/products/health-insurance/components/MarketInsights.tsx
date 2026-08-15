@@ -5,34 +5,34 @@ import { Shield, TrendingUp, Info, Activity } from "lucide-react";
 
 export default function MarketInsights() {
   return (
-    <section className="py-14 lg:py-20 bg-zinc-50/70 border-t border-zinc-200/70">
+    <section className="py-14 lg:py-20 bg-[#F5F5F3] border-t border-[#E5E5E0]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             Market Insights & Claim Transparency
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#6B6B6B]">
             Data-driven decisions for your family&apos;s future. We track claim performance and market trends to ensure you always have the best protection.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Claim Settlement Leaderboard Card */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-xl space-y-6 flex flex-col justify-between">
+          <div className="bg-[#FFFFFF] rounded-2xl p-6 sm:p-8 border border-[#E5E5E0] shadow-xl space-y-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <div className="w-9 h-9 rounded-xl bg-sky-50 text-[#2076C7] flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F5F3] text-[#171717] flex items-center justify-center">
                   <Shield className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-extrabold text-zinc-900">Claim Settlement Leaderboard</h3>
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">EFFICIENCY RANKING 2024-25</p>
+                  <h3 className="text-lg font-extrabold text-[#171717]">Claim Settlement Leaderboard</h3>
+                  <p className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-widest">EFFICIENCY RANKING 2024-25</p>
                 </div>
               </div>
 
               {/* Bar Chart */}
               <div className="pt-6 pb-2">
-                <div className="h-48 flex items-end justify-between gap-3 px-2 border-b border-gray-100">
+                <div className="h-48 flex items-end justify-between gap-3 px-2 border-b border-[#E5E5E0]">
                   {[
                     { name: "HDFC ERGO", csr: 98, height: "92%" },
                     { name: "Tata AIG", csr: 98, height: "92%" },
@@ -42,20 +42,20 @@ export default function MarketInsights() {
                     { name: "Care Health", csr: 95, height: "68%" },
                   ].map((item, idx) => (
                     <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
-                      <span className="text-[10px] font-bold text-gray-600 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[10px] font-bold text-[#292929] opacity-0 group-hover:opacity-100 transition-opacity">
                         {item.csr}%
                       </span>
                       <div
                         className="w-full rounded-t-lg transition-all duration-500 group-hover:brightness-110"
                         style={{
                           height: item.height,
-                          background: "linear-gradient(to top, #1CADA3, #2076C7)"
+                          background: "linear-gradient(to top, #FFD21F, #F4C430)"
                         }}
                       />
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-between gap-1 pt-2 px-1 text-[9px] font-bold text-gray-500 text-center">
+                <div className="flex items-center justify-between gap-1 pt-2 px-1 text-[9px] font-bold text-[#6B6B6B] text-center">
                   <span className="flex-1 truncate">HDFC ERGO</span>
                   <span className="flex-1 truncate">Tata AIG</span>
                   <span className="flex-1 truncate">ICICI Lombard</span>
@@ -66,24 +66,24 @@ export default function MarketInsights() {
               </div>
             </div>
 
-            <div className="p-3 bg-sky-50/60 rounded-xl border border-sky-100 text-xs text-zinc-600 flex items-start gap-2">
-              <Info className="w-4 h-4 text-[#2076C7] shrink-0 mt-0.5" />
+            <div className="p-3 bg-[#F5F5F3] rounded-xl border border-[#E5E5E0] text-xs text-[#6B6B6B] flex items-start gap-2">
+              <Info className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
               <p>
-                <strong className="text-[#2076C7]">Why CSR Matters:</strong> Higher Claim Settlement Ratio indicates reliability. We partner with insurers maintaining 95%+ CSR.
+                <strong className="text-[#171717]">Why CSR Matters:</strong> Higher Claim Settlement Ratio indicates reliability. We partner with insurers maintaining 95%+ CSR.
               </p>
             </div>
           </div>
 
           {/* Medical Inflation Trend Card */}
-          <div className="bg-white rounded-2xl p-6 sm:p-8 border border-gray-100 shadow-xl space-y-6 flex flex-col justify-between">
+          <div className="bg-[#FFFFFF] rounded-2xl p-6 sm:p-8 border border-[#E5E5E0] shadow-xl space-y-6 flex flex-col justify-between">
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center">
+                <div className="w-9 h-9 rounded-xl bg-[#F5F5F3] text-[#171717] flex items-center justify-center">
                   <TrendingUp className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-extrabold text-zinc-900">Medical Inflation Trend</h3>
-                  <p className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">RISING COST OF CRITICAL CARE (IN INR)</p>
+                  <h3 className="text-lg font-extrabold text-[#171717]">Medical Inflation Trend</h3>
+                  <p className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-widest">RISING COST OF CRITICAL CARE (IN INR)</p>
                 </div>
               </div>
 
@@ -98,8 +98,8 @@ export default function MarketInsights() {
 
                     <defs>
                       <linearGradient id="inflationGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#2076C7" stopOpacity="0.25" />
-                        <stop offset="100%" stopColor="#1CADA3" stopOpacity="0.0" />
+                        <stop offset="0%" stopColor="#F4C430" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="#FFD21F" stopOpacity="0.0" />
                       </linearGradient>
                     </defs>
 
@@ -110,19 +110,19 @@ export default function MarketInsights() {
                     <path
                       d="M 20 145 Q 100 135 180 105 T 380 25"
                       fill="none"
-                      stroke="#2076C7"
+                      stroke="#F4C430"
                       strokeWidth="3"
                       strokeLinecap="round"
                     />
 
-                    <circle cx="20" cy="145" r="4" fill="#ffffff" stroke="#2076C7" strokeWidth="2.5" />
-                    <circle cx="100" cy="138" r="4" fill="#ffffff" stroke="#2076C7" strokeWidth="2.5" />
-                    <circle cx="180" cy="105" r="4" fill="#ffffff" stroke="#2076C7" strokeWidth="2.5" />
-                    <circle cx="280" cy="65" r="4" fill="#ffffff" stroke="#2076C7" strokeWidth="2.5" />
-                    <circle cx="380" cy="25" r="4" fill="#ffffff" stroke="#2076C7" strokeWidth="2.5" />
+                    <circle cx="20" cy="145" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
+                    <circle cx="100" cy="138" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
+                    <circle cx="180" cy="105" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
+                    <circle cx="280" cy="65" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
+                    <circle cx="380" cy="25" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
                   </svg>
                 </div>
-                <div className="flex items-center justify-between text-[10px] font-bold text-gray-400 pt-2 px-1">
+                <div className="flex items-center justify-between text-[10px] font-bold text-[#6B6B6B] pt-2 px-1">
                   <span>2014 (~₹2.5L)</span>
                   <span>2016</span>
                   <span>2019</span>
@@ -132,10 +132,10 @@ export default function MarketInsights() {
               </div>
             </div>
 
-            <div className="p-3 bg-teal-50/60 rounded-xl border border-teal-100 text-xs text-zinc-600 flex items-start gap-2">
-              <Activity className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+            <div className="p-3 bg-[#F5F5F3] rounded-xl border border-[#E5E5E0] text-xs text-[#6B6B6B] flex items-start gap-2">
+              <Activity className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
               <p>
-                <strong className="text-teal-700">The Urgency:</strong> Healthcare costs in India are rising at <strong>14% annually</strong>. Early coverage secures your financial future.
+                <strong className="text-[#F4C430]">The Urgency:</strong> Healthcare costs in India are rising at <strong>14% annually</strong>. Early coverage secures your financial future.
               </p>
             </div>
           </div>

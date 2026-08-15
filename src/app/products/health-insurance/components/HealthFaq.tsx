@@ -41,13 +41,13 @@ export default function HealthFaq() {
   const visibleFaqs = showAllFaqs ? HEALTH_FAQS : HEALTH_FAQS.slice(0, 5);
 
   return (
-    <section className="py-14 lg:py-20 bg-zinc-50/70 border-t border-zinc-200/70">
+    <section className="py-14 lg:py-20 bg-[#F5F5F3] border-t border-[#E5E5E0]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         <div className="text-center space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="text-xs sm:text-sm text-gray-500">
+          <p className="text-xs sm:text-sm text-[#6B6B6B]">
             Got questions about health insurance? We&apos;ve got answers.
           </p>
         </div>
@@ -56,24 +56,24 @@ export default function HealthFaq() {
           {visibleFaqs.map((faq, idx) => (
             <div
               key={idx}
-              className="bg-white rounded-2xl border border-gray-100 overflow-hidden shadow-xs hover:border-[#2076C7]/30 transition-all"
+              className="bg-[#FFFFFF] rounded-2xl border border-[#E5E5E0] overflow-hidden shadow-xs hover:border-[#F4C430] transition-all"
             >
               <button
                 type="button"
                 onClick={() => setFaqOpen(faqOpen === idx ? null : idx)}
-                className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-zinc-800 hover:text-[#2076C7] transition-colors cursor-pointer"
+                className="w-full px-6 py-4 text-left flex items-center justify-between gap-4 font-bold text-sm text-[#292929] hover:text-[#171717] transition-colors cursor-pointer"
               >
                 <span>{faq.q}</span>
-                <div className="w-7 h-7 rounded-full bg-gray-50 border border-gray-200 flex items-center justify-center shrink-0 text-gray-500">
+                <div className="w-7 h-7 rounded-full bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center shrink-0 text-[#6B6B6B]">
                   {faqOpen === idx ? (
-                    <Minus className="w-4 h-4 text-[#2076C7]" />
+                    <Minus className="w-4 h-4 text-[#171717]" />
                   ) : (
-                    <Plus className="w-4 h-4 text-gray-500" />
+                    <Plus className="w-4 h-4 text-[#6B6B6B]" />
                   )}
                 </div>
               </button>
               {faqOpen === idx && (
-                <div className="px-6 pb-5 text-xs sm:text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3.5">
+                <div className="px-6 pb-5 text-xs sm:text-sm text-[#292929] leading-relaxed border-t border-[#E5E5E0] pt-3.5">
                   {faq.a}
                 </div>
               )}
@@ -87,7 +87,7 @@ export default function HealthFaq() {
             <button
               type="button"
               onClick={() => setShowAllFaqs(true)}
-              className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl border border-gray-200 bg-white text-xs font-bold text-gray-700 hover:text-[#2076C7] hover:border-[#2076C7]/40 shadow-xs transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-6 py-2.5 rounded-xl border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-bold text-[#292929] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all cursor-pointer"
             >
               <span>View More Questions +</span>
             </button>

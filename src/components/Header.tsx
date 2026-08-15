@@ -34,10 +34,10 @@ const loansOptions = [
 ];
 
 const insuranceOptions = [
-  { label: "Term Insurance", href: "/products/term-insurance" },
+  { label: "Term Life Insurance", href: "/products/term-life-insurance" },
   { label: "Health Insurance", href: "/products/health-insurance" },
   { label: "Motor Insurance", href: "/products/motor-insurance" },
-  { label: "Travel Insurance", href: "/products/travel-insurance" },
+  { label: "General Insurance", href: "/products/general-insurance" },
 ];
 
 const mutualFundOptions = [
