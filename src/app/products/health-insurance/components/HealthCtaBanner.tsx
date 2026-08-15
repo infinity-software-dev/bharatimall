@@ -1,12 +1,9 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function HealthCtaBanner() {
-  const scrollToPlans = () => {
-    document.getElementById("plans-grid")?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
     <section
       className="py-16 text-[#171717] text-center relative overflow-hidden"
@@ -20,12 +17,18 @@ export default function HealthCtaBanner() {
           Get personalized advice from our IRDAI-certified insurance experts today. Compare plans and save up to 25% on your annual premiums.
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-          <div className="px-7 py-3.5 rounded-xl bg-[#F4C430] text-[#171717] font-bold text-xs sm:text-sm shadow-lg select-none">
-            Talk to an Expert
-          </div>
-          <div className="px-7 py-3.5 rounded-xl bg-black/20 border border-[#E5E5E0] text-[#171717] font-bold text-xs sm:text-sm select-none">
+          <Link
+            href="/enquiry"
+            className="px-7 py-3.5 rounded-xl bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-xs sm:text-sm shadow-lg transition-all cursor-pointer"
+          >
+            Talk to an Advisor
+          </Link>
+          <Link
+            href="/enquiry"
+            className="px-7 py-3.5 rounded-xl bg-black/10 border border-[#E5E5E0] hover:bg-black/20 text-[#171717] font-bold text-xs sm:text-sm transition-all cursor-pointer"
+          >
             Explore All Plans
-          </div>
+          </Link>
         </div>
       </div>
     </section>

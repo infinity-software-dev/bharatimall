@@ -7,10 +7,10 @@ export default function TrustedInsurers() {
   return (
     <section className="py-16 md:py-24 bg-[#FFFFFF] font-sans border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        
+
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-sans drop-shadow-xs text-[#171717]">
+          <h2 className="text-3xl md:text-4xl font-bold font-sans drop-shadow-xs text-[#171717]">
             Supported by India&apos;s Trusted Insurers
           </h2>
           <p className="text-[#6B6B6B] text-sm sm:text-base font-normal leading-relaxed">
