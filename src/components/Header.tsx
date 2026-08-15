@@ -45,8 +45,8 @@ const mutualFundOptions = [
 ];
 
 const investmentOptions = [
-  { label: "NCD", href: "/products/NCD" },
   { label: "NPS", href: "/products/nps" },
+   { label: "FD", href: "/products/fd" },
 ];
 
 const unlistedOptions = [
@@ -471,7 +471,7 @@ export default function Header() {
                 transition={{ type: "tween", duration: 0.1 }}
               >
                 <Link
-                  href="/contact"
+                  href="/enquiry"
                   className="font-sans bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer text-sm xl:text-base whitespace-nowrap block"
                 >
                   Enquiry
@@ -719,7 +719,7 @@ export default function Header() {
               ) : (
                 <div className="flex flex-col gap-2 pt-4 border-t border-[#1CADA3]/10 w-[80%] max-w-xs">
                   <Link
-                    href="/contact"
+                    href="/enquiry"
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-center"
                   >
