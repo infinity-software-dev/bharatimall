@@ -12,17 +12,16 @@ import BusinessLoanStepProcess from './components/BusinessLoanStepProcess';
 import BusinessLoanPartners from './components/BusinessLoanPartners';
 import BusinessLoanFAQ from './components/BusinessLoanFAQ';
 import CTASection from './components/CTASection';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function BusinessLoanPage() {
   const router = useRouter();
   const handleBackHome = () => router.push("/");
 
-  const handleApplyClick = () => {
-    const element = document.getElementById("calculator-section");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const handleApplyClick = ()=>{
+    router.push('/enquiry');
+  }
 
   const handleCalculateClick = () => {
     const element = document.getElementById("calculator-section");
@@ -33,6 +32,7 @@ export default function BusinessLoanPage() {
 
   return (
     <main className="min-h-screen bg-slate-50">
+      <Header />
       {/* Fixed Back to Home Navigation */}
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
         {/* Mobile View */}
@@ -67,11 +67,12 @@ export default function BusinessLoanPage() {
       <div id="calculator-section">
         <BusinessLoanCalculator />
       </div>
-      <BusinessLoanEligibility />
+      <BusinessLoanEligibility  onApplyClick={handleApplyClick}/>
       <BusinessLoanStepProcess />
       <BusinessLoanPartners />
       <BusinessLoanFAQ />
       <CTASection />
+      <Footer />
     </main>
   );
 }

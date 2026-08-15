@@ -12,13 +12,20 @@ import PartnerBanks from './components/PartnerBanks';
 import FAQ from './components/FAQ';
 import PersonalLoanCTA from './components/PersonalLoanCTA';
 import CibilScoreBanner from './components/CibilScoreBanner';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 export default function PersonalLoanPage() {
   const router = useRouter();
   const handleBackHome = () => router.push("/");
 
+  const handleApplyClick = ()=>{
+    router.push('/enquiry');
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
+      <Header />
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
         {/* Mobile View */}
         <button
@@ -42,15 +49,16 @@ export default function PersonalLoanPage() {
           <span>Back to Home</span>
         </button>
       </div>
-      <PersonalLoanHero />
+      <PersonalLoanHero onApply={handleApplyClick} />
       <CibilScoreBanner />
       <FeaturesBenefits />
       <HowItWorks />
       <LoanCalculator />
-      <EligibilityCriteria />
+      <EligibilityCriteria openForm={handleApplyClick} />
       <PartnerBanks />
       <FAQ />
       <PersonalLoanCTA />
+      <Footer />
     </main>
   );
 }

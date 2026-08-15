@@ -268,7 +268,7 @@ export default function Home() {
               className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#374151] leading-[1.12]"
             >
               Welcome to{" "}
-              <span className="text-[#F4C430]">Bharati Financial Mall</span>
+              <span className="text-[#F4C430]">Bharti Financial Mall</span>
             </motion.h1>
 
             {/* Subtitle / Description in Soft Slate Grey */}
@@ -297,7 +297,7 @@ export default function Home() {
                 className="w-full sm:w-auto"
               >
                 <Link
-                  href="/products"
+                  href="/products/term-life-insurance"
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] btn-brand-shadow shimmer-btn transition-all duration-200 text-center"
                 >
                   Explore Products
@@ -677,7 +677,7 @@ export default function Home() {
                 whileTap={{ scale: 0.98 }}
               >
                 <Link
-                  href="/products"
+                  href="/products/term-life-insurance"
                   className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] btn-brand-shadow transition-all duration-200"
                 >
                   View All Products

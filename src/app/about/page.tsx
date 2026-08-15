@@ -58,9 +58,9 @@ export default function AboutPage() {
             <h1 className="text-3xl sm:text-4xl font-extrabold text-[#374151] leading-tight">
               Democratizing Stock Market Success
             </h1>
-            <p className="text-sm text-zinc-500 max-w-xl mx-auto">
+            {/* <p className="text-sm text-zinc-500 max-w-xl mx-auto">
               At Bharti Share Market, our core vision is आर्थिक साक्षरता (Financial Literacy).
-            </p>
+            </p> */}
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

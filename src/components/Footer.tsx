@@ -88,7 +88,7 @@ export default function Footer() {
             <ul className="space-y-1.5 text-xs sm:text-sm">
               <li>
                 <Link href="/about" className="hover:text-[#F4C430] transition-colors">
-                  About Bharti Share Market
+                  About Bharti Financial Mall
                 </Link>
               </li>
               <li>

@@ -132,10 +132,10 @@ export default function MutualFundsLandingPage() {
 
               {/* Left Hero Text */}
               <div className="w-full lg:w-1/2 text-center lg:text-left space-y-6">
-                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-[#FFF8D6] border border-[#F4C430]/40 text-[#171717] shadow-xs">
+                {/* <div className="inline-flex  items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold bg-[#FFF8D6] border border-[#F4C430]/40 text-[#171717] shadow-xs">
                   <span className="w-2 h-2 rounded-full bg-[#F4C430] animate-pulse inline-block" />
                   AMFI Registered Mutual Fund Distributor (ARN-347839)
-                </div>
+                </div> */}
 
                 <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight tracking-tight text-[#171717]">
                   Invest Smarter with <br className="hidden sm:inline" />
@@ -283,7 +283,7 @@ export default function MutualFundsLandingPage() {
                 <strong className="text-[#171717]">Disclaimer:</strong> Mutual fund schemes are subject to market risk. Please read all scheme-related documents carefully before investing. Past performance is not an indicator of future returns.
               </p>
             </div>
-            <div className="bg-[#FFFDF5] border border-[#E5E5E0] rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left shadow-xs">
+            <div className="bg-[#FFFDF5] hidden border border-[#E5E5E0] rounded-2xl p-5 flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left shadow-xs">
               <div className="w-10 h-10 bg-white rounded-xl flex items-center justify-center shrink-0 border border-[#E5E5E0] text-[#171717] shadow-2xs">
                 <Shield className="w-5 h-5 text-[#E91E63]" />
               </div>

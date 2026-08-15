@@ -11,13 +11,20 @@ import VehicleLoanEligibility from './components/VehicleLoanEligibility';
 import VehicleLoanProcess from './components/VehicleLoanProcess';
 import VehicleLoanPartners from './components/VehicleLoanPartners';
 import VehicleLoanFAQ from './components/VehicleLoanFAQ';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function VehicleLoanPage() {
   const router = useRouter();
   const handleBackHome = () => router.push("/");
 
+  const handleApplyClick = ()=>{
+    router.push('/enquiry');
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
+      <Header />
       {/* Fixed Back to Home Navigation */}
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
         {/* Mobile View */}
@@ -43,14 +50,15 @@ export default function VehicleLoanPage() {
         </button>
       </div>
 
-      <VehicleLoanHero />
+      <VehicleLoanHero onApplyClick={handleApplyClick}/>
       <VehicleLoanFeatures />
-      <VehicleLoanTypes />
-      <VehicleLoanCalculator />
+      <VehicleLoanTypes onApplyClick={handleApplyClick} />
+      <VehicleLoanCalculator onApplyClick={handleApplyClick} />
       <VehicleLoanEligibility />
-      <VehicleLoanProcess />
+      <VehicleLoanProcess onApplyClick={handleApplyClick}/>
       <VehicleLoanPartners />
       <VehicleLoanFAQ />
+      <Footer />
     </main>
   );
 }

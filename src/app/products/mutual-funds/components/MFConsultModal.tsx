@@ -83,7 +83,7 @@ export default function MFConsultModal({
                 AMFI Registered Mutual Fund Distributor
               </div>
               <h3 className="text-xl font-extrabold text-[#E91E63] tracking-tight">
-                {title}
+                {/* {title} */}
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1">
                 Zero commission, direct digital onboarding with India&apos;s leading AMCs.
