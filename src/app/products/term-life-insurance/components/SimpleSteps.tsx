@@ -34,13 +34,15 @@ export default function SimpleSteps() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 max-w-6xl mx-auto items-stretch">
           
           {/* Step 1: Instant Eligibility */}
-          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E5E5E0] p-8 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+          <div className="bg-[#FFFFFF] rounded-3xl border-2 border-[#E5E5E0] hover:border-[#F4C430] p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#F4C430] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div>
-              <h3 className="text-xl font-extrabold text-[#171717] text-center mb-8">
+              <h3 className="text-xl font-extrabold text-[#171717] text-center mb-6">
                 Instant Eligibility
               </h3>
 
-              <div className="grid grid-cols-2 gap-6">
+              {/* Inner card container for parameters */}
+              <div className="p-4 bg-[#F5F5F3] rounded-2xl border border-[#E5E5E0] grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <div className="flex items-center gap-1.5 text-[10px] font-black text-[#6B6B6B] uppercase tracking-widest">
                     <User className="w-3.5 h-3.5 text-[#171717]" />
@@ -75,13 +77,14 @@ export default function SimpleSteps() {
               </div>
             </div>
 
-            <div className="pt-8 border-t border-[#E5E5E0] mt-6 text-[10px] text-[#6B6B6B] text-center font-medium">
+            <div className="pt-6 border-t border-[#E5E5E0] mt-6 text-[10px] text-[#6B6B6B] text-center font-medium">
               *Real-time eligibility verification in &lt; 2 minutes.
             </div>
           </div>
 
           {/* Step 2: Digital Dossier */}
-          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E5E5E0] p-8 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+          <div className="bg-[#FFFFFF] rounded-3xl border-2 border-[#E5E5E0] hover:border-[#F4C430] p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#F4C430] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div>
               <h3 className="text-xl font-extrabold text-[#171717] text-center mb-6">
                 Digital Dossier
@@ -138,7 +141,8 @@ export default function SimpleSteps() {
           </div>
 
           {/* Step 3: Expert Review */}
-          <div className="bg-[#FFFFFF] rounded-3xl border border-[#E5E5E0] p-8 shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+          <div className="bg-[#FFFFFF] rounded-3xl border-2 border-[#E5E5E0] hover:border-[#F4C430] p-8 shadow-md hover:shadow-xl transition-all flex flex-col justify-between relative overflow-hidden group">
+            <div className="absolute top-0 left-0 right-0 h-1 bg-[#F4C430] opacity-0 group-hover:opacity-100 transition-opacity" />
             <div className="space-y-4">
               <h3 className="text-xl font-extrabold text-[#171717] text-center">
                 Expert Review
@@ -149,7 +153,7 @@ export default function SimpleSteps() {
               </p>
 
               {/* Trust Badge */}
-              <div className="p-3 rounded-2xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center gap-2 text-[#198754]">
+              <div className="p-3.5 rounded-2xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center gap-2 text-[#198754]">
                 <ShieldCheck className="w-5 h-5 text-[#198754]" />
                 <div className="text-left">
                   <div className="text-[9px] font-black uppercase tracking-wider text-[#198754]">TRUST BADGE</div>
