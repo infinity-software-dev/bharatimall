@@ -118,9 +118,9 @@ export default function SIPCalculator() {
       {/* Title */}
       <div className="text-center mb-8">
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#171717] tracking-tight">
-          Mutual Fund <span className="text-[#F4C430]">SIP & Lumpsum Calculator</span>
+          Mutual Fund <span className="text-[#E91E63]">SIP & Lumpsum Calculator</span>
         </h2>
-        <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-3 mt-3" />
+        <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-3 mt-3" />
         <p className="text-xs sm:text-sm text-[#6B6B6B] font-normal mt-1">
           Estimate how your regular monthly savings compound into wealth over time.
         </p>
@@ -133,7 +133,7 @@ export default function SIPCalculator() {
             type="button"
             onClick={() => { setActiveTab("sip"); clearSelectedFund(); }}
             className={`px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-              activeTab === "sip" ? "bg-[#F4C430] text-[#171717] shadow-sm" : "text-[#6B6B6B] hover:text-[#171717]"
+              activeTab === "sip" ? "bg-[#F4C430] text-[#171717] shadow-sm" : "text-[#6B6B6B] hover:text-[#E91E63]"
             }`}
           >
             Monthly SIP
@@ -142,7 +142,7 @@ export default function SIPCalculator() {
             type="button"
             onClick={() => { setActiveTab("lumpsum"); clearSelectedFund(); }}
             className={`px-6 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all cursor-pointer ${
-              activeTab === "lumpsum" ? "bg-[#F4C430] text-[#171717] shadow-sm" : "text-[#6B6B6B] hover:text-[#171717]"
+              activeTab === "lumpsum" ? "bg-[#F4C430] text-[#171717] shadow-sm" : "text-[#6B6B6B] hover:text-[#E91E63]"
             }`}
           >
             One-Time Lumpsum
@@ -155,8 +155,8 @@ export default function SIPCalculator() {
         {selectedFund ? (
           <div className="p-3.5 bg-[#FFF8D6] border border-[#F4C430]/40 rounded-2xl flex items-center justify-between shadow-xs">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-[#F4C430] text-[#171717] flex items-center justify-center font-bold text-xs">
-                <Sparkles className="w-4 h-4" />
+              <div className="w-8 h-8 rounded-xl bg-[#FFF8D6] border border-[#F4C430]/40 text-[#E91E63] flex items-center justify-center font-bold text-xs">
+                <Sparkles className="w-4 h-4 text-[#E91E63]" />
               </div>
               <div>
                 <p className="text-xs font-bold text-[#171717]">{selectedFund.name}</p>
@@ -180,7 +180,7 @@ export default function SIPCalculator() {
                 placeholder="Auto-fill return from fund (e.g. Parag Parikh, Nippon Small Cap)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-[#FFFDF5] border border-[#E5E5E0] rounded-2xl text-xs outline-none focus:border-[#F4C430] text-[#171717]"
+                className="w-full pl-10 pr-4 py-3 bg-[#FFFDF5] border border-[#E5E5E0] rounded-2xl text-xs outline-none focus:border-[#E91E63] text-[#171717]"
               />
             </div>
             {searchResults.length > 0 && (
@@ -368,7 +368,7 @@ export default function SIPCalculator() {
                 cy="80"
                 r="65"
                 fill="transparent"
-                stroke="#F4C430"
+                stroke="#E91E63"
                 strokeWidth="18"
                 strokeDasharray={`${(returnRatio / 100) * C} ${C}`}
                 strokeDashoffset="0"
@@ -397,7 +397,7 @@ export default function SIPCalculator() {
             </div>
             <div className="flex justify-between items-center py-1.5 border-b border-[#E5E5E0]">
               <span className="text-[#6B6B6B] font-medium flex items-center gap-1.5">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#F4C430] inline-block" />
+                <span className="w-2.5 h-2.5 rounded-full bg-[#E91E63] inline-block" />
                 Est. Wealth Gain:
               </span>
               <span className="font-black text-[#198754]">+{formatINR(results.returns)}</span>
@@ -411,9 +411,9 @@ export default function SIPCalculator() {
       </div>
 
       {/* Strategy Insight Callout Box */}
-      <div className="rounded-2xl p-5 border border-[#F4C430]/40 bg-[#FFF8D6]/40 mt-8">
-        <h4 className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[#171717]">
-          <TrendingUp className="w-4 h-4 text-[#F4C430]" /> Strategy Insight
+      <div className="rounded-2xl p-5 border border-[#E91E63]/30 bg-[#FFF8D6]/40 mt-8">
+        <h4 className="text-xs font-bold uppercase tracking-widest mb-2 flex items-center gap-2 text-[#E91E63]">
+          <TrendingUp className="w-4 h-4 text-[#E91E63]" /> Strategy Insight
         </h4>
         <p className="text-xs sm:text-sm text-[#292929] leading-relaxed font-normal italic">
           A monthly SIP of ₹{sipAmount.toLocaleString("en-IN")} over {sipDuration} years at {sipReturn}% CAGR can build a substantial corpus of {formatINR(results.total)}. Systematic investing averages your entry cost through rupee-cost averaging and captures long-term compounding growth.

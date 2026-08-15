@@ -16,6 +16,8 @@ import {
   Package,
   ArrowRight,
   Sparkles,
+  BarChart2,
+  Percent,
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import TopPicksSection from "./TopPicksSection";
@@ -406,11 +408,11 @@ const CATEGORIES = [
   { label: "Equity Funds", key: "Equity Funds", icon: <TrendingUp className="w-4 h-4" /> },
   { label: "Debt Funds", key: "Debt Funds", icon: <Shield className="w-4 h-4" /> },
   { label: "Hybrid Funds", key: "Hybrid Funds", icon: <Layers className="w-4 h-4" /> },
-  { label: "Index Funds", key: "Index Funds", icon: <Zap className="w-4 h-4" /> },
+  { label: "Index Funds", key: "Index Funds", icon: <BarChart2 className="w-4 h-4" /> },
   { label: "ETF Funds", key: "ETF Funds", icon: <Zap className="w-4 h-4" /> },
   { label: "Tax Saver (ELSS)", key: "Tax Saver (ELSS)", icon: <IndianRupee className="w-4 h-4" /> },
   { label: "Global Funds", key: "Global Funds", icon: <Globe className="w-4 h-4" /> },
-  { label: "Commodity Funds", key: "Commodity Funds", icon: <Coins className="w-4 h-4" /> },
+  { label: "Commodity Funds", key: "Commodity Funds", icon: <Percent className="w-4 h-4" /> },
 ];
 
 interface FundsProps {
@@ -441,121 +443,133 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
   }, []);
 
   return (
-    <div id="marketplace" className="w-full bg-[#FFFDF5] pb-10 font-sans">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10">
+    <div id="marketplace" className="w-full bg-[#FFFDF5] pb-16 font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-12">
         
-        {/* Header */}
-        <header className="mb-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-3 bg-[#FFF8D6] border border-[#F4C430]/40 rounded-full text-xs font-bold uppercase tracking-wider text-[#171717] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#F4C430]" /> Curated Marketplace
-          </div>
-          <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight uppercase">
-            Mutual Fund <span className="text-[#F4C430]">Marketplace</span>
+        {/* Marketplace Main Header */}
+        <header className="text-center mb-8">
+          <h2 className="text-3xl md:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+            Mutual Fund Marketplace
           </h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-4" />
-          <p className="text-[#6B6B6B] max-w-2xl mx-auto text-base font-normal">
-            Explore and invest in top-performing mutual funds across equity, hybrid, debt, and tax-saving categories.
-          </p>
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mt-3 mb-8" />
+
+          {/* Category Filter Pills (2 Centered Rows) */}
+          <div className="flex flex-wrap justify-center gap-2.5 sm:gap-3 max-w-5xl mx-auto mb-8 items-center">
+            {CATEGORIES.map((cat) => {
+              const isActive = activeCategory === cat.key;
+              return (
+                <button
+                  key={cat.key}
+                  type="button"
+                  onClick={() => setActiveCategory(cat.key)}
+                  className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer border ${
+                    isActive
+                      ? "bg-[#E91E63] text-white border-[#E91E63] shadow-md shadow-[#E91E63]/25 scale-105"
+                      : "bg-white text-[#4A4A4A] border-[#E5E5E0] hover:border-[#E91E63] hover:text-[#171717] hover:bg-[#FFF8D6]/30 shadow-xs"
+                  }`}
+                >
+                  <span className={isActive ? "text-white" : "text-[#6B6B6B]"}>
+                    {cat.icon}
+                  </span>
+                  <span>{cat.label}</span>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Search Bar with helper text */}
+          <div className="max-w-2xl mx-auto mb-10">
+            <div className="relative rounded-2xl sm:rounded-full bg-white border border-[#E5E5E0] shadow-xs focus-within:border-[#E91E63] focus-within:ring-2 focus-within:ring-[#E91E63]/20 transition-all">
+              <Search className="w-5 h-5 text-[#888888] absolute left-5 top-1/2 -translate-y-1/2 pointer-events-none" />
+              <input
+                type="text"
+                placeholder="Search by fund name, AMC or scheme..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-13 pr-11 py-3.5 bg-transparent rounded-2xl sm:rounded-full text-sm font-medium text-[#171717] placeholder-[#888888] outline-none"
+              />
+              {searchQuery && (
+                <button
+                  type="button"
+                  onClick={() => setSearchQuery("")}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-1 text-[#888888] hover:text-[#171717] cursor-pointer"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              )}
+            </div>
+            <p className="text-xs text-[#737373] text-center mt-2.5 font-normal">
+              Search by fund name, AMC or scheme. Press Enter or click Apply Filters.
+            </p>
+          </div>
+
+          {/* Category Section Heading */}
+          <div className="text-center mt-8 mb-6">
+            <h3 className="text-2xl sm:text-3xl font-extrabold text-[#E91E63] tracking-tight">
+              {activeCategory === "All"
+                ? searchQuery
+                  ? `Search Results (${filteredFunds.length})`
+                  : "Large Cap & Top Funds"
+                : activeCategory}
+            </h3>
+          </div>
         </header>
 
-        {/* Top Picks Carousel */}
-        <div className="mb-14">
-          <TopPicksSection
-            title="⭐ Top Recommended 5-Star Mutual Funds"
-            funds={topPicks}
-            renderItem={(fund: FundCard) => (
-              <div className="h-full bg-white p-6 rounded-3xl border border-[#E5E5E0] shadow-md flex flex-col justify-between hover:shadow-xl hover:border-[#F4C430] transition-all">
-                <div>
-                  <div className="flex justify-between items-start mb-3">
-                    <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40">
-                      {fund.type}
-                    </span>
-                    <span className="text-xs font-black text-[#F4C430] bg-[#FFF8D6] px-2 py-0.5 rounded-md border border-[#F4C430]/30">
-                      {"★".repeat(fund.rating)}
-                    </span>
-                  </div>
-                  <h4 className="font-bold text-base text-[#171717] line-clamp-1">{fund.name}</h4>
-                  <p className="text-xs text-[#6B6B6B] font-medium mb-4">{fund.fundHouse}</p>
+        {/* Top Picks Carousel (Shown when viewing All and no search) */}
+        {activeCategory === "All" && !searchQuery && (
+          <div className="mb-14">
+            <TopPicksSection
+              title="⭐ Top Recommended 5-Star Mutual Funds"
+              funds={topPicks}
+              renderItem={(fund: FundCard) => (
+                <div className="h-full bg-white p-6 rounded-3xl border border-[#E5E5E0] shadow-md flex flex-col justify-between hover:shadow-xl hover:border-[#E91E63] transition-all group">
+                  <div>
+                    <div className="flex justify-between items-start mb-3">
+                      <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40">
+                        {fund.type}
+                      </span>
+                      <span className="text-xs font-black text-[#E91E63] bg-[#FFF8D6] px-2 py-0.5 rounded-md border border-[#F4C430]/30">
+                        {"★".repeat(fund.rating)}
+                      </span>
+                    </div>
+                    <h4 className="font-bold text-base text-[#171717] group-hover:text-[#E91E63] transition-colors line-clamp-1">{fund.name}</h4>
+                    <p className="text-xs text-[#6B6B6B] font-medium mb-4">{fund.fundHouse}</p>
 
-                  <div className="grid grid-cols-3 gap-2 py-3 bg-[#FFFDF5] rounded-2xl text-center border border-[#E5E5E0] mb-4">
-                    <div>
-                      <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">1Y Return</p>
-                      <p className="text-xs font-black text-[#198754]">+{fund.return1Y}</p>
+                    <div className="grid grid-cols-3 gap-2 py-3 bg-[#FFFDF5] rounded-2xl text-center border border-[#E5E5E0] mb-4">
+                      <div>
+                        <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">1Y Return</p>
+                        <p className="text-xs font-black text-[#198754]">+{fund.return1Y}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">3Y CAGR</p>
+                        <p className="text-xs font-black text-[#198754]">+{fund.return3Y}</p>
+                      </div>
+                      <div>
+                        <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">NAV</p>
+                        <p className="text-xs font-extrabold text-[#171717]">₹{fund.nav}</p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">3Y CAGR</p>
-                      <p className="text-xs font-black text-[#198754]">+{fund.return3Y}</p>
-                    </div>
-                    <div>
-                      <p className="text-[9px] font-bold text-[#6B6B6B] uppercase">NAV</p>
-                      <p className="text-xs font-extrabold text-[#171717]">₹{fund.nav}</p>
-                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2 pt-2">
+                    <Link
+                      href={`/products/mutual-funds/${fund.schemeCode}`}
+                      className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] hover:border-[#E91E63] transition-colors"
+                    >
+                      View Details
+                    </Link>
+                    <Link
+                      href="/enquiry"
+                      className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer text-center flex items-center justify-center"
+                    >
+                      Invest Now
+                    </Link>
                   </div>
                 </div>
-
-                <div className="flex items-center gap-2 pt-2">
-                  <Link
-                    href={`/products/mutual-funds/${fund.schemeCode}`}
-                    className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] transition-colors"
-                  >
-                    View Details
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => onInvestFund ? onInvestFund(fund.name) : alert(`Investing in ${fund.name}`)}
-                    className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer"
-                  >
-                    Invest Now
-                  </button>
-                </div>
-              </div>
-            )}
-          />
-        </div>
-
-        {/* Category Filter Buttons */}
-        <div className="flex justify-center mb-8 w-full">
-          <div className="flex flex-wrap gap-2.5 max-w-5xl justify-center items-center">
-            {CATEGORIES.map((cat) => (
-              <button
-                key={cat.key}
-                type="button"
-                onClick={() => setActiveCategory(cat.key)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-200 border cursor-pointer ${
-                  activeCategory === cat.key
-                    ? "bg-[#F4C430] text-[#171717] border-[#F4C430] shadow-md scale-105"
-                    : "bg-white text-[#292929] border-[#E5E5E0] hover:bg-[#FFF8D6] hover:border-[#F4C430] hover:text-[#171717]"
-                }`}
-              >
-                {cat.icon}
-                <span>{cat.label}</span>
-              </button>
-            ))}
-          </div>
-        </div>
-
-        {/* Search Bar */}
-        <div className="max-w-2xl mx-auto mb-10">
-          <div className="relative">
-            <Search className="w-5 h-5 text-[#6B6B6B] absolute left-4 top-1/2 -translate-y-1/2" />
-            <input
-              type="text"
-              placeholder="Search by fund name, AMC, or category..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-10 py-3.5 bg-white border border-[#E5E5E0] rounded-2xl text-sm font-medium text-[#171717] focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/30 outline-none shadow-xs transition-all"
+              )}
             />
-            {searchQuery && (
-              <button
-                type="button"
-                onClick={() => setSearchQuery("")}
-                className="absolute right-3.5 top-1/2 -translate-y-1/2 p-1 text-[#6B6B6B] hover:text-[#171717] cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            )}
           </div>
-        </div>
+        )}
 
         {/* Funds Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -564,7 +578,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
               key={fund.schemeCode}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-3xl p-6 border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#F4C430] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-6 border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#E91E63] transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <div className="flex justify-between items-start mb-3">
@@ -581,7 +595,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#171717] group-hover:text-[#F4C430] transition-colors line-clamp-1 mb-1">
+                <h3 className="text-base font-extrabold text-[#E91E63] group-hover:text-[#171717] transition-colors line-clamp-1 mb-1">
                   {fund.name}
                 </h3>
                 <p className="text-xs text-[#6B6B6B] font-normal mb-4">{fund.fundHouse}</p>
@@ -603,24 +617,23 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
 
                 <div className="flex items-center justify-between text-xs text-[#6B6B6B] mb-4">
                   <span>AUM: <strong className="text-[#171717]">{fund.aum}</strong></span>
-                  <span>Rating: <strong className="text-[#F4C430]">{"★".repeat(fund.rating)}</strong></span>
+                  <span>Rating: <strong className="text-[#E91E63]">{"★".repeat(fund.rating)}</strong></span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 pt-2 border-t border-[#E5E5E0]">
                 <Link
                   href={`/products/mutual-funds/${fund.schemeCode}`}
-                  className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] transition-colors"
+                  className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] hover:border-[#E91E63] transition-colors"
                 >
                   Details
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => onInvestFund ? onInvestFund(fund.name) : alert(`Investing in ${fund.name}`)}
-                  className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer"
+                <Link
+                  href="/enquiry"
+                  className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer text-center flex items-center justify-center"
                 >
                   Start SIP
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}

@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Calendar, Target, ArrowRight, IndianRupee } from "lucide-react";
 
@@ -82,9 +83,9 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
       {/* HEADING */}
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight">
-          Plan Your <span className="text-[#F4C430]">Future</span>
+          Plan Your <span className="text-[#E91E63]">Future</span>
         </h2>
-        <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-4" />
+        <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-4" />
         <p className="text-[#6B6B6B] font-normal text-base">Create personalized financial goals and start your wealth journey.</p>
       </div>
 
@@ -99,7 +100,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 placeholder="e.g. World Tour"
-                className="w-full px-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/20 outline-none transition-all font-bold text-[#171717] shadow-xs"
+                className="w-full px-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/20 outline-none transition-all font-bold text-[#171717] shadow-xs"
               />
             </div>
             <div>
@@ -113,7 +114,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                     className={`p-3 rounded-xl flex flex-col items-center gap-1 border transition-all cursor-pointer ${
                       formData.category === cat.name
                         ? "bg-[#F4C430] border-[#F4C430] shadow-md scale-105 text-[#171717]"
-                        : "bg-white border-[#E5E5E0] text-[#292929] hover:border-[#F4C430]"
+                        : "bg-white border-[#E5E5E0] text-[#292929] hover:border-[#E91E63]"
                     }`}
                   >
                     <span className="text-xl">{cat.icon}</span>
@@ -136,7 +137,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                   value={formData.targetAmount}
                   onChange={(e) => setFormData({ ...formData, targetAmount: e.target.value })}
                   placeholder="0.00"
-                  className="w-full pl-12 pr-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/20 outline-none font-bold text-[#171717] shadow-xs"
+                  className="w-full pl-12 pr-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/20 outline-none font-bold text-[#171717] shadow-xs"
                 />
               </div>
             </div>
@@ -146,7 +147,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                 type="date"
                 value={formData.targetDate}
                 onChange={(e) => setFormData({ ...formData, targetDate: e.target.value })}
-                className="w-full px-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/20 outline-none font-bold text-[#171717] shadow-xs"
+                className="w-full px-6 py-4 bg-white border border-[#E5E5E0] rounded-2xl focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/20 outline-none font-bold text-[#171717] shadow-xs"
               />
             </div>
             <button 
@@ -170,7 +171,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.9 }}
-                className="relative bg-white p-8 rounded-[2rem] border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#F4C430] transition-all group overflow-hidden"
+                className="relative bg-white p-8 rounded-[2rem] border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#E91E63] transition-all group overflow-hidden"
               >
                 <div className="relative z-10">
                   <div className="flex justify-between items-start mb-6">
@@ -186,7 +187,7 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                     </button>
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#171717] mb-1">{goal.name}</h3>
+                  <h3 className="text-xl font-bold text-[#171717] group-hover:text-[#E91E63] transition-colors mb-1">{goal.name}</h3>
                   <span className="px-3 py-1 bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40 text-[10px] font-bold rounded-full uppercase tracking-tighter">
                     {goal.category}
                   </span>
@@ -210,14 +211,13 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => onInvest ? onInvest(goal.name) : alert(`Starting SIP for ${goal.name}`)}
-                    className="w-full flex items-center justify-center gap-2 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-2xl font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
+                  <Link
+                    href="/enquiry"
+                    className="w-full flex items-center justify-center gap-2 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-2xl font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer text-center"
                   >
                     Start Investing for Goal
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
