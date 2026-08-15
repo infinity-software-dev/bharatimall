@@ -265,8 +265,7 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#374151] leading-[1.12]"
-            >
+              className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-[#374151] leading-[1.12]">
               Welcome to{" "}
               <span className="text-[#F4C430]">Bharti Financial Mall</span>
             </motion.h1>
@@ -276,11 +275,8 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-              className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed"
-            >
-              Reimagining share market education and advisor resources. Browse
-              our courses, download guides, and elevate your financial potential
-              under Bharti Share Market.
+              className="text-base sm:text-lg text-[#64748B] max-w-2xl mx-auto leading-relaxed">
+              Bharati Financial Mall brings a wide range of financial solutions together on one technology-enabled platform, helping you discover the right options for your personal, family and business needs.
             </motion.p>
 
             {/* Hero CTAs */}
@@ -288,18 +284,15 @@ export default function Home() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4"
-            >
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
               <motion.div
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: "spring", stiffness: 350, damping: 20 }}
-                className="w-full sm:w-auto"
-              >
+                className="w-full sm:w-auto">
                 <Link
                   href="/products/term-life-insurance"
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] btn-brand-shadow shimmer-btn transition-all duration-200 text-center"
-                >
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-8 py-4 rounded-xl text-sm font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] btn-brand-shadow shimmer-btn transition-all duration-200 text-center">
                   Explore Products
                   <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
@@ -790,59 +783,6 @@ export default function Home() {
                   );
                 })}
               </AnimatePresence>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* 5. Highlighted Advisory Spotlight Banner */}
-        <section className="py-12 bg-[#FFF8D6] border-b border-[#E5E5E0] relative overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.01 }}
-              className="bg-[#FFFFFF] border-2 border-[#F4C430] rounded-3xl p-6 sm:p-8 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6 transition-transform"
-            >
-              <div className="space-y-2 text-center md:text-left">
-                <div className="inline-flex items-center gap-2 text-xs font-bold text-[#E91E63] bg-[#FDF2F8] border border-[#FBCFE8] px-3 py-1 rounded-md">
-                  <BookOpen className="w-3.5 h-3.5 text-[#E91E63]" />
-                  <span>Bharti Share Market Academic Resources</span>
-                </div>
-                <h3 className="text-xl sm:text-2xl font-black text-[#374151]">
-                  Ready to upgrade your stock trading and investment skills?
-                </h3>
-                <p className="text-xs sm:text-sm text-[#64748B] max-w-xl">
-                  Access comprehensive study materials, offline classroom
-                  workshops across Maharashtra, and interactive market sessions.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Link
-                    href="/products"
-                    className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] btn-brand-shadow transition-all text-center block"
-                  >
-                    Browse All Courses
-                  </Link>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.04 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Link
-                    href="/about"
-                    className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#E91E63] bg-[#FFFFFF] border border-[#FBCFE8] hover:bg-[#FDF2F8] transition-all text-center block"
-                  >
-                    About Us
-                  </Link>
-                </motion.div>
-              </div>
             </motion.div>
           </div>
         </section>
