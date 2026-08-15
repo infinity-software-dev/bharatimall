@@ -9,7 +9,7 @@ export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-950 text-zinc-100">
       <Header />
-      
+
       <main className="flex-1 max-w-4xl mx-auto px-4 py-16 space-y-12">
         <div className="space-y-4 text-center">
           <span className="text-xs font-bold text-[#2076C7] uppercase tracking-widest">Our Legacy & Mission</span>
