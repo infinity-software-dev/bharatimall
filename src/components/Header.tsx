@@ -13,12 +13,12 @@ import {
 import { motion, AnimatePresence } from "framer-motion";
 
 const loansOptions = [
-  { label: "Personal Loan", href: "/products" },
-  { label: "Business Loan", href: "/products" },
-  { label: "Education Loan", href: "/products" },
-  { label: "Vehicle Loan", href: "/products" },
-  { label: "Loan Against Securities", href: "/products" },
-  { label: "Credit Cards", href: "/products" },
+  { label: "Personal Loan", href: "/products/loans/personal-loan" },
+  { label: "Business Loan", href: "/products/loans/business-loan" },
+  { label: "Education Loan", href: "/products/loans/education-loan" },
+  { label: "Vehicle Loan", href: "/products/loans/vehicle-loan" },
+  { label: "Loan Against Securities", href: "/products/loans/loan-against-securities" },
+  { label: "Credit Cards", href: "/products/loans/credit-card" },
 ];
 
 const insuranceOptions = [
