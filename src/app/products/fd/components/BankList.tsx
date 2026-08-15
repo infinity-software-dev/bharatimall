@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import {
     TrendingUp,
     ChevronDown,
@@ -1046,7 +1047,7 @@ export default function BankList({ onApplyBank }: BankListProps) {
                                                                 <div className="flex items-center gap-3">
                                                                     <BankLogo name={bank.name} shortName={bank.shortName} logoType={bank.logoType} />
                                                                     <div>
-                                                                        <span className="font-bold text-[#171717] block group-hover:text-[#B45309] transition-colors">
+                                                                        <span className="font-bold text-[#E91E63] block group-hover:text-[#E91E63] transition-colors">
                                                                             {bank.name}
                                                                         </span>
                                                                     </div>
@@ -1085,17 +1086,12 @@ export default function BankList({ onApplyBank }: BankListProps) {
 
                                                             {/* Action Button */}
                                                             <td className="py-4 px-4 text-center">
-                                                                <button
-                                                                    type="button"
-                                                                    onClick={() => {
-                                                                        if (onApplyBank) {
-                                                                            onApplyBank(bank.name);
-                                                                        }
-                                                                    }}
-                                                                    className="px-5 py-2.5 rounded-xl font-extrabold text-xs text-[#171717] uppercase tracking-wider bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs hover:shadow-md active:scale-95 transition-all cursor-pointer whitespace-nowrap"
+                                                                <Link
+                                                                    href="/enquiry"
+                                                                    className="inline-block px-5 py-2.5 rounded-xl font-extrabold text-xs text-[#171717] uppercase tracking-wider bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs hover:shadow-md active:scale-95 transition-all cursor-pointer whitespace-nowrap"
                                                                 >
                                                                     Apply Now
-                                                                </button>
+                                                                </Link>
                                                             </td>
                                                         </tr>
                                                     );
@@ -1179,7 +1175,7 @@ export default function BankList({ onApplyBank }: BankListProps) {
                                     <YAxis domain={[4, 10]} tick={{ fontSize: 11, fill: '#6B6B6B' }} unit="%" />
                                     <Tooltip formatter={(value) => [`${value}%`, 'Interest Rate']} />
                                     <Bar dataKey="regular" name="Regular Rate" fill="#171717" radius={[6, 6, 0, 0]} />
-                                    <Bar dataKey="senior" name="Senior Citizen Rate" fill="#F4C430" radius={[6, 6, 0, 0]} />
+                                    <Bar dataKey="senior" name="Senior Citizen Rate" fill="#E91E63" radius={[6, 6, 0, 0]} />
                                 </BarChart>
                             </ResponsiveContainer>
                         </div>
@@ -1193,7 +1189,7 @@ export default function BankList({ onApplyBank }: BankListProps) {
                                         <div>
                                             <div className="flex items-center gap-2 mb-3">
                                                 <BankLogo name={b.name} shortName={b.shortName} logoType={b.logoType} />
-                                                <h4 className="font-bold text-sm text-[#171717]">{b.name}</h4>
+                                                <h4 className="font-bold text-sm text-[#E91E63]">{b.name}</h4>
                                             </div>
                                             <div className="space-y-1.5 text-xs">
                                                 <div className="flex justify-between text-[#6B6B6B]">
@@ -1215,16 +1211,12 @@ export default function BankList({ onApplyBank }: BankListProps) {
                                             </div>
                                         </div>
 
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setIsCompareModalOpen(false);
-                                                if (onApplyBank) onApplyBank(b.name);
-                                            }}
-                                            className="w-full mt-4 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs cursor-pointer active:scale-95 transition-all"
+                                        <Link
+                                            href="/enquiry"
+                                            className="inline-block text-center w-full mt-4 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-xs cursor-pointer active:scale-95 transition-all"
                                         >
                                             Apply for this FD
-                                        </button>
+                                        </Link>
                                     </div>
                                 );
                             })}

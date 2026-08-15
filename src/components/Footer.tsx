@@ -21,7 +21,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-16 items-start">
 
           {/* Col 1: Brand & Identity (In Focus, Increased font & prominence) */}
-          <div className="lg:col-span-5 space-y-5">
+          {/* <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#292929] border border-[#383838] text-[#F4C430] text-[11px] font-bold uppercase tracking-wider">
                 <Sparkles className="w-3.5 h-3.5" />
@@ -36,6 +36,58 @@ export default function Footer() {
             <p className="text-sm sm:text-[15px] text-[#D4D4D4] leading-relaxed max-w-md font-normal">
               India's trusted financial services and investment consulting enterprise empowering individuals and organizations with smart financial solutions, wealth preservation, and long-term financial growth.
             </p>
+          </div> */}
+
+          {/* Col 1: Our Products (4 cols) */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="relative">
+              <h3 className="text-white font-bold text-base tracking-wide">
+                Our Products
+              </h3>
+              <div className="w-10 h-0.5 bg-[#F4C430] mt-2 rounded-full" />
+            </div>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link href="/products/term-life-insurance" className="hover:text-[#F4C430] transition-colors">
+                  Term Life Insurance
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/health-insurance" className="hover:text-[#F4C430] transition-colors">
+                  Health Insurance
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/motor-insurance" className="hover:text-[#F4C430] transition-colors">
+                  Motor Insurance
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/general-insurance" className="hover:text-[#F4C430] transition-colors">
+                  General Insurance
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-[#F4C430] transition-colors">
+                  Personal Loans
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-[#F4C430] transition-colors">
+                  Mutual Funds
+                </Link>
+              </li>
+              <li>
+                <Link href="/products" className="hover:text-[#F4C430] transition-colors">
+                  Fixed Deposit
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/unlisted" className="hover:text-[#F4C430] transition-colors">
+                  Unlisted Shares
+                </Link>
+              </li>
+            </ul>
           </div>
 
           {/* Col 2: Quick Links & Legal (3 cols) */}
@@ -46,7 +98,7 @@ export default function Footer() {
               </h3>
               <div className="w-10 h-0.5 bg-[#F4C430] mt-2 rounded-full" />
             </div>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-2.5 text-sm">
               <li>
                 <Link href="/about" className="hover:text-[#F4C430] transition-colors">
                   About Bharti Share Market
@@ -55,6 +107,16 @@ export default function Footer() {
               <li>
                 <Link href="/media-center" className="hover:text-[#F4C430] transition-colors flex items-center gap-1.5">
                   <span>Media Center & Awards</span>
+                </Link>
+              </li>
+              <li>
+                <Link href="/calculator" className="hover:text-[#F4C430] transition-colors">
+                  Calculators
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-[#F4C430] transition-colors">
+                  Contact Us
                 </Link>
               </li>
               <li>

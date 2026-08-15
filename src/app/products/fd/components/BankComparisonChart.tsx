@@ -64,7 +64,7 @@ const SectorComparisonMatrix = () => {
                                         </span>
                                     </td>
                                     <td className="py-8 px-8 text-center">
-                                        <div className="text-lg font-black text-[#198754] tracking-tight">{row.rate}</div>
+                                        <div className="text-lg font-black text-[#E91E63] tracking-tight">{row.rate}</div>
                                         <div className="text-[10px] text-[#6B6B6B] font-bold uppercase mt-1 text-nowrap">Per Annum</div>
                                     </td>
                                     <td className="py-8 px-8 text-center">
@@ -81,7 +81,7 @@ const SectorComparisonMatrix = () => {
                                                     whileInView={{ width: `${row.fill}%` }}
                                                     transition={{ duration: 1.5, delay: 0.5 }}
                                                     whileHover={{ scaleY: 1.2 }}
-                                                    className="h-full relative z-10 bg-[#F4C430]"
+                                                    className="h-full relative z-10 bg-gradient-to-r from-[#F4C430] to-[#E91E63]"
                                                 />
                                             </div>
                                         </div>
@@ -121,7 +121,7 @@ const SectorComparisonMatrix = () => {
                             <div className="grid grid-cols-2 gap-4 mb-4">
                                 <div>
                                     <div className="text-[10px] text-[#6B6B6B] font-bold uppercase mb-1">Yield Range</div>
-                                    <div className="text-base font-black text-[#198754]">{row.rate}</div>
+                                    <div className="text-base font-black text-[#E91E63]">{row.rate}</div>
                                     <div className="text-[9px] text-[#6B6B6B] font-bold">Per Annum</div>
                                 </div>
                                 <div>
@@ -140,7 +140,7 @@ const SectorComparisonMatrix = () => {
                                         initial={{ width: 0 }}
                                         whileInView={{ width: `${row.fill}%` }}
                                         transition={{ duration: 1.5, delay: 0.5 }}
-                                        className="h-full relative z-10 bg-[#F4C430]"
+                                        className="h-full relative z-10 bg-gradient-to-r from-[#F4C430] to-[#E91E63]"
                                     />
                                 </div>
                             </div>

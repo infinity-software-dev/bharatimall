@@ -10,10 +10,12 @@ import {
   Sparkles,
   Award,
   Users,
-  Handshake,
+  Calendar,
+  Camera,
+  Trophy
 } from "lucide-react";
 
-// Top 4 Awards Data (Matching Screenshot)
+// Top 4 Awards Data
 const TOP_AWARDS = [
   {
     id: 1,
@@ -53,7 +55,8 @@ const SUCCESS_STORIES = [
     alt: "Bharti Share Market at Sakal Vastu Expo",
     title: "Empowering Dreams, Enabling Investments – Bharti Share Market at Sakal Vastu Expo",
     description: "Expert investment guidance and financial literacy empowerment for future investors at Sakal Vastu Expo.",
-    category: "Event Coverage"
+    category: "Event Coverage",
+    badgeColor: "magenta"
   },
   {
     type: "image",
@@ -61,7 +64,8 @@ const SUCCESS_STORIES = [
     alt: "Success Talk with Senior Mentors",
     title: "Success Talk with Senior Mentors & Market Leaders",
     description: "Inspiring stock trading journeys and strategies shared by our expert mentors.",
-    category: "Mentor Talk"
+    category: "Mentor Talk",
+    badgeColor: "magenta"
   },
   {
     type: "image",
@@ -69,7 +73,8 @@ const SUCCESS_STORIES = [
     alt: "Winner at ET Business Awards",
     title: "🏆 Winner at ET Business Awards – Pune",
     description: "A milestone achievement celebrating vision, execution, and excellence in retail financial services.",
-    category: "Award"
+    category: "Award",
+    badgeColor: "magenta"
   }
 ];
 
@@ -84,7 +89,7 @@ const ACHIEVERS_CONTESTS = [
       "/gallery/gallery6.png"
     ],
     stats: { attendees: 250, awards: 45 },
-    featured: true
+    edition: "Annual Edition"
   },
   {
     title: "National Leadership Summit",
@@ -95,7 +100,7 @@ const ACHIEVERS_CONTESTS = [
       "/gallery/gallery9.png"
     ],
     stats: { attendees: 180, awards: 30 },
-    featured: false
+    edition: "National Edition"
   }
 ];
 
@@ -136,21 +141,6 @@ const LIFE_AT_BHARTI_IMAGES = [
   { src: "/gallery/gallery18.png", alt: "Faculty and Research Analysts Discussion" }
 ];
 
-// Media Partners Data
-const MEDIA_PARTNERS = [
-  { name: "Sakal", logo: "/images/brand/sakal.webp", type: "Newspaper" },
-  { name: "Zee News", logo: "/images/brand/zeenews.webp", type: "TV Channel" },
-  { name: "PVR Cinemas", logo: "/images/brand/pvrcinemas.webp", type: "Cinema" },
-  { name: "Radio Mirchi", logo: "/images/brand/mirchi.webp", type: "Radio" },
-  { name: "TV9 Marathi", logo: "/images/brand/tv9marathi.webp", type: "TV Channel" },
-  { name: "Fever FM", logo: "/images/brand/feverfm.webp", type: "Radio" },
-  { name: "Red FM", logo: "/images/brand/redfm.webp", type: "Radio" },
-  { name: "Saam TV", logo: "/images/brand/saamtv.webp", type: "TV Channel" },
-  { name: "Big FM", logo: "/images/brand/bigfm.webp", type: "Radio" },
-  { name: "Zee 24 Taas", logo: "/images/brand/zee24taas.webp", type: "TV Channel" },
-  { name: "Pudhari", logo: "/images/brand/pudhari.webp", type: "Newspaper" }
-];
-
 // Image Carousel Component
 function ImageCarousel({ images, altPrefix }: { images: string[]; altPrefix: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -170,27 +160,29 @@ function ImageCarousel({ images, altPrefix }: { images: string[]; altPrefix: str
       <img
         src={images[currentIndex]}
         alt={`${altPrefix} slide ${currentIndex + 1}`}
-        className="w-full h-full object-cover"
+        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
       />
 
       {images.length > 1 && (
         <>
           <button
             onClick={handlePrev}
-            className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#292929]/70 hover:bg-[#292929] text-[#F4C430] flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm cursor-pointer"
+            aria-label="Previous image"
+            className="absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
           <button
             onClick={handleNext}
-            className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-[#292929]/70 hover:bg-[#292929] text-[#F4C430] flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-sm cursor-pointer"
+            aria-label="Next image"
+            className="absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-black/60 hover:bg-black/80 text-white flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 backdrop-blur-xs cursor-pointer"
           >
             <ChevronRight className="w-4 h-4" />
           </button>
         </>
       )}
 
-      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5">
+      <div className="absolute bottom-3 left-0 right-0 flex justify-center gap-1.5 z-10">
         {images.map((_, idx) => (
           <button
             key={idx}
@@ -198,9 +190,10 @@ function ImageCarousel({ images, altPrefix }: { images: string[]; altPrefix: str
               e.stopPropagation();
               setCurrentIndex(idx);
             }}
+            aria-label={`Go to slide ${idx + 1}`}
             className={`transition-all duration-300 cursor-pointer ${currentIndex === idx
-              ? "bg-[#F4C430] w-5 h-1.5 rounded-full"
-              : "bg-white/70 hover:bg-white w-1.5 h-1.5 rounded-full"
+              ? "bg-[#E91E63] w-5 h-1.5 rounded-full"
+              : "bg-white/80 hover:bg-white w-1.5 h-1.5 rounded-full"
               }`}
           />
         ))}
@@ -209,23 +202,24 @@ function ImageCarousel({ images, altPrefix }: { images: string[]; altPrefix: str
   );
 }
 
-// Story Card Component
+// Story Card Component with Crisp Design and Magenta Badge
 function StoryCard({ image, alt, title, description, category }: any) {
   return (
-    <div className="bg-white border border-[#E5E5E0] rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow duration-300 flex flex-col justify-between">
+    <div className="bg-white border border-[#E5E5E0] hover:border-[#E91E63]/40 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group">
       <div>
         <div className="relative w-full aspect-[16/10] overflow-hidden bg-[#F5F5F3]">
           <img
             src={image}
             alt={alt}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute top-3 left-3 bg-[#FFF8D6] text-[#F4C430] border border-[#F4C430]/40 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-xs">
+          {/* Brand Magenta Pill Badge */}
+          <div className="absolute top-3 left-3 bg-[#FCE4EC] text-[#E91E63] border border-[#E91E63]/30 text-[10px] font-bold px-2.5 py-1 rounded-full shadow-2xs">
             {category}
           </div>
         </div>
         <div className="p-5">
-          <h3 className="text-base font-bold text-[#F4C430] leading-snug">
+          <h3 className="text-base font-bold text-[#171717] group-hover:text-[#E91E63] transition-colors duration-200 leading-snug">
             {title}
           </h3>
           <p className="text-xs text-[#6B6B6B] mt-2 leading-relaxed">
@@ -238,31 +232,43 @@ function StoryCard({ image, alt, title, description, category }: any) {
 }
 
 // Featured Event Card Component
-function FeaturedEventCard({ title, description, images, stats }: any) {
+function FeaturedEventCard({ title, description, images, stats, edition }: any) {
   return (
-    <div className="bg-white border border-[#E5E5E0] rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow duration-300">
+    <div className="bg-white border border-[#E5E5E0] hover:border-[#E91E63]/40 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 group">
       <ImageCarousel images={images} altPrefix={title} />
       <div className="p-6">
-        <div className="flex items-center gap-2 mb-2">
-          <div className="px-2.5 py-0.5 bg-[#FFF8D6] border border-[#F4C430]/40 rounded-full text-[10px] font-bold text-[#F4C430]">
+        <div className="flex items-center gap-2 mb-2.5">
+          <span className="px-2.5 py-0.5 bg-[#FCE4EC] text-[#E91E63] border border-[#E91E63]/25 rounded-full text-[10px] font-bold">
             Featured
-          </div>
-          <div className="px-2.5 py-0.5 bg-[#F5F5F3] rounded-full text-[10px] font-semibold text-[#6B6B6B]">
-            Annual Edition
-          </div>
+          </span>
+          <span className="px-2.5 py-0.5 bg-[#F5F5F3] text-[#6B6B6B] rounded-full text-[10px] font-semibold">
+            {edition}
+          </span>
         </div>
-        <h3 className="text-lg sm:text-xl font-extrabold text-[#F4C430] mb-2">{title}</h3>
-        <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed">{description}</p>
-        <div className="mt-4 pt-4 border-t border-[#F5F5F3] flex items-center gap-6">
+        <h3 className="text-lg sm:text-xl font-extrabold text-[#171717] group-hover:text-[#E91E63] transition-colors mb-2">
+          {title}
+        </h3>
+        <p className="text-xs sm:text-sm text-[#6B6B6B] leading-relaxed">
+          {description}
+        </p>
+        <div className="mt-5 pt-4 border-t border-[#E5E5E0] flex items-center gap-6">
           <div className="flex items-center gap-2">
-            <Users className="w-4 h-4 text-[#F4C430]" />
-            <span className="text-sm font-bold text-[#F4C430]">{stats.attendees}+</span>
-            <span className="text-xs text-[#6B6B6B]">Attendees</span>
+            <div className="w-7 h-7 rounded-lg bg-[#FCE4EC] flex items-center justify-center text-[#E91E63]">
+              <Users className="w-3.5 h-3.5" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-[#171717] block">{stats.attendees}+</span>
+              <span className="text-[10px] text-[#8E8E8E]">Attendees</span>
+            </div>
           </div>
           <div className="flex items-center gap-2">
-            <Award className="w-4 h-4 text-[#F4C430]" />
-            <span className="text-sm font-bold text-[#F4C430]">{stats.awards}+</span>
-            <span className="text-xs text-[#6B6B6B]">Felicitations</span>
+            <div className="w-7 h-7 rounded-lg bg-[#FFF8D6] flex items-center justify-center text-[#B27B00]">
+              <Award className="w-3.5 h-3.5" />
+            </div>
+            <div>
+              <span className="text-xs font-bold text-[#171717] block">{stats.awards}+</span>
+              <span className="text-[10px] text-[#8E8E8E]">Felicitations</span>
+            </div>
           </div>
         </div>
       </div>
@@ -276,57 +282,62 @@ export default function MediaCenterPage() {
       <Header />
 
       {/* ========================================================================= */}
-      {/* 1. MEDIA CENTER HERO BANNER & AWARDS COMBINED SEAMLESSLY (No Divider Line) */}
+      {/* 1. HERO BANNER & AWARDS SHOWCASE (Soft Off-White #FFFDF5 Theme) */}
       {/* ========================================================================= */}
-      <section className="relative bg-[#FFFDF5] pt-14 pb-8 sm:pt-16 sm:pb-10 overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F4C430]/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#F4C430]/5 rounded-full blur-3xl" />
-        </div>
+      <section className="relative bg-[#FFFDF5] pt-14 pb-10 sm:pt-16 sm:pb-12 overflow-hidden">
+        {/* Subtle Ambient Glows */}
+        <div className="absolute top-0 right-1/4 w-96 h-96 rounded-full bg-[#FFF8D6]/50 blur-3xl pointer-events-none" />
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 rounded-full bg-[#FCE4EC]/35 blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          
           {/* Header Title & Tagline */}
-          <div className="text-center mb-12 sm:mb-14">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FFF8D6] border border-[#F4C430]/40 text-[#F4C430] text-xs font-bold uppercase tracking-wider mb-4">
-              <Sparkles className="w-3.5 h-3.5 text-[#F4C430]" />
-              Bharti Share Market
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FCE4EC] border border-[#E91E63]/25 text-[#E91E63] text-xs font-bold uppercase tracking-wider mb-4">
+              <Sparkles className="w-3.5 h-3.5 text-[#E91E63]" />
+              Media & Corporate Highlights
             </div>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#F4C430] tracking-tight leading-tight">
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#171717] tracking-tight leading-[1.12]">
               Media Center
             </h1>
-            <p className="text-sm sm:text-base text-[#6B6B6B] mt-3 max-w-2xl mx-auto leading-relaxed">
-              Explore success stories, national awards, leadership events, and corporate milestones across our enterprise
+            <p className="text-sm sm:text-base text-[#6B6B6B] mt-3.5 max-w-2xl mx-auto leading-relaxed">
+              Explore success stories, national awards, leadership events, and corporate milestones across our enterprise.
             </p>
           </div>
 
-          {/* Awards Heading & Curved Underline (Directly Below Tagline, text-[#F4C430] Heading) */}
-          <div className="text-center mb-8 sm:mb-10">
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#F4C430] tracking-tight">
-              Awards
-            </h2>
-            <div className="flex justify-center mt-1.5">
-              <svg 
-                viewBox="0 0 120 16" 
-                className="w-24 sm:w-28 h-3.5 text-[#F4C430] fill-none stroke-current stroke-[4] stroke-linecap-round"
-              >
-                <path d="M 8,11 Q 60,3 112,11" />
-              </svg>
+          {/* Awards Section Header */}
+          <div className="text-center mb-8">
+            <div className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E91E63] uppercase tracking-wider mb-1">
+              <Trophy className="w-3.5 h-3.5" />
+              <span>National Honors & Recognition</span>
             </div>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
+              Awards & Felicitations
+            </h2>
+            <div className="w-12 h-1 bg-[#F4C430] mx-auto mt-2.5 rounded-full" />
           </div>
 
-          {/* 4 Awards Images Row */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {/* 4 Awards Cards Row */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
             {TOP_AWARDS.map((award) => (
-              <div 
+              <div
                 key={award.id}
-                className="bg-white border border-[#E5E5E0] rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow duration-300 flex flex-col"
+                className="bg-white border border-[#E5E5E0] hover:border-[#E91E63]/40 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col group"
               >
                 <div className="relative w-full aspect-[4/3] overflow-hidden bg-[#F5F5F3]">
-                  <img 
-                    src={award.image} 
-                    alt={award.alt} 
-                    className="w-full h-full object-cover"
+                  <img
+                    src={award.image}
+                    alt={award.alt}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
+                  <div className="absolute top-2.5 left-2.5 bg-[#FFF8D6] text-[#B27B00] border border-[#F4C430]/40 text-[10px] font-bold px-2 py-0.5 rounded-full shadow-2xs">
+                    {award.category}
+                  </div>
+                </div>
+                <div className="p-3.5 bg-white flex-1 flex flex-col justify-center">
+                  <h3 className="text-xs font-bold text-[#171717] group-hover:text-[#E91E63] transition-colors line-clamp-2 leading-snug">
+                    {award.title}
+                  </h3>
                 </div>
               </div>
             ))}
@@ -336,26 +347,26 @@ export default function MediaCenterPage() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. SEQUENTIAL MEDIA CONTENT SECTIONS */}
+      {/* 2. SEQUENTIAL MEDIA CONTENT SECTIONS (Soft Warm #FFFDF5 Theme) */}
       {/* ========================================================================= */}
-      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full space-y-16 sm:space-y-20 bg-[#FFFDF5]">
+      <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full space-y-14 sm:space-y-16 bg-[#FFFDF5]">
 
         {/* Section 1: Success Stories */}
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 pb-4 border-b border-[#E5E5E0]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-[#F4C430]" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F4C430]">Highlights</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FCE4EC] text-[#E91E63] text-[10px] font-bold uppercase tracking-wider mb-2">
+                <Sparkles className="w-3 h-3" />
+                <span>Highlights</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4C430] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
                 Success Stories & Keynote Addresses
               </h2>
               <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1">
                 Inspiring investment journeys, mentor insights, and marquee exhibition features
               </p>
             </div>
-            <span className="text-xs text-[#F4C430] bg-[#FFF8D6] px-3 py-1.5 rounded-full font-bold border border-[#F4C430]/40 w-fit shadow-2xs">
+            <span className="text-xs text-[#E91E63] bg-[#FCE4EC] px-3.5 py-1.5 rounded-full font-bold border border-[#E91E63]/25 w-fit shadow-2xs">
               {SUCCESS_STORIES.length} Featured Highlights
             </span>
           </div>
@@ -371,11 +382,11 @@ export default function MediaCenterPage() {
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 pb-4 border-b border-[#E5E5E0]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-[#F4C430]" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F4C430]">Recognition</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FCE4EC] text-[#E91E63] text-[10px] font-bold uppercase tracking-wider mb-2">
+                <Trophy className="w-3 h-3" />
+                <span>Recognition</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4C430] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
                 Featured Achievers & Leadership Summits
               </h2>
               <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1">
@@ -395,11 +406,11 @@ export default function MediaCenterPage() {
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 pb-4 border-b border-[#E5E5E0]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-[#F4C430]" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F4C430]">Pan-India Meets</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FFF8D6] text-[#B27B00] border border-[#F4C430]/40 text-[10px] font-bold uppercase tracking-wider mb-2">
+                <Calendar className="w-3 h-3" />
+                <span>Pan-India Meets</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4C430] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
                 Conclaves & Regional Forums
               </h2>
               <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1">
@@ -410,18 +421,21 @@ export default function MediaCenterPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {BUSINESS_EVENTS.map((evt, idx) => (
-              <div key={idx} className="bg-white border border-[#E5E5E0] rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-shadow">
+              <div 
+                key={idx} 
+                className="bg-white border border-[#E5E5E0] hover:border-[#E91E63]/40 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 group"
+              >
                 <ImageCarousel images={evt.images} altPrefix={evt.title} />
                 <div className="p-5">
                   <div className="flex items-start justify-between gap-2">
-                    <h4 className="font-bold text-base text-[#F4C430]">{evt.title}</h4>
-                    <span className="text-[10px] font-bold bg-[#FFF8D6] text-[#F4C430] px-2.5 py-0.5 rounded-full border border-[#F4C430]/40 whitespace-nowrap">
+                    <h3 className="font-bold text-base text-[#171717] group-hover:text-[#E91E63] transition-colors">{evt.title}</h3>
+                    <span className="text-[10px] font-bold bg-[#FCE4EC] text-[#E91E63] px-2.5 py-0.5 rounded-full border border-[#E91E63]/25 whitespace-nowrap">
                       {evt.date}
                     </span>
                   </div>
                   <p className="text-xs text-[#6B6B6B] mt-1.5 leading-relaxed">{evt.subtitle}</p>
-                  <div className="mt-3 flex items-center text-xs font-semibold text-[#F4C430] bg-[#FFF8D6]/60 px-3 py-1.5 rounded-xl w-fit border border-[#F4C430]/20">
-                    <MapPin className="w-3.5 h-3.5 text-[#F4C430] mr-1.5 shrink-0" />
+                  <div className="mt-3 flex items-center text-xs font-semibold text-[#E91E63] bg-[#FCE4EC]/60 px-3 py-1.5 rounded-xl w-fit border border-[#E91E63]/20">
+                    <MapPin className="w-3.5 h-3.5 text-[#E91E63] mr-1.5 shrink-0" />
                     <span>{evt.location}</span>
                   </div>
                 </div>
@@ -434,11 +448,11 @@ export default function MediaCenterPage() {
         <section>
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6 pb-4 border-b border-[#E5E5E0]">
             <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="w-2 h-2 rounded-full bg-[#F4C430]" />
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#F4C430]">Culture & Community</span>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#FCE4EC] text-[#E91E63] text-[10px] font-bold uppercase tracking-wider mb-2">
+                <Camera className="w-3 h-3" />
+                <span>Culture & Campus</span>
               </div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4C430] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#171717] tracking-tight">
                 Life at Bharti Share Market
               </h2>
               <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1">
@@ -449,61 +463,22 @@ export default function MediaCenterPage() {
 
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-5">
             {LIFE_AT_BHARTI_IMAGES.map((img, idx) => (
-              <div key={idx} className="bg-white border border-[#E5E5E0] rounded-2xl overflow-hidden shadow-xs flex flex-col">
+              <div 
+                key={idx} 
+                className="bg-white border border-[#E5E5E0] hover:border-[#E91E63]/40 rounded-2xl overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 flex flex-col group"
+              >
                 <div className="relative aspect-[4/3] overflow-hidden bg-[#F5F5F3]">
-                  <img src={img.src} alt={img.alt} className="w-full h-full object-cover" />
+                  <img 
+                    src={img.src} 
+                    alt={img.alt} 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                  />
                 </div>
                 <div className="p-3.5 bg-white">
-                  <p className="text-xs font-semibold text-[#F4C430] line-clamp-1">{img.alt}</p>
+                  <p className="text-xs font-semibold text-[#171717] group-hover:text-[#E91E63] transition-colors line-clamp-1">{img.alt}</p>
                 </div>
               </div>
             ))}
-          </div>
-        </section>
-
-        {/* Section 5: Our Media Partners */}
-        <section className="bg-white border border-[#E5E5E0] rounded-3xl overflow-hidden shadow-xs">
-          <div className="bg-gradient-to-r from-[#FFFDF5] to-[#FFF8D6] px-6 sm:px-8 py-8 border-b border-[#E5E5E0]">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-              <div>
-                <div className="flex items-center gap-2 mb-1.5">
-                  <span className="w-2 h-2 rounded-full bg-[#F4C430]" />
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#F4C430]">
-                    Our Partners
-                  </span>
-                </div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#F4C430] tracking-tight">
-                  Our Media Partners
-                </h2>
-                <p className="text-xs sm:text-sm text-[#6B6B6B] mt-2 max-w-3xl leading-relaxed">
-                  Media partnerships are essential for enhancing brand visibility and establishing connections within various industries. We collaborate with leading publications, broadcast networks, and digital channels to share compelling market narratives.
-                </p>
-              </div>
-              <div className="flex items-center gap-2 text-xs font-bold text-[#F4C430] bg-[#FFF8D6] px-4 py-2 rounded-full border border-[#F4C430]/40 shrink-0 w-fit shadow-2xs">
-                <Handshake className="w-4 h-4 text-[#F4C430]" />
-                <span>{MEDIA_PARTNERS.length}+ Media Alliances</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="p-6 sm:p-8 bg-white">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5">
-              {MEDIA_PARTNERS.map((partner, idx) => (
-                <div
-                  key={idx}
-                  className="p-5 sm:p-6 bg-[#FFFDF5] rounded-2xl border border-[#E5E5E0] hover:border-[#F4C430] flex flex-col items-center justify-center gap-3 shadow-2xs hover:shadow-md transition-all group"
-                >
-                  <div className="h-14 sm:h-16 w-full flex items-center justify-center">
-                    <img 
-                      src={partner.logo} 
-                      alt={partner.name} 
-                      className="max-h-11 sm:max-h-12 w-auto object-contain filter contrast-110" 
-                    />
-                  </div>
-                  <span className="text-xs font-bold text-[#F4C430] text-center">{partner.name}</span>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 

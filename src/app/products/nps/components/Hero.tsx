@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
 import Image from 'next/image';
@@ -30,7 +31,7 @@ export default function Hero({ onApply }: HeroProps) {
                             <span className="block whitespace-nowrap">
                                 Retire Smart
                             </span>
-                            <span className="block whitespace-nowrap text-[#F4C430]">
+                            <span className="block whitespace-nowrap text-[#E91E63]">
                                 with NPS
                             </span>
                         </h1>
@@ -40,9 +41,8 @@ export default function Hero({ onApply }: HeroProps) {
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full max-w-md sm:max-w-none">
-                            <button
-                                type="button"
-                                onClick={onApply}
+                            <Link
+                                href="/enquiry"
                                 className="group relative text-[#171717] px-8 py-4 rounded-xl font-bold text-base sm:text-lg shadow-md hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 overflow-hidden cursor-pointer bg-[#F4C430] hover:bg-[#FFD21F] flex items-center justify-center gap-2 w-full sm:w-auto"
                             >
                                 <span>Apply Now</span>
@@ -50,7 +50,7 @@ export default function Hero({ onApply }: HeroProps) {
                                     size={20}
                                     className="group-hover:translate-x-1 transition-transform"
                                 />
-                            </button>
+                            </Link>
 
                             <button
                                 type="button"

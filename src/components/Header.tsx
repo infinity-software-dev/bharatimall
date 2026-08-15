@@ -42,7 +42,7 @@ const realEstateOptions = [
 ];
 
 const unlistedOptions = [
-  { label: "Unlisted Shares", href: "/products" },
+  { label: "Unlisted Shares", href: "/products/unlisted" },
 ];
 
 export default function Header() {
@@ -101,9 +101,9 @@ export default function Header() {
         {/* Logo & Brand */}
         <Link href="/" className="flex items-center group shrink-0">
           <img
-            src="/main_logo.webp"
+            src="/bharti_logo.png"
             alt="Bharti Finance Mall Logo"
-            className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-350 group-hover:scale-105"
+            className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-350 group-hover:scale-105"
           />
         </Link>
 
@@ -351,10 +351,17 @@ export default function Header() {
                     onMouseEnter={() => setIsUnlistedOpen(true)}
                     onMouseLeave={() => setIsUnlistedOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                    <Link
+                      href="/products/unlisted"
+                      onClick={() => {
+                        setIsProductOpen(false);
+                        setIsUnlistedOpen(false);
+                      }}
+                      className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer"
+                    >
                       <span className="text-sm font-medium">Unlisted Shares</span>
                       <ChevronRight size={13} className="text-[#6B6B6B]" />
-                    </div>
+                    </Link>
                     <AnimatePresence>
                       {isUnlistedOpen && (
                         <motion.div
@@ -624,13 +631,13 @@ export default function Header() {
                       )}
                     </div>
 
-                    {/* F. Unlisted Subdropdown */}
+                    {/* F. Unlisted Shares Subdropdown */}
                     <div className="w-full flex flex-col items-center">
                       <button
                         onClick={() => toggleSubmenu("unlisted")}
                         className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
-                        <span>Unlisted</span>
+                        <span>Unlisted Shares</span>
                         <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "unlisted" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
 

@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { ClipboardCheck, Zap, ShieldCheck, Rocket, ChevronRight } from "lucide-react";
 
@@ -42,7 +43,7 @@ export default function FDStepProcess({ onApplyClick }: FDStepProcessProps) {
                     className="text-center max-w-3xl mx-auto mb-12 md:mb-16"
                 >
                     <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF8D6] border border-[#F4C430]/40 text-[#171717] font-bold text-xs mb-6 uppercase tracking-widest shadow-xs">
-                        <Zap size={14} className="text-[#F4C430] animate-pulse" />
+                        <Zap size={14} className="text-[#E91E63] animate-pulse" />
                         Seamless Experience
                     </div>
 
@@ -86,7 +87,7 @@ export default function FDStepProcess({ onApplyClick }: FDStepProcessProps) {
                                 </div>
 
                                 {/* Content */}
-                                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[#171717] transition-colors">
+                                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-[#171717] group-hover:text-[#E91E63] transition-colors">
                                     {step.title}
                                 </h3>
 
@@ -114,13 +115,12 @@ export default function FDStepProcess({ onApplyClick }: FDStepProcessProps) {
                     transition={{ delay: 1 }}
                     className="mt-12 sm:mt-20 text-center"
                 >
-                    <button
-                        type="button"
-                        onClick={onApplyClick}
-                        className="px-8 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base"
+                    <Link
+                        href="/enquiry"
+                        className="inline-block px-8 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base"
                     >
                         Start Your Investment Journey
-                    </button>
+                    </Link>
                 </motion.div>
 
             </div>

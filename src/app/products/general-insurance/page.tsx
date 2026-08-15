@@ -1008,12 +1008,9 @@ export default function GeneralInsurancePage() {
                   className="bg-[#FFFFFF] rounded-3xl p-6 border border-[#E5E5E0] shadow-xs hover:shadow-md transition-all flex flex-col justify-between text-left space-y-4"
                 >
                   <div className="space-y-4">
-                    {/* Logo Area & Bank Name */}
-                    <div className="flex flex-col items-center justify-center border-b border-[#E5E5E0] pb-3 gap-1">
-                      <div className="h-8 flex items-center justify-center">
-                        {ins.logo}
-                      </div>
-                      <h4 className="text-sm font-bold text-[#E91E63] text-center">
+                    {/* Insurer Name */}
+                    <div className="flex flex-col items-center justify-center border-b border-[#E5E5E0] pb-3">
+                      <h4 className="text-base font-extrabold text-[#E91E63] text-center">
                         {ins.name}
                       </h4>
                     </div>

@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Baby, MoveRight, RefreshCw, ShieldCheck, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -43,7 +44,7 @@ export default function NPSVatsalya({ onPlan }: NPSVatsalyaProps) {
                             New Government Initiative
                         </span>
                         <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight">
-                            NPS <span className="text-[#F4C430]">Vatsalya</span>
+                            NPS <span className="text-[#E91E63]">Vatsalya</span>
                         </h2>
 
                         <p className="max-w-2xl mx-auto text-[#6B6B6B] font-normal text-base sm:text-lg leading-relaxed">
@@ -64,12 +65,12 @@ export default function NPSVatsalya({ onPlan }: NPSVatsalyaProps) {
                                 viewport={{ once: true }}
                                 transition={{ delay: i * 0.1 }}
                                 whileHover={{ y: -8 }}
-                                className="bg-white p-8 sm:p-10 rounded-[2rem] border-2 border-[#E5E5E0] shadow-lg hover:shadow-2xl hover:border-[#F4C430] transition-all duration-300 flex flex-col items-center text-center group"
+                                className="bg-white p-8 sm:p-10 rounded-[2rem] border-2 border-[#E5E5E0] shadow-lg hover:shadow-2xl hover:border-[#E91E63] transition-all duration-300 flex flex-col items-center text-center group"
                             >
                                 <div className="w-16 h-16 bg-[#FFF8D6] rounded-2xl flex items-center justify-center text-[#171717] shadow-inner mb-6 group-hover:bg-[#F4C430] group-hover:text-[#171717] transition-all duration-300">
                                     <Icon size={32} />
                                 </div>
-                                <h3 className="text-lg sm:text-xl font-bold text-[#171717] mb-3">{benefit.title}</h3>
+                                <h3 className="text-lg sm:text-xl font-bold text-[#171717] group-hover:text-[#E91E63] transition-colors mb-3">{benefit.title}</h3>
                                 <p className="text-[#6B6B6B] font-normal text-xs sm:text-sm leading-relaxed px-2">
                                     {benefit.desc}
                                 </p>
@@ -98,14 +99,13 @@ export default function NPSVatsalya({ onPlan }: NPSVatsalyaProps) {
                             </div>
                         </div>
 
-                        <button
-                            type="button"
-                            onClick={onPlan}
+                        <Link
+                            href="/enquiry"
                             className="w-full lg:w-auto px-10 py-5 bg-[#F4C430] text-[#171717] hover:bg-[#FFD21F] rounded-xl font-bold text-base sm:text-lg transition-all shadow-xl flex items-center justify-center gap-3 active:scale-95 cursor-pointer group"
                         >
                             Plan Child&apos;s Future
                             <MoveRight className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
 
