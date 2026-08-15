@@ -82,7 +82,7 @@ export default function MFConsultModal({
                 <ShieldCheck className="w-3.5 h-3.5 text-[#F4C430]" />
                 AMFI Registered Mutual Fund Distributor
               </div>
-              <h3 className="text-xl font-extrabold text-[#171717] tracking-tight">
+              <h3 className="text-xl font-extrabold text-[#E91E63] tracking-tight">
                 {title}
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1">
@@ -101,27 +101,27 @@ export default function MFConsultModal({
                   placeholder="e.g. Rahul Sharma"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full h-11 px-3.5 rounded-xl border border-[#E5E5E0] bg-[#FFFDF5] text-xs text-[#171717] focus:ring-2 focus:ring-[#F4C430]/20 focus:border-[#F4C430] outline-none"
+                  className="w-full px-4 py-2.5 rounded-xl border border-[#E5E5E0] text-xs text-[#292929] placeholder-zinc-400 focus:outline-none focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/15 transition-all"
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label className="block text-xs font-bold text-[#171717] uppercase tracking-wider mb-1">
-                    Mobile Number *
+                    Phone Number *
                   </label>
                   <input
                     type="tel"
                     required
-                    placeholder="10-digit mobile"
+                    placeholder="+91 98765 43210"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full h-11 px-3.5 rounded-xl border border-[#E5E5E0] bg-[#FFFDF5] text-xs text-[#171717] focus:ring-2 focus:ring-[#F4C430]/20 focus:border-[#F4C430] outline-none"
+                    className="w-full px-4 py-2.5 rounded-xl border border-[#E5E5E0] text-xs text-[#292929] placeholder-zinc-400 focus:outline-none focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/15 transition-all"
                   />
                 </div>
                 <div>
                   <label className="block text-xs font-bold text-[#171717] uppercase tracking-wider mb-1">
-                    City / Pincode
+                    City / Location
                   </label>
                   <input
                     type="text"

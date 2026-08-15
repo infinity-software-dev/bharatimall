@@ -19,7 +19,7 @@ export default function SIPVsFDVsPPFComparison() {
     {
       parameter: "Average Returns",
       sip: "12% - 15% (Historically)",
-      sipIcon: <Flame className="w-5 h-5 text-[#F4C430]" />,
+      sipIcon: <Flame className="w-5 h-5 text-[#E91E63]" />,
       fd: "6.0% - 7.5% (Fixed)",
       fdIcon: <Shield className="w-5 h-5 text-[#6B6B6B]" />,
       ppf: "7.1% (Govt set)",
@@ -69,7 +69,7 @@ export default function SIPVsFDVsPPFComparison() {
     {
       parameter: "15-Year Wealth Effect",
       sip: "Creates massive wealth via compounding on equity growth",
-      sipIcon: <Flame className="w-5 h-5 text-[#F4C430]" />,
+      sipIcon: <Flame className="w-5 h-5 text-[#E91E63]" />,
       fd: "Capital preservation only (Value decays due to inflation)",
       fdIcon: <AlertTriangle className="w-5 h-5 text-[#D64545]" />,
       ppf: "Moderate growth (Ideal for risk-free retirement corpus)",
@@ -89,7 +89,7 @@ export default function SIPVsFDVsPPFComparison() {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40 mb-3 shadow-xs"
           >
-            <Compass className="w-4 h-4 text-[#F4C430]" /> Smart Investing
+            <Compass className="w-4 h-4 text-[#E91E63]" /> Smart Investing
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
@@ -97,9 +97,9 @@ export default function SIPVsFDVsPPFComparison() {
             viewport={{ once: true }}
             className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight"
           >
-            SIP Mutual Funds vs <span className="text-[#F4C430]">FD vs PPF</span>
+            SIP Mutual Funds vs <span className="text-[#E91E63]">FD vs PPF</span>
           </motion.h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-3" />
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-3" />
           <p className="text-[#6B6B6B] font-normal text-base">
             Discover why systematic investing in equity mutual funds (SIP) is the single most effective way to beat inflation and compound your wealth compared to traditional saving options.
           </p>
@@ -112,7 +112,7 @@ export default function SIPVsFDVsPPFComparison() {
               <thead>
                 <tr className="bg-[#FFFDF5] border-b border-[#E5E5E0]">
                   <th className="px-6 py-6 text-xs font-bold uppercase tracking-wider text-[#171717] w-[20%]">Comparison Feature</th>
-                  <th className="px-6 py-6 text-sm font-black text-center text-[#171717] bg-[#FFF8D6]/60 relative w-[26%] border-t-2 border-t-[#F4C430]">
+                  <th className="px-6 py-6 text-sm font-black text-center text-[#171717] bg-[#FFF8D6]/60 relative w-[26%] border-t-2 border-t-[#E91E63]">
                     SIP Mutual Funds (Equity)
                   </th>
                   <th className="px-6 py-6 text-sm font-black text-center text-[#292929] w-[26%]">Fixed Deposits (FD)</th>

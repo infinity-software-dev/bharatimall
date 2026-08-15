@@ -14,27 +14,27 @@ export default function VPRoboBanner({ onConsultRobo }: VPRoboBannerProps) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="w-full relative rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#171717] via-[#2A2A2A] to-[#171717] p-8 md:p-12 shadow-2xl border border-[#F4C430]/30 flex flex-col md:flex-row items-center justify-between gap-8"
+        className="w-full relative rounded-[2rem] overflow-hidden bg-gradient-to-r from-[#171717] via-[#2A2A2A] to-[#171717] p-8 md:p-12 shadow-2xl border border-[#E91E63]/30 flex flex-col md:flex-row items-center justify-between gap-8"
       >
         {/* Glow Effects */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4C430]/15 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+        <div className="absolute top-0 right-0 w-64 h-64 bg-[#E91E63]/15 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#F4C430]/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none" />
 
         <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-6 relative z-10 w-full md:w-2/3">
           {/* Avatar Icon */}
-          <div className="w-16 h-16 shrink-0 rounded-2xl overflow-hidden border-2 border-[#F4C430] shadow-lg bg-[#FFF8D6] flex items-center justify-center text-[#171717]">
-            <Bot className="w-10 h-10 text-[#171717]" strokeWidth={2} />
+          <div className="w-16 h-16 shrink-0 rounded-2xl overflow-hidden border-2 border-[#E91E63] shadow-lg bg-[#FFF8D6] flex items-center justify-center text-[#171717]">
+            <Bot className="w-10 h-10 text-[#E91E63]" strokeWidth={2} />
           </div>
 
           <div>
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 mb-3 rounded-full bg-[#F4C430]/20 border border-[#F4C430]/40 backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#F4C430]" />
-              <span className="text-xs font-bold tracking-wide text-[#F4C430] uppercase">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 mb-3 rounded-full bg-[#E91E63]/20 border border-[#E91E63]/40 backdrop-blur-md">
+              <Sparkles className="w-3.5 h-3.5 text-[#E91E63]" />
+              <span className="text-xs font-bold tracking-wide text-[#E91E63] uppercase">
                 AI-Powered Assistance
               </span>
             </div>
             <h3 className="text-2xl md:text-3xl font-extrabold text-white mb-2 tracking-tight">
-              Want detailed suggestions for funds?
+              Want detailed suggestions for <span className="text-[#E91E63]">funds?</span>
             </h3>
             <p className="text-white/80 font-normal text-sm md:text-base leading-relaxed">
               Consult our VP Robo to get personalized mutual fund recommendations tailored to your unique financial goals and risk appetite.
