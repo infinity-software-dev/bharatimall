@@ -41,14 +41,14 @@ export default function MotorProductCategories({ onSelectCategory }: MotorProduc
   ];
 
   return (
-    <section className="py-12 lg:py-16 bg-white border-t border-zinc-200/70">
+    <section className="py-12 lg:py-16 bg-[#FFFFFF] border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             Our Motor Insurance Products
           </h2>
-          <p className="text-sm sm:text-base text-gray-500">
+          <p className="text-sm sm:text-base text-[#6B6B6B]">
             Experience the most transparent way to secure your vehicle with our tailored plans.
           </p>
         </div>
@@ -60,16 +60,16 @@ export default function MotorProductCategories({ onSelectCategory }: MotorProduc
             return (
               <div
                 key={cat.id}
-                className="bg-white rounded-2xl border border-gray-100 p-6 sm:p-7 shadow-md hover:shadow-xl hover:border-[#2076C7]/30 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-[#FFFFFF] rounded-2xl border border-[#E5E5E0] p-6 sm:p-7 shadow-md hover:shadow-xl hover:border-[#F4C430] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-xl bg-teal-50 text-[#1CADA3] flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-[#F5F5F3] text-[#171717] flex items-center justify-center group-hover:scale-110 transition-transform">
                     <Icon className="w-6 h-6" />
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-gray-900">
+                  <h3 className="text-base sm:text-lg font-bold text-[#171717]">
                     {cat.title}
                   </h3>
-                  <p className="text-xs text-gray-500 leading-relaxed">
+                  <p className="text-xs text-[#6B6B6B] leading-relaxed">
                     {cat.description}
                   </p>
                 </div>
@@ -81,7 +81,7 @@ export default function MotorProductCategories({ onSelectCategory }: MotorProduc
                       onSelectCategory(cat.id);
                       document.getElementById("price-comparison")?.scrollIntoView({ behavior: "smooth" });
                     }}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#2076C7] hover:text-[#1660A7] transition-colors cursor-pointer group-hover:gap-2"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#171717] hover:text-[#171717] transition-colors cursor-pointer group-hover:gap-2"
                   >
                     <span>Explore Details</span>
                     <ArrowRight className="w-3.5 h-3.5 transition-transform" />

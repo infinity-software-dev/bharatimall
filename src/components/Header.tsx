@@ -3,68 +3,63 @@
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { 
-  X, 
-  Menu, 
-  User,
-  LogOut,
+import {
+  X,
+  Menu,
   ChevronDown,
   ChevronRight,
-  Shield,
-  HeartHandshake,
-  Activity,
-  Car,
-  Plane,
-  Flame,
-  Ship,
-  Building2,
-  ShieldAlert,
-  Dog,
-  Search
+  ArrowRight
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const loansOptions = [
-  { label: "Personal Loan", href: "/products/personal-loan" },
-  { label: "Business Loan", href: "/products/business-loan" },
-  { label: "Education Loan", href: "/products/education-loan" },
-  { label: "Vehicle Loan", href: "/products/vehicle-loan" },
-  { label: "Loan Against Securities", href: "/products/loan-against-securities" },
-  { label: "Credit cards", href: "/products/credit-card" },
+  { label: "Personal Loan", href: "/products" },
+  { label: "Business Loan", href: "/products" },
+  { label: "Education Loan", href: "/products" },
+  { label: "Vehicle Loan", href: "/products" },
+  { label: "Loan Against Securities", href: "/products" },
+  { label: "Credit Cards", href: "/products" },
 ];
 
 const insuranceOptions = [
-  { label: "Term Insurance", href: "/products/term-insurance" },
+  { label: "Term Life Insurance", href: "/products/term-life-insurance" },
   { label: "Health Insurance", href: "/products/health-insurance" },
   { label: "Motor Insurance", href: "/products/motor-insurance" },
-  { label: "Travel Insurance", href: "/products/travel-insurance" },
+  { label: "General Insurance", href: "/products/general-insurance" },
 ];
 
 const mutualFundOptions = [
-  { label: "Mutual Fund", href: "/products/mutual-funds" },
+  { label: "Mutual Funds", href: "/products" },
 ];
 
 const investmentOptions = [
-  { label: "NPS", href: "/products/nps" },
-   { label: "FD", href: "/products/fd" },
+  { label: "NPS (National Pension)", href: "/products" },
+  { label: "Fixed Deposits (FD)", href: "/products" },
+];
+
+const realEstateOptions = [
+  { label: "Real Estate", href: "/products" },
 ];
 
 const unlistedOptions = [
-  { label: "Unlisted", href: "/products/unlisted" },
+  { label: "Unlisted Shares", href: "/products" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [searchTerm, setSearchTerm] = useState("");
 
+  // Desktop Dropdowns
   const [isProductOpen, setIsProductOpen] = useState(false);
   const [isLoansOpen, setIsLoansOpen] = useState(false);
   const [isInsuranceOpen, setIsInsuranceOpen] = useState(false);
   const [isMutualFundOpen, setIsMutualFundOpen] = useState(false);
   const [isInvestmentOpen, setIsInvestmentOpen] = useState(false);
   const [isUnlistedOpen, setIsUnlistedOpen] = useState(false);
-  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+
+  // Mobile Dropdown & Sub-dropdown States (matching user screenshot)
+  const [mobileProductOpen, setMobileProductOpen] = useState(true);
+  const [mobileSubmenu, setMobileSubmenu] = useState<string | null>(null);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -90,22 +85,31 @@ export default function Header() {
     { name: "Contact Us", href: "/contact" },
   ];
 
+  const closeMobile = () => {
+    setMobileMenuOpen(false);
+    setMobileSubmenu(null);
+  };
+
+  const toggleSubmenu = (name: string) => {
+    setMobileSubmenu((prev) => (prev === name ? null : name));
+  };
+
   return (
-    <header className="bg-linear-to-br from-[#E8F6FA] via-[#F0FAFB] to-[#E9F8F6] backdrop-blur-md shadow-sm sticky top-0 z-50 transition-all duration-300 border-b border-[#1CADA3]/20 font-sans">
+    <header className="bg-white backdrop-blur-md shadow-xs sticky top-0 z-50 transition-all duration-300 border-b border-[#E5E5E0] font-sans">
       <div className="max-w-[1600px] container mx-auto px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 flex items-center justify-between lg:justify-center lg:gap-8 xl:gap-10">
-        
+
         {/* Logo & Brand */}
         <Link href="/" className="flex items-center group shrink-0">
-          <img 
-            src="/main_logo.webp" 
-            alt="Bharti Finance Mall Logo" 
+          <img
+            src="/main_logo.webp"
+            alt="Bharti Finance Mall Logo"
             className="h-14 sm:h-16 md:h-18 lg:h-20 w-auto object-contain transition-transform duration-350 group-hover:scale-105"
           />
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center space-x-2 xl:space-x-3" ref={dropdownRef}>
-          
+
           {/* Home & About Us */}
           {navLinks.slice(0, 2).map((link) => {
             const isActive = pathname === link.href;
@@ -117,7 +121,7 @@ export default function Header() {
                 className="relative group rounded-lg overflow-hidden cursor-pointer"
               >
                 <motion.div
-                  className="absolute inset-0 rounded-lg bg-linear-to-r from-[#2076C7]/10 to-[#1CADA3]/10 opacity-0 group-hover:opacity-100 blur-sm"
+                  className="absolute inset-0 rounded-lg bg-[#FFF8D6]/80 opacity-0 group-hover:opacity-100 blur-xs"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 0, scale: 0.95 }}
                   whileHover={{ opacity: 1, scale: 1 }}
@@ -125,15 +129,13 @@ export default function Header() {
                 />
                 <Link
                   href={link.href}
-                  className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#2076C7] text-sm xl:text-base whitespace-nowrap ${
-                    isActive ? "text-[#2076C7]" : "text-gray-700"
-                  }`}
+                  className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#171717] text-sm xl:text-base whitespace-nowrap ${isActive ? "text-[#171717] font-bold" : "text-[#292929]"
+                    }`}
                 >
                   {link.name}
                 </Link>
-                <span className={`absolute left-0 bottom-0 h-0.5 bg-linear-to-r from-[#2076C7] to-[#1CADA3] transition-all duration-300 group-hover:w-full ${
-                  isActive ? "w-full" : "w-0"
-                }`} />
+                <span className={`absolute left-0 bottom-0 h-0.5 bg-[#F4C430] transition-all duration-300 group-hover:w-full ${isActive ? "w-full" : "w-0"
+                  }`} />
               </motion.div>
             );
           })}
@@ -157,24 +159,26 @@ export default function Header() {
               className="relative group rounded-lg overflow-hidden cursor-pointer"
             >
               <motion.div
-                className="absolute inset-0 rounded-lg bg-linear-to-r from-[#2076C7]/10 to-[#1CADA3]/10 opacity-0 group-hover:opacity-100 blur-sm"
+                className="absolute inset-0 rounded-lg bg-[#FFF8D6]/80 opacity-0 group-hover:opacity-100 blur-xs"
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 0, scale: 0.95 }}
                 whileHover={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35 }}
               />
-              <button className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#2076C7] flex items-center space-x-1 text-sm xl:text-base cursor-pointer ${
-                isProductOpen || pathname.startsWith("/products") ? "text-[#2076C7]" : "text-gray-700"
-              }`}>
+              <button
+                type="button"
+                onClick={() => setIsProductOpen(!isProductOpen)}
+                className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#171717] flex items-center space-x-1 text-sm xl:text-base cursor-pointer ${isProductOpen || pathname.startsWith("/products") ? "text-[#171717] font-bold" : "text-[#292929]"
+                  }`}
+              >
                 <span>Products</span>
                 <ChevronDown
                   size={14}
-                  className={`transition-transform duration-300 ${isProductOpen ? "rotate-180" : ""}`}
+                  className={`transition-transform duration-300 ${isProductOpen ? "rotate-180 text-[#F4C430]" : ""}`}
                 />
               </button>
-              <span className={`absolute left-0 bottom-0 h-0.5 bg-linear-to-r from-[#2076C7] to-[#1CADA3] transition-all duration-300 group-hover:w-full ${
-                isProductOpen || pathname.startsWith("/products") ? "w-full" : "w-0"
-              }`} />
+              <span className={`absolute left-0 bottom-0 h-0.5 bg-[#F4C430] transition-all duration-300 group-hover:w-full ${isProductOpen || pathname.startsWith("/products") ? "w-full" : "w-0"
+                }`} />
             </motion.div>
 
             <AnimatePresence>
@@ -184,38 +188,35 @@ export default function Header() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.95 }}
                   transition={{ duration: 0.2 }}
-                  className="absolute top-full left-0 mt-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50"
+                  className="absolute top-full left-0 mt-2 w-52 xl:w-60 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2.5 z-50"
                 >
-                  {/* Loans Submenu */}
+                  {/* Insurance Submenu */}
                   <div
                     className="relative"
-                    onMouseEnter={() => setIsLoansOpen(true)}
-                    onMouseLeave={() => setIsLoansOpen(false)}
+                    onMouseEnter={() => setIsInsuranceOpen(true)}
+                    onMouseLeave={() => setIsInsuranceOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm xl:text-base">Loans</span>
-                      <ChevronDown
-                        size={12}
-                        className={`transition-transform duration-300 -rotate-90 ${isLoansOpen ? "rotate-0" : ""}`}
-                      />
+                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm font-medium">Insurance</span>
+                      <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
-                      {isLoansOpen && (
+                      {isInsuranceOpen && (
                         <motion.div
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-full top-0 ml-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
+                          className="absolute left-full top-0 ml-1.5 w-56 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2 z-60"
                         >
-                          {loansOptions.map((option, index) => (
+                          {insuranceOptions.map((option, index) => (
                             <Link
                               key={index}
                               href={option.href}
-                              className="block px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 text-sm xl:text-base"
+                              className="block px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 text-sm font-medium"
                               onClick={() => {
                                 setIsProductOpen(false);
-                                setIsLoansOpen(false);
+                                setIsInsuranceOpen(false);
                               }}
                             >
                               {option.label}
@@ -226,36 +227,33 @@ export default function Header() {
                     </AnimatePresence>
                   </div>
 
-                  {/* Insurance Submenu */}
+                  {/* Loans Submenu */}
                   <div
                     className="relative"
-                    onMouseEnter={() => setIsInsuranceOpen(true)}
-                    onMouseLeave={() => setIsInsuranceOpen(false)}
+                    onMouseEnter={() => setIsLoansOpen(true)}
+                    onMouseLeave={() => setIsLoansOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm xl:text-base">Insurance</span>
-                      <ChevronDown
-                        size={12}
-                        className={`transition-transform duration-300 -rotate-90 ${isInsuranceOpen ? "rotate-0" : ""}`}
-                      />
+                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm font-medium">Loans</span>
+                      <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
-                      {isInsuranceOpen && (
+                      {isLoansOpen && (
                         <motion.div
                           initial={{ opacity: 0, x: -10 }}
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-full top-0 ml-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
+                          className="absolute left-full top-0 ml-1.5 w-56 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2 z-60"
                         >
-                          {insuranceOptions.map((option, index) => (
+                          {loansOptions.map((option, index) => (
                             <Link
                               key={index}
                               href={option.href}
-                              className="block px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 text-sm xl:text-base"
+                              className="block px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 text-sm font-medium"
                               onClick={() => {
                                 setIsProductOpen(false);
-                                setIsInsuranceOpen(false);
+                                setIsLoansOpen(false);
                               }}
                             >
                               {option.label}
@@ -272,12 +270,9 @@ export default function Header() {
                     onMouseEnter={() => setIsMutualFundOpen(true)}
                     onMouseLeave={() => setIsMutualFundOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm xl:text-base">Mutual Fund</span>
-                      <ChevronDown
-                        size={12}
-                        className={`transition-transform duration-300 -rotate-90 ${isMutualFundOpen ? "rotate-0" : ""}`}
-                      />
+                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm font-medium">Mutual Funds</span>
+                      <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
                       {isMutualFundOpen && (
@@ -286,13 +281,13 @@ export default function Header() {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-full top-0 ml-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
+                          className="absolute left-full top-0 ml-1.5 w-56 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2 z-60"
                         >
                           {mutualFundOptions.map((option, index) => (
                             <Link
                               key={index}
                               href={option.href}
-                              className="block px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 text-sm xl:text-base"
+                              className="block px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 text-sm font-medium"
                               onClick={() => {
                                 setIsProductOpen(false);
                                 setIsMutualFundOpen(false);
@@ -312,12 +307,9 @@ export default function Header() {
                     onMouseEnter={() => setIsInvestmentOpen(true)}
                     onMouseLeave={() => setIsInvestmentOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm xl:text-base">Investments</span>
-                      <ChevronDown
-                        size={12}
-                        className={`transition-transform duration-300 -rotate-90 ${isInvestmentOpen ? "rotate-0" : ""}`}
-                      />
+                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm font-medium">Investments</span>
+                      <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
                       {isInvestmentOpen && (
@@ -326,13 +318,13 @@ export default function Header() {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-full top-0 ml-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
+                          className="absolute left-full top-0 ml-1.5 w-56 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2 z-60"
                         >
                           {investmentOptions.map((option, index) => (
                             <Link
                               key={index}
                               href={option.href}
-                              className="block px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 text-sm xl:text-base"
+                              className="block px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 text-sm font-medium"
                               onClick={() => {
                                 setIsProductOpen(false);
                                 setIsInvestmentOpen(false);
@@ -352,12 +344,9 @@ export default function Header() {
                     onMouseEnter={() => setIsUnlistedOpen(true)}
                     onMouseLeave={() => setIsUnlistedOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm xl:text-base">Unlisted</span>
-                      <ChevronDown
-                        size={12}
-                        className={`transition-transform duration-300 -rotate-90 ${isUnlistedOpen ? "rotate-0" : ""}`}
-                      />
+                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                      <span className="text-sm font-medium">Unlisted Shares</span>
+                      <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
                       {isUnlistedOpen && (
@@ -366,13 +355,13 @@ export default function Header() {
                           animate={{ opacity: 1, x: 0 }}
                           exit={{ opacity: 0, x: -10 }}
                           transition={{ duration: 0.15 }}
-                          className="absolute left-full top-0 ml-2 w-48 xl:w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60"
+                          className="absolute left-full top-0 ml-1.5 w-56 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2 z-60"
                         >
                           {unlistedOptions.map((option, index) => (
                             <Link
                               key={index}
                               href={option.href}
-                              className="block px-3 xl:px-4 py-2 text-gray-700 hover:bg-[#E8F6FA] hover:text-[#2076C7] transition-colors duration-200 text-sm xl:text-base"
+                              className="block px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 text-sm font-medium"
                               onClick={() => {
                                 setIsProductOpen(false);
                                 setIsUnlistedOpen(false);
@@ -402,7 +391,7 @@ export default function Header() {
                 className="relative group rounded-lg overflow-hidden cursor-pointer"
               >
                 <motion.div
-                  className="absolute inset-0 rounded-lg bg-linear-to-r from-[#2076C7]/10 to-[#1CADA3]/10 opacity-0 group-hover:opacity-100 blur-sm"
+                  className="absolute inset-0 rounded-lg bg-[#FFF8D6]/80 opacity-0 group-hover:opacity-100 blur-xs"
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 0, scale: 0.95 }}
                   whileHover={{ opacity: 1, scale: 1 }}
@@ -410,23 +399,21 @@ export default function Header() {
                 />
                 <Link
                   href={link.href}
-                  className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#2076C7] text-sm xl:text-base whitespace-nowrap ${
-                    isActive ? "text-[#2076C7]" : "text-gray-700"
-                  }`}
+                  className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#171717] text-sm xl:text-base whitespace-nowrap ${isActive ? "text-[#171717] font-bold" : "text-[#292929]"
+                    }`}
                 >
                   {link.name}
                 </Link>
-                <span className={`absolute left-0 bottom-0 h-0.5 bg-linear-to-r from-[#2076C7] to-[#1CADA3] transition-all duration-300 group-hover:w-full ${
-                  isActive ? "w-full" : "w-0"
-                }`} />
+                <span className={`absolute left-0 bottom-0 h-0.5 bg-[#F4C430] transition-all duration-300 group-hover:w-full ${isActive ? "w-full" : "w-0"
+                  }`} />
               </motion.div>
             );
           })}
         </nav>
 
         {/* Action Controls */}
-        <div className="flex items-center gap-4">
-          
+        <div className="flex items-center gap-3 sm:gap-4">
+
           {/* Desktop Enquiry Action Button */}
           <div className="hidden sm:flex items-center space-x-2 xl:space-x-3 pl-1 xl:pl-2">
             <motion.div
@@ -435,7 +422,7 @@ export default function Header() {
             >
               <Link
                 href="/enquiry"
-                className="font-sans bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer text-sm xl:text-base whitespace-nowrap block"
+                className="font-sans bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] py-2 px-4 rounded-lg font-semibold shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer text-sm xl:text-base whitespace-nowrap block"
               >
                 Enquiry
               </Link>
@@ -445,226 +432,258 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 rounded-full border border-[#1CADA3]/20 text-[#2076C7] hover:bg-[#E8F6FA] transition-colors cursor-pointer"
+            aria-label="Toggle mobile menu"
+            className="lg:hidden p-2 rounded-full border border-[#E5E5E0] text-[#171717] hover:bg-[#F5F5F3] transition-colors cursor-pointer"
           >
-            {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {mobileMenuOpen ? <X className="w-5 h-5 text-[#171717]" /> : <Menu className="w-5 h-5 text-[#171717]" />}
           </button>
 
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* ========================================================================= */}
+      {/* MOBILE NAVIGATION DRAWER (MATCHING USER SCREENSHOT HIERARCHY & CENTERING) */}
+      {/* ========================================================================= */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden bg-linear-to-br from-[#E8F6FA] via-[#F0FAFB] to-[#E9F8F6] backdrop-blur-md shadow-md border-t border-[#1CADA3]/10"
+            transition={{ duration: 0.25 }}
+            className="lg:hidden bg-white shadow-2xl border-t border-[#E5E5E0] max-h-[85vh] overflow-y-auto"
           >
-            <div className="flex flex-col items-center space-y-3 py-6 px-4">
+            <div className="flex flex-col items-center space-y-4 py-8 px-6 text-center">
 
-              {/* Home & About Us */}
-              {navLinks.slice(0, 2).map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className={`w-[80%] max-w-xs text-center py-2 px-3 rounded-lg font-medium transition-colors ${
-                      isActive ? "text-[#2076C7] bg-[#E8F6FA]" : "text-gray-700 hover:text-[#2076C7] hover:bg-[#E8F6FA]/50"
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
+              {/* 1. Home */}
+              <Link
+                href="/"
+                onClick={closeMobile}
+                className={`text-base font-medium transition-colors ${pathname === "/" ? "text-[#171717] font-bold" : "text-[#292929] hover:text-[#171717]"
+                  }`}
+              >
+                Home
+              </Link>
 
-              {/* Mobile Products Dropdown */}
-              <div className="w-full text-center">
+              {/* 2. About Us */}
+              <Link
+                href="/about"
+                onClick={closeMobile}
+                className={`text-base font-medium transition-colors ${pathname === "/about" ? "text-[#171717] font-bold" : "text-[#292929] hover:text-[#171717]"
+                  }`}
+              >
+                About Us
+              </Link>
+
+              {/* 3. Product Dropdown & Sub-dropdowns */}
+              <div className="w-full flex flex-col items-center">
                 <button
-                  onClick={() => setIsProductOpen(!isProductOpen)}
-                  className="text-gray-700 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-base py-2"
+                  onClick={() => setMobileProductOpen(!mobileProductOpen)}
+                  className="flex items-center justify-center gap-1.5 text-base font-medium text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-1"
                 >
-                  <span>Products</span>
-                  <ChevronDown
-                    size={16}
-                    className={`transition-transform duration-300 ${isProductOpen ? "rotate-180" : ""}`}
-                  />
+                  <span>Product</span>
+                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileProductOpen ? "rotate-180 text-[#F4C430]" : ""}`} />
                 </button>
-                {isProductOpen && (
-                  <div className="mt-2 space-y-3 pl-4">
-                    {/* Mobile Loans Dropdown */}
-                    <div className="w-full text-center">
+
+                {mobileProductOpen && (
+                  <div className="flex flex-col items-center space-y-3.5 mt-3 w-full animate-fadeIn">
+
+                    {/* A. Loans Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
                       <button
-                        onClick={() => setIsLoansOpen(!isLoansOpen)}
-                        className="text-gray-600 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-sm py-1"
+                        onClick={() => toggleSubmenu("loans")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
                         <span>Loans</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isLoansOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "loans" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
-                      {isLoansOpen && (
-                        <div className="mt-2 space-y-2 pl-4">
-                          {loansOptions.map((option, index) => (
+
+                      {mobileSubmenu === "loans" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {loansOptions.map((opt, i) => (
                             <Link
-                              key={index}
-                              href={option.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setIsProductOpen(false);
-                                setIsLoansOpen(false);
-                              }}
-                              className="block text-gray-500 hover:text-[#2076C7] transition text-xs py-1"
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
                             >
-                              {option.label}
+                              {opt.label}
                             </Link>
                           ))}
                         </div>
                       )}
                     </div>
 
-                    {/* Mobile Insurance Dropdown */}
-                    <div className="w-full text-center">
+                    {/* B. Insurance Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
                       <button
-                        onClick={() => setIsInsuranceOpen(!isInsuranceOpen)}
-                        className="text-gray-600 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-sm py-1"
+                        onClick={() => toggleSubmenu("insurance")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
                         <span>Insurance</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isInsuranceOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "insurance" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
-                      {isInsuranceOpen && (
-                        <div className="mt-2 space-y-2 pl-4">
-                          {insuranceOptions.map((option, index) => (
+
+                      {mobileSubmenu === "insurance" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {insuranceOptions.map((opt, i) => (
                             <Link
-                              key={index}
-                              href={option.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setIsProductOpen(false);
-                                setIsInsuranceOpen(false);
-                              }}
-                              className="block text-gray-500 hover:text-[#2076C7] transition text-xs py-1"
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
                             >
-                              {option.label}
+                              {opt.label}
                             </Link>
                           ))}
                         </div>
                       )}
                     </div>
 
-                    {/* Mobile Mutual Fund Dropdown */}
-                    <div className="w-full text-center">
+                    {/* C. Mutual Fund Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
                       <button
-                        onClick={() => setIsMutualFundOpen(!isMutualFundOpen)}
-                        className="text-gray-600 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-sm py-1"
+                        onClick={() => toggleSubmenu("mutualFund")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
                         <span>Mutual Fund</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isMutualFundOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "mutualFund" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
-                      {isMutualFundOpen && (
-                        <div className="mt-2 space-y-2 pl-4">
-                          {mutualFundOptions.map((option, index) => (
+
+                      {mobileSubmenu === "mutualFund" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {mutualFundOptions.map((opt, i) => (
                             <Link
-                              key={index}
-                              href={option.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setIsProductOpen(false);
-                                setIsMutualFundOpen(false);
-                              }}
-                              className="block text-gray-500 hover:text-[#2076C7] transition text-xs py-1"
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
                             >
-                              {option.label}
+                              {opt.label}
                             </Link>
                           ))}
                         </div>
                       )}
                     </div>
 
-                    {/* Mobile Investment Dropdown */}
-                    <div className="w-full text-center">
+                    {/* D. Investment Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
                       <button
-                        onClick={() => setIsInvestmentOpen(!isInvestmentOpen)}
-                        className="text-gray-600 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-sm py-1"
+                        onClick={() => toggleSubmenu("investment")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
-                        <span>Investments</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isInvestmentOpen ? "rotate-180" : ""}`}
-                        />
+                        <span>Investment</span>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "investment" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
-                      {isInvestmentOpen && (
-                        <div className="mt-2 space-y-2 pl-4">
-                          {investmentOptions.map((option, index) => (
+
+                      {mobileSubmenu === "investment" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {investmentOptions.map((opt, i) => (
                             <Link
-                              key={index}
-                              href={option.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setIsProductOpen(false);
-                                setIsInvestmentOpen(false);
-                              }}
-                              className="block text-gray-500 hover:text-[#2076C7] transition text-xs py-1"
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
                             >
-                              {option.label}
+                              {opt.label}
                             </Link>
                           ))}
                         </div>
                       )}
                     </div>
 
-                    {/* Mobile Unlisted Dropdown */}
-                    <div className="w-full text-center">
+                    {/* E. Real Estate Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
                       <button
-                        onClick={() => setIsUnlistedOpen(!isUnlistedOpen)}
-                        className="text-gray-600 font-medium hover:text-[#2076C7] transition flex items-center justify-center space-x-1 mx-auto text-sm py-1"
+                        onClick={() => toggleSubmenu("realEstate")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
+                      >
+                        <span>Real Estate</span>
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "realEstate" ? "rotate-180 text-[#F4C430]" : ""}`} />
+                      </button>
+
+                      {mobileSubmenu === "realEstate" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {realEstateOptions.map((opt, i) => (
+                            <Link
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
+                            >
+                              {opt.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+
+                    {/* F. Unlisted Subdropdown */}
+                    <div className="w-full flex flex-col items-center">
+                      <button
+                        onClick={() => toggleSubmenu("unlisted")}
+                        className="flex items-center justify-center gap-1 text-sm font-normal text-[#292929] hover:text-[#171717] transition-colors cursor-pointer py-0.5"
                       >
                         <span>Unlisted</span>
-                        <ChevronDown
-                          size={14}
-                          className={`transition-transform duration-300 ${isUnlistedOpen ? "rotate-180" : ""}`}
-                        />
+                        <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${mobileSubmenu === "unlisted" ? "rotate-180 text-[#F4C430]" : ""}`} />
                       </button>
-                      {isUnlistedOpen && (
-                        <div className="mt-2 space-y-2 pl-4">
-                          {unlistedOptions.map((option, index) => (
+
+                      {mobileSubmenu === "unlisted" && (
+                        <div className="flex flex-col items-center space-y-2 mt-2 py-2 px-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] w-full max-w-xs">
+                          {unlistedOptions.map((opt, i) => (
                             <Link
-                              key={index}
-                              href={option.href}
-                              onClick={() => {
-                                setMobileMenuOpen(false);
-                                setIsProductOpen(false);
-                                setIsUnlistedOpen(false);
-                              }}
-                              className="block text-gray-500 hover:text-[#2076C7] transition text-xs py-1"
+                              key={i}
+                              href={opt.href}
+                              onClick={closeMobile}
+                              className="text-xs text-[#6B6B6B] hover:text-[#171717] hover:font-semibold transition-colors py-0.5"
                             >
-                              {option.label}
+                              {opt.label}
                             </Link>
                           ))}
                         </div>
                       )}
                     </div>
+
                   </div>
                 )}
               </div>
 
-              {/* Mobile Actions */}
-              <div className="flex flex-col gap-2 pt-4 border-t border-[#1CADA3]/10 w-[80%] max-w-xs">
+              {/* 4. Media Center */}
+              <Link
+                href="/media-center"
+                onClick={closeMobile}
+                className={`text-base font-medium transition-colors ${pathname === "/media-center" ? "text-[#171717] font-bold" : "text-[#292929] hover:text-[#171717]"
+                  }`}
+              >
+                Media Center
+              </Link>
+
+              {/* 5. Calculator */}
+              <Link
+                href="/calculator"
+                onClick={closeMobile}
+                className={`text-base font-medium transition-colors ${pathname === "/calculator" ? "text-[#171717] font-bold" : "text-[#292929] hover:text-[#171717]"
+                  }`}
+              >
+                Calculator
+              </Link>
+
+              {/* 6. Contact Us */}
+              <Link
+                href="/contact"
+                onClick={closeMobile}
+                className={`text-base font-medium transition-colors ${pathname === "/contact" ? "text-[#171717] font-bold" : "text-[#292929] hover:text-[#171717]"
+                  }`}
+              >
+                Contact Us
+              </Link>
+
+              {/* 7. Enquiry Action Button */}
+              <div className="pt-2 w-full max-w-xs">
                 <Link
                   href="/enquiry"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-center"
+                  onClick={closeMobile}
+                  className="w-full py-3 rounded-xl text-sm font-bold text-[#171717] bg-[#F4C430] hover:bg-[#FFD21F] text-center shadow-xs block transition-colors"
                 >
                   Enquiry
                 </Link>

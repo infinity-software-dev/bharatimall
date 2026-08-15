@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Bike, Car, Truck, HelpCircle, ArrowRight, Check, ChevronDown, ChevronUp, AlertCircle } from "lucide-react";
+import { Bike, Car, Truck, HelpCircle, Check, ChevronDown, ChevronUp, AlertCircle } from "lucide-react";
 
 export interface MotorPlan {
   id: string;
@@ -190,13 +190,11 @@ export const MOTOR_PLANS_DATA: MotorPlan[] = [
 interface MotorPriceComparisonProps {
   selectedVehicleType: "Two Wheeler" | "Car" | "Commercial" | "Misc D";
   onSelectVehicleType: (type: "Two Wheeler" | "Car" | "Commercial" | "Misc D") => void;
-  onSelectPlanForDetails: (plan: { name: string; price: number; planType: string; features: string[] }) => void;
 }
 
 export default function MotorPriceComparison({
   selectedVehicleType,
   onSelectVehicleType,
-  onSelectPlanForDetails
 }: MotorPriceComparisonProps) {
   const [selectedPlanType, setSelectedPlanType] = useState<"Comprehensive" | "Third party plans" | "Own Damage plans">("Comprehensive");
   const [selectedEngineCap, setSelectedEngineCap] = useState("75cc - 150cc");
@@ -319,23 +317,18 @@ export default function MotorPriceComparison({
 
   const visiblePlans = showAllPlans ? computedPlans : computedPlans.slice(0, 6);
 
-  // Button text based on plan type
-  const getButtonText = () => {
-    if (selectedPlanType === "Third party plans") return "View TP Details";
-    if (selectedPlanType === "Own Damage plans") return "View OD Details";
-    return "View Full Details";
-  };
+
 
   return (
-    <section id="price-comparison" className="py-14 lg:py-20 bg-zinc-50/70 border-t border-zinc-200/70">
+    <section id="price-comparison" className="py-14 lg:py-20 bg-[#F5F5F3] border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto space-y-2">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             Compare Insurance Starting Prices
           </h2>
-          <p className="text-sm sm:text-base text-gray-500">
+          <p className="text-sm sm:text-base text-[#6B6B6B]">
             Get instant quotes from top-rated insurers. Save up to 85% on your premium with our transparent comparison tool.
           </p>
         </div>
@@ -345,16 +338,16 @@ export default function MotorPriceComparison({
           
           {/* Left Sidebar Filters */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="bg-white rounded-2xl p-5 sm:p-6 border border-gray-100 shadow-md space-y-6">
+            <div className="bg-[#FFFFFF] rounded-2xl p-5 sm:p-6 border border-[#E5E5E0] shadow-md space-y-6">
               
               {/* Filter Title */}
-              <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-gray-700 pb-2 border-b border-gray-100">
+              <div className="flex items-center gap-2 font-bold text-xs uppercase tracking-wider text-[#292929] pb-2 border-b border-[#E5E5E0]">
                 <span>Filters</span>
               </div>
 
               {/* Vehicle Type Selector */}
               <div className="space-y-2">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                <span className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">
                   VEHICLE TYPE
                 </span>
                 <div className="space-y-2">
@@ -388,15 +381,15 @@ export default function MotorPriceComparison({
                         }}
                         className={`w-full h-12 px-4 rounded-xl flex items-center justify-between text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
                           isSelected
-                            ? "bg-[#1CADA3] text-white shadow-md"
-                            : "bg-gray-50 text-gray-700 hover:bg-gray-100 border border-gray-200/60"
+                            ? "bg-[#F4C430] text-[#171717] shadow-md"
+                            : "bg-[#F5F5F3] text-[#292929] hover:bg-[#F5F5F3] border border-[#E5E5E0]"
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <Icon className="w-4 h-4" />
                           <span>{v.label}</span>
                         </div>
-                        {isSelected && <Check className="w-4 h-4 text-white" />}
+                        {isSelected && <Check className="w-4 h-4 text-[#171717]" />}
                       </button>
                     );
                   })}
@@ -404,18 +397,18 @@ export default function MotorPriceComparison({
               </div>
 
               {/* Insurer Type Selector */}
-              <div className="space-y-2 pt-2 border-t border-gray-100">
-                <span className="text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+              <div className="space-y-2 pt-2 border-t border-[#E5E5E0]">
+                <span className="text-[11px] font-bold text-[#6B6B6B] uppercase tracking-wider">
                   INSURER TYPE
                 </span>
-                <div className="space-y-2 text-xs font-medium text-gray-700">
+                <div className="space-y-2 text-xs font-medium text-[#292929]">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
                       name="insurerType"
                       checked={selectedInsurerType === "Private"}
                       onChange={() => setSelectedInsurerType("Private")}
-                      className="text-[#2076C7] focus:ring-[#2076C7]"
+                      className="text-[#171717] focus:ring-[#F4C430]"
                     />
                     <span>Private</span>
                   </label>
@@ -425,7 +418,7 @@ export default function MotorPriceComparison({
                       name="insurerType"
                       checked={selectedInsurerType === "Public"}
                       onChange={() => setSelectedInsurerType("Public")}
-                      className="text-[#2076C7] focus:ring-[#2076C7]"
+                      className="text-[#171717] focus:ring-[#F4C430]"
                     />
                     <span>Public</span>
                   </label>
@@ -435,7 +428,7 @@ export default function MotorPriceComparison({
                       name="insurerType"
                       checked={selectedInsurerType === "All"}
                       onChange={() => setSelectedInsurerType("All")}
-                      className="text-[#2076C7] focus:ring-[#2076C7]"
+                      className="text-[#171717] focus:ring-[#F4C430]"
                     />
                     <span>All Insurers</span>
                   </label>
@@ -449,7 +442,7 @@ export default function MotorPriceComparison({
           <div className="lg:col-span-8 space-y-6">
             
             {/* Top Bar: Plan Types + Engine Capacity/GVW + IDV */}
-            <div className="bg-white rounded-2xl p-4 sm:p-5 border border-gray-100 shadow-md flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+            <div className="bg-[#FFFFFF] rounded-2xl p-4 sm:p-5 border border-[#E5E5E0] shadow-md flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
               
               {/* Plan Type Tabs */}
               <div className="flex flex-wrap items-center gap-2">
@@ -462,8 +455,8 @@ export default function MotorPriceComparison({
                       onClick={() => setSelectedPlanType(tab as "Comprehensive" | "Third party plans" | "Own Damage plans")}
                       className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         isActive
-                          ? "bg-[#1CADA3] text-white shadow-sm"
-                          : "bg-gray-50 text-gray-600 hover:bg-gray-100 border border-gray-200/60"
+                          ? "bg-[#F4C430] text-[#171717] shadow-sm"
+                          : "bg-[#F5F5F3] text-[#292929] hover:bg-[#F5F5F3] border border-[#E5E5E0]"
                       }`}
                     >
                       {tab}
@@ -476,13 +469,13 @@ export default function MotorPriceComparison({
               <div className="flex items-center gap-3">
                 {/* Engine Capacity / GVW */}
                 <div className="flex flex-col">
-                  <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
+                  <span className="text-[9px] font-bold text-[#6B6B6B] uppercase tracking-wider mb-0.5">
                     {getCapacityLabel()}
                   </span>
                   <select
                     value={selectedEngineCap}
                     onChange={(e) => setSelectedEngineCap(e.target.value)}
-                    className="h-9 px-3 bg-gray-50 border border-gray-200 rounded-lg text-xs font-bold text-gray-700 outline-none cursor-pointer"
+                    className="h-9 px-3 bg-[#F5F5F3] border border-[#E5E5E0] rounded-lg text-xs font-bold text-[#292929] outline-none cursor-pointer"
                   >
                     {capacityOptions.map((opt) => (
                       <option key={opt} value={opt}>{opt}</option>
@@ -493,13 +486,13 @@ export default function MotorPriceComparison({
                 {/* Selected IDV (hidden in Third Party plans) */}
                 {selectedPlanType !== "Third party plans" && (
                   <div className="flex flex-col">
-                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-wider mb-0.5">
+                    <span className="text-[9px] font-bold text-[#6B6B6B] uppercase tracking-wider mb-0.5">
                       SELECTED IDV
                     </span>
                     <select
                       value={selectedIdv}
                       onChange={(e) => setSelectedIdv(e.target.value)}
-                      className="h-9 px-3 bg-gray-50 border border-gray-200 rounded-lg text-xs font-bold text-[#2076C7] outline-none cursor-pointer"
+                      className="h-9 px-3 bg-[#F5F5F3] border border-[#E5E5E0] rounded-lg text-xs font-bold text-[#171717] outline-none cursor-pointer"
                     >
                       {idvOptions.map((opt) => (
                         <option key={opt} value={opt}>{opt}</option>
@@ -512,14 +505,14 @@ export default function MotorPriceComparison({
             </div>
 
             {/* Showing Count */}
-            <div className="text-xs text-gray-500 font-medium px-1">
-              Showing <span className="font-bold text-gray-900">{computedPlans.length}</span> of <span className="font-bold text-gray-900">{computedPlans.length} plans</span> for <span className="text-[#2076C7] font-bold">{getSubheaderFilterText()}</span>
+            <div className="text-xs text-[#6B6B6B] font-medium px-1">
+              Showing <span className="font-bold text-[#171717]">{computedPlans.length}</span> of <span className="font-bold text-[#171717]">{computedPlans.length} plans</span> for <span className="text-[#171717] font-bold">{getSubheaderFilterText()}</span>
             </div>
 
             {/* Commercial Third Party Notice Banner */}
             {selectedVehicleType === "Commercial" && selectedPlanType === "Third party plans" && (
-              <div className="p-3.5 bg-amber-50/90 border border-amber-200 rounded-xl text-xs text-amber-900 flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0" />
+              <div className="p-3.5 bg-[#F4C430]/90 border border-[#F4C430] rounded-xl text-xs text-[#171717] flex items-center gap-2">
+                <AlertCircle className="w-4 h-4 text-[#171717] shrink-0" />
                 <span>
                   <strong>Prices shown are base TP premiums.</strong> Final price will be shown at the time of purchase.
                 </span>
@@ -531,51 +524,36 @@ export default function MotorPriceComparison({
               {visiblePlans.map((plan) => (
                 <div
                   key={plan.id}
-                  className="bg-white rounded-2xl border-l-4 border-l-[#2076C7] border border-gray-100 p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
+                  className="bg-[#FFFFFF] rounded-2xl border-l-4 border-l-[#F4C430] border border-[#E5E5E0] p-5 sm:p-6 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col sm:flex-row sm:items-center justify-between gap-4 group"
                 >
                   {/* Left: Insurer Logo text & Name */}
                   <div className="flex items-center gap-4">
-                    <div className="w-24 h-12 rounded-xl bg-gray-50 border border-gray-200/80 flex items-center justify-center p-2 text-center text-xs font-black text-gray-800 tracking-tight shadow-inner">
+                    <div className="w-24 h-12 rounded-xl bg-[#F5F5F3] border border-[#E5E5E0] flex items-center justify-center p-2 text-center text-xs font-black text-[#292929] tracking-tight shadow-inner">
                       {plan.logoText}
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-gray-900 group-hover:text-[#2076C7] transition-colors">
+                      <h4 className="text-base font-bold text-[#171717] group-hover:text-[#171717] transition-colors">
                         {plan.name}
                       </h4>
-                      <p className="text-xs text-teal-600 font-medium">
+                      <p className="text-xs text-[#171717] font-medium">
                         {selectedPlanType} Cover
                       </p>
                     </div>
                   </div>
 
-                  {/* Right: Starting Price & Button */}
+                  {/* Right: Starting Price */}
                   <div className="flex items-center justify-between sm:justify-end gap-5">
                     <div className="text-right">
-                      <span className="text-[10px] uppercase font-bold text-gray-400 block leading-none">
+                      <span className="text-[10px] uppercase font-bold text-[#6B6B6B] block leading-none">
                         STARTING FROM
                       </span>
                       <div className="flex items-baseline gap-1 mt-0.5">
-                        <span className="text-xl sm:text-2xl font-extrabold text-gray-900">
+                        <span className="text-xl sm:text-2xl font-extrabold text-[#171717]">
                           ₹ {plan.calculatedPrice.toLocaleString('en-IN')}
                         </span>
-                        <span className="text-xs text-gray-400">/year</span>
+                        <span className="text-xs text-[#6B6B6B]">/year</span>
                       </div>
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() => onSelectPlanForDetails({
-                        name: plan.name,
-                        price: plan.calculatedPrice,
-                        planType: selectedPlanType,
-                        features: plan.features
-                      })}
-                      className="px-5 py-2.5 rounded-xl text-white font-bold text-xs uppercase tracking-wider shadow-md hover:brightness-110 active:scale-[0.98] transition-all cursor-pointer flex items-center gap-1.5 shrink-0"
-                      style={{ background: "linear-gradient(to right, #2076C7, #1CADA3)" }}
-                    >
-                      <span>{getButtonText()}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
                   </div>
                 </div>
               ))}
@@ -587,7 +565,7 @@ export default function MotorPriceComparison({
                 <button
                   type="button"
                   onClick={() => setShowAllPlans(!showAllPlans)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-gray-200 bg-white text-xs font-bold text-gray-700 hover:text-[#2076C7] hover:border-[#2076C7]/40 shadow-xs transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-xl border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-bold text-[#292929] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all cursor-pointer"
                 >
                   <span>{showAllPlans ? "See less plans" : "See more plans"}</span>
                   {showAllPlans ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -596,7 +574,7 @@ export default function MotorPriceComparison({
             )}
 
             {/* Soliciation Footnote */}
-            <div className="p-4 rounded-xl bg-gray-50 border border-gray-200/70 text-[10px] text-gray-500 leading-relaxed text-center">
+            <div className="p-4 rounded-xl bg-[#F5F5F3] border border-[#E5E5E0] text-[10px] text-[#6B6B6B] leading-relaxed text-center">
               {getFootnoteText()}
             </div>
 

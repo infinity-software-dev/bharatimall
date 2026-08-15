@@ -26,16 +26,16 @@ export default function MotorClaimsProcess() {
   ];
 
   return (
-    <section className="py-14 lg:py-20 bg-zinc-50/70 border-t border-zinc-200/70">
+    <section className="py-14 lg:py-20 bg-[#F5F5F3] border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-teal-600 uppercase tracking-widest">
+          <span className="text-xs font-bold text-[#171717] uppercase tracking-widest">
             HASSLE-FREE ASSISTANCE
           </span>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#17859c] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
             How Cashless Claims Work
           </h2>
-          <p className="text-sm text-gray-500">
+          <p className="text-sm text-[#6B6B6B]">
             Fast, transparent, and seamless motor claims settled directly with authorized network workshops.
           </p>
         </div>
@@ -46,18 +46,18 @@ export default function MotorClaimsProcess() {
             return (
               <div
                 key={idx}
-                className="p-7 rounded-2xl bg-white border border-gray-100 shadow-md text-center space-y-4 hover:border-[#2076C7]/30 transition-all relative"
+                className="p-7 rounded-2xl bg-[#FFFFFF] border border-[#E5E5E0] shadow-md text-center space-y-4 hover:border-[#F4C430] transition-all relative"
               >
-                <div className="w-12 h-12 rounded-2xl bg-sky-50 text-[#2076C7] flex items-center justify-center mx-auto shadow-inner">
+                <div className="w-12 h-12 rounded-2xl bg-[#F5F5F3] text-[#171717] flex items-center justify-center mx-auto shadow-inner">
                   <Icon className="w-6 h-6" />
                 </div>
-                <div className="inline-block px-2.5 py-0.5 rounded-full bg-blue-50 text-[#2076C7] text-[10px] font-bold uppercase tracking-wider">
+                <div className="inline-block px-2.5 py-0.5 rounded-full bg-[#F5F5F3] text-[#171717] text-[10px] font-bold uppercase tracking-wider">
                   Step {item.step}
                 </div>
-                <h3 className="text-base font-bold text-zinc-900">
+                <h3 className="text-base font-bold text-[#171717]">
                   {item.title}
                 </h3>
-                <p className="text-xs text-zinc-500 leading-relaxed">
+                <p className="text-xs text-[#6B6B6B] leading-relaxed">
                   {item.description}
                 </p>
               </div>

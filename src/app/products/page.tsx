@@ -75,7 +75,7 @@ function ProductsContent() {
   }, [urlCategory, urlTab]);
 
   const categories = [
-    { id: "Insurance", label: "Insurance", icon: Shield, badge: "10 Tabs" },
+    { id: "Insurance", label: "Insurance", icon: Shield, badge: "4 Tabs" },
     { id: "Loans", label: "Loans", icon: Sparkles },
     { id: "Mutual Fund", label: "Mutual Fund", icon: Sparkles },
     { id: "Investments", label: "Investments", icon: Sparkles },
@@ -123,16 +123,10 @@ function ProductsContent() {
 
   const getTabIcon = (tabId: string) => {
     switch (tabId) {
-      case "life-insurance": return <HeartHandshake className="w-4 h-4" />;
+      case "term-life-insurance": return <HeartHandshake className="w-4 h-4" />;
       case "health-insurance": return <Activity className="w-4 h-4" />;
       case "motor-insurance": return <Car className="w-4 h-4" />;
-      case "travel-insurance": return <Plane className="w-4 h-4" />;
-      case "fire-insurance": return <Flame className="w-4 h-4" />;
-      case "cattle-insurance": return <Shield className="w-4 h-4" />;
-      case "marine-insurance": return <Ship className="w-4 h-4" />;
-      case "corporate-insurance": return <Building2 className="w-4 h-4" />;
-      case "loan-protector": return <ShieldAlert className="w-4 h-4" />;
-      case "pet-insurance": return <Dog className="w-4 h-4" />;
+      case "general-insurance": return <Building2 className="w-4 h-4" />;
       default: return <Shield className="w-4 h-4" />;
     }
   };
@@ -246,7 +240,7 @@ function ProductsContent() {
                 </span>
               </div>
               <span className="text-[11px] text-zinc-500 font-medium">
-                10 Specialized Insurance Verticals
+                4 Specialized Insurance Verticals
               </span>
             </div>
 

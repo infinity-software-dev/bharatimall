@@ -2,204 +2,148 @@
 
 import React from "react";
 import Link from "next/link";
-import { 
-  Phone, 
-  Mail, 
+import {
+  Phone,
+  Mail,
   MapPin,
-  Sparkles
+  Sparkles,
+  TrendingUp,
+  ShieldCheck,
+  Award
 } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#0B1C2E] text-gray-300 pt-14 pb-8 mt-auto font-sans">
-      <div className="max-w-7xl mx-auto px-5 sm:px-8 lg:px-10">
-        
-        {/* Top Grid Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          
-          {/* Logo & Company Names */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-3">
-              <span className="text-base font-bold tracking-tight text-white">BHARTI MALL</span>
-            </div>
+    <footer className="bg-[#171717] text-[#A3A3A3] pt-18 pb-12 border-t border-[#292929] mt-auto font-sans">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* Top 3-Column Balanced Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 mb-16 items-start">
+
+          {/* Col 1: Brand & Identity (In Focus, Increased font & prominence) */}
+          <div className="lg:col-span-5 space-y-5">
             <div className="space-y-2">
-              <p className="text-sm font-semibold text-gray-205">
-                Market King Business Services Limited
-              </p>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Formerly known as R Bharti Enterprises Ltd.
-              </p>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Formerly known as Ravindra Bharti Buizcorp Limited
-              </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#292929] border border-[#383838] text-[#F4C430] text-[11px] font-bold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                Trusted Financial Enterprise
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white">
+                BHARTI SHARE MARKET
+              </h2>
+              <div className="w-14 h-1 bg-[#F4C430] rounded-full" />
             </div>
+
+            <p className="text-sm sm:text-[15px] text-[#D4D4D4] leading-relaxed max-w-md font-normal">
+              India's trusted financial services and investment consulting enterprise empowering individuals and organizations with smart financial solutions, wealth preservation, and long-term financial growth.
+            </p>
           </div>
 
-          {/* Our Courses */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-5 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-linear-to-r after:from-[#2076C7] after:to-[#1CADA3] after:mt-2">
-              Our Courses
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-405">
+          {/* Col 2: Quick Links & Legal (3 cols) */}
+          <div className="lg:col-span-3 space-y-4">
+            <div className="relative">
+              <h3 className="text-white font-bold text-base tracking-wide">
+                Quick Links & Legal
+              </h3>
+              <div className="w-10 h-0.5 bg-[#F4C430] mt-2 rounded-full" />
+            </div>
+            <ul className="space-y-3 text-sm">
               <li>
-                <a 
-                  href="https://bhartisharemarket.com/online-share-market-course" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Mastery in Trading & Investment-Online
-                </a>
+                <Link href="/about" className="hover:text-[#F4C430] transition-colors">
+                  About Bharti Share Market
+                </Link>
               </li>
               <li>
-                <a 
-                  href="https://bhartisharemarket.com/" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Mastery in Trading & Investment-Offline
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contacts Quick Links */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-5 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-linear-to-r after:from-[#2076C7] after:to-[#1CADA3] after:mt-2">
-              Contacts
-            </h3>
-            <ul className="space-y-2 text-sm text-gray-405">
-              <li>
-                <a 
-                  href="https://bhartisharemarket.com/about-us" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  About Us
-                </a>
+                <Link href="/media-center" className="hover:text-[#F4C430] transition-colors flex items-center gap-1.5">
+                  <span>Media Center & Awards</span>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="https://bhartisharemarket.com/contact-us" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Contact Us
-                </a>
+                <Link href="/terms-and-conditions" className="hover:text-[#F4C430] transition-colors">
+                  Terms & Conditions
+                </Link>
               </li>
               <li>
-                <a 
-                  href="https://bhartisharemarket.com/faq" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Faq's
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/terms-and-conditions"
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Terms And Conditions
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="/privacy-policy"
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
+                <Link href="/privacy-policy" className="hover:text-[#F4C430] transition-colors">
                   Privacy Policy
-                </a>
+                </Link>
               </li>
               <li>
-                <a 
-                  href="/refund-policy"
-                  className="hover:text-[#1CADA3] transition-colors duration-200"
-                >
-                  Refund Policy
-                </a>
+                <Link href="/refund-policy" className="hover:text-[#F4C430] transition-colors">
+                  Refund & Cancellation Policy
+                </Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Details / Reach Us */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-5 relative after:content-[''] after:block after:w-16 after:h-1 after:bg-linear-to-r after:from-[#2076C7] after:to-[#1CADA3] after:mt-2">
-              Reach Us
-            </h3>
-            <ul className="space-y-3 text-sm text-gray-405">
-              <li className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#1CADA3] shrink-0" />
-                <a href="tel:+917057101010" className="hover:text-[#1CADA3] transition-colors duration-200">
-                  +91 7057101010
-                </a>
+          {/* Col 3: Reach Us / Contact (4 cols) */}
+          <div className="lg:col-span-4 space-y-4">
+            <div className="relative">
+              <h3 className="text-white font-bold text-base tracking-wide">
+                Reach Us
+              </h3>
+              <div className="w-10 h-0.5 bg-[#F4C430] mt-2 rounded-full" />
+            </div>
+            <ul className="space-y-4 text-xs">
+              <li className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#292929] border border-[#383838] flex items-center justify-center shrink-0">
+                  <Phone className="w-4 h-4 text-[#F4C430]" />
+                </div>
+                <div>
+                  <span className="text-[11px] text-[#8E8E8E] block">Toll-Free Helpline</span>
+                  <a href="tel:+917057101010" className="text-white font-bold text-sm hover:text-[#F4C430] transition-colors">
+                    +91 7057101010
+                  </a>
+                </div>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#1CADA3] shrink-0" />
-                <a href="mailto:support@bhartisharemarket.com" className="hover:text-[#1CADA3] transition-colors duration-200">
-                  support@bhartisharemarket.com
-                </a>
+              <li className="flex items-center gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#292929] border border-[#383838] flex items-center justify-center shrink-0">
+                  <Mail className="w-4 h-4 text-[#F4C430]" />
+                </div>
+                <div>
+                  <span className="text-[11px] text-[#8E8E8E] block">Official Email</span>
+                  <a href="mailto:support@bhartisharemarket.com" className="text-white font-semibold text-xs hover:text-[#F4C430] transition-colors">
+                    support@bhartisharemarket.com
+                  </a>
+                </div>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin className="w-4 h-4 text-[#1CADA3] shrink-0 mt-0.5" />
-                <span className="leading-relaxed">
-                  <strong>Head Office:</strong> No 4110, 4th Floor, Marvel Fuego, Near Amanora Mall, Opp Seasons Mall, Magarpatta, Pune 411036.
-                </span>
+              <li className="flex items-start gap-3.5">
+                <div className="w-10 h-10 rounded-xl bg-[#292929] border border-[#383838] flex items-center justify-center shrink-0 mt-0.5">
+                  <MapPin className="w-4 h-4 text-[#F4C430]" />
+                </div>
+                <div className="text-xs text-[#A3A3A3] leading-relaxed">
+                  <span className="text-white font-semibold block mb-0.5">Head Office</span>
+                  No 4110, 4th Floor, Marvel Fuego, Near Amanora Mall, Opp Seasons Mall, Magarpatta, Pune 411036.
+                </div>
               </li>
             </ul>
           </div>
 
         </div>
 
-        {/* Disclaimers & Notes */}
-        <div className="pt-8 border-t border-gray-750 space-y-4 text-xs text-gray-400 leading-relaxed">
+        {/* Disclaimer & Compliance Box */}
+        <div className="pt-8 border-t border-[#292929] space-y-3 text-xs text-[#8E8E8E] leading-relaxed">
           <p>
-            <span className="font-bold text-white">Disclaimer:</span> We do not provide any tips or advisory. This is only education and learning platform. Investment In Stock market is subject to market risk. There are no assured / Fixed / Guaranteed returns in the stock market so invest as per your risk appetite and read all the documents carefully.
+            <strong className="text-white">Disclaimer:</strong> We do not provide any stock tips, speculative recommendations, or guaranteed returns. Investments in financial markets are subject to market risks. Read all scheme and offer documents carefully before investing.
           </p>
-          <p className="flex items-center gap-1">
-            <span className="font-bold text-[#1CADA3] flex items-center gap-1 shrink-0">
-              <Sparkles className="w-3.5 h-3.5 inline animate-pulse" />
-              IMP Note:
-            </span>{" "}
-            As Per SEBI Guidelines We Teach Based on The Data which is Older Than Three Months.
+          <p className="flex items-center gap-1.5 text-[11px] text-[#A3A3A3]">
+            <strong className="text-white">
+              Important Compliance:
+            </strong>
+            All products and services comply with applicable regulatory guidelines and standards.
           </p>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-gray-700 my-8"></div>
-
-        {/* Bottom Section */}
-        <div className="flex flex-col items-center gap-4 text-center">
-          
-          <p className="text-sm text-gray-400">
-            © 2026 <span className="font-medium text-white">Bharti Share Market</span> — All Rights Reserved.
+        {/* Bottom Copyright Bar */}
+        <div className="mt-8 pt-6 border-t border-[#292929] flex flex-col items-center justify-center text-center gap-2 text-xs text-[#737373]">
+          <p>
+            Copyright 2026 Bharti Share Market. All Rights Reserved
           </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-400">
-            <span>
-              Designed By{" "}
-              <a 
-                href="https://digitizebrand.com/" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="hover:text-[#1CADA3] transition-colors font-semibold text-white"
-              >
-                DigitizeBrand
-              </a>
-            </span>
-          </div>
-
         </div>
 
       </div>
 
-      {/* Bottom Gradient */}
-      <div className="mt-8 h-1 bg-linear-to-r from-[#2076C7] to-[#1CADA3]"></div>
+      {/* Top Accent Strip */}
+      <div className="h-1 bg-[#F4C430] w-full mt-8" />
     </footer>
   );
 }

@@ -39,7 +39,7 @@ function EnquiryPageContent() {
 
 export default function EnquiryPage() {
   return (
-    <Suspense fallback={<div className="min-h-screen bg-[#FFFDF5] text-[#171717] flex items-center justify-center font-bold text-sm">Loading Bharati Share Market Enquiry Form...</div>}>
+    <Suspense fallback={<div className="min-h-screen bg-[#FFFDF5] text-[#171717] flex items-center justify-center font-bold text-sm">Loading Enquiry Form...</div>}>
       <EnquiryPageContent />
     </Suspense>
   );
