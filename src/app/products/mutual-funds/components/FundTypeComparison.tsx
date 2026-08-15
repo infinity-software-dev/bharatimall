@@ -101,9 +101,9 @@ export default function FundTypeComparison() {
             whileInView={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight"
           >
-            Mutual Fund Strategy <span className="text-[#F4C430]">Comparison</span>
+            Mutual Fund Strategy <span className="text-[#E91E63]">Comparison</span>
           </motion.h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-4" />
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-4" />
           <motion.p 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export default function FundTypeComparison() {
                     className="hover:bg-[#FFFDF5] transition-colors group"
                   >
                     <td className="px-6 py-5">
-                      <span className="text-sm font-bold text-[#171717] group-hover:text-[#F4C430] transition-colors">
+                      <span className="text-sm font-bold text-[#171717] group-hover:text-[#E91E63] transition-colors">
                         {item.type}
                       </span>
                     </td>

@@ -447,12 +447,12 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
         {/* Header */}
         <header className="mb-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-3 bg-[#FFF8D6] border border-[#F4C430]/40 rounded-full text-xs font-bold uppercase tracking-wider text-[#171717] shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-[#F4C430]" /> Curated Marketplace
+            <Sparkles className="w-3.5 h-3.5 text-[#E91E63]" /> Curated Marketplace
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight uppercase">
-            Mutual Fund <span className="text-[#F4C430]">Marketplace</span>
+            Mutual Fund <span className="text-[#E91E63]">Marketplace</span>
           </h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-4" />
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-4" />
           <p className="text-[#6B6B6B] max-w-2xl mx-auto text-base font-normal">
             Explore and invest in top-performing mutual funds across equity, hybrid, debt, and tax-saving categories.
           </p>
@@ -464,17 +464,17 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
             title="⭐ Top Recommended 5-Star Mutual Funds"
             funds={topPicks}
             renderItem={(fund: FundCard) => (
-              <div className="h-full bg-white p-6 rounded-3xl border border-[#E5E5E0] shadow-md flex flex-col justify-between hover:shadow-xl hover:border-[#F4C430] transition-all">
+              <div className="h-full bg-white p-6 rounded-3xl border border-[#E5E5E0] shadow-md flex flex-col justify-between hover:shadow-xl hover:border-[#E91E63] transition-all group">
                 <div>
                   <div className="flex justify-between items-start mb-3">
                     <span className="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40">
                       {fund.type}
                     </span>
-                    <span className="text-xs font-black text-[#F4C430] bg-[#FFF8D6] px-2 py-0.5 rounded-md border border-[#F4C430]/30">
+                    <span className="text-xs font-black text-[#E91E63] bg-[#FFF8D6] px-2 py-0.5 rounded-md border border-[#F4C430]/30">
                       {"★".repeat(fund.rating)}
                     </span>
                   </div>
-                  <h4 className="font-bold text-base text-[#171717] line-clamp-1">{fund.name}</h4>
+                  <h4 className="font-bold text-base text-[#171717] group-hover:text-[#E91E63] transition-colors line-clamp-1">{fund.name}</h4>
                   <p className="text-xs text-[#6B6B6B] font-medium mb-4">{fund.fundHouse}</p>
 
                   <div className="grid grid-cols-3 gap-2 py-3 bg-[#FFFDF5] rounded-2xl text-center border border-[#E5E5E0] mb-4">
@@ -496,7 +496,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                 <div className="flex items-center gap-2 pt-2">
                   <Link
                     href={`/products/mutual-funds/${fund.schemeCode}`}
-                    className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] transition-colors"
+                    className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] hover:border-[#E91E63] transition-colors"
                   >
                     View Details
                   </Link>
@@ -524,7 +524,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-xs font-bold transition-all duration-200 border cursor-pointer ${
                   activeCategory === cat.key
                     ? "bg-[#F4C430] text-[#171717] border-[#F4C430] shadow-md scale-105"
-                    : "bg-white text-[#292929] border-[#E5E5E0] hover:bg-[#FFF8D6] hover:border-[#F4C430] hover:text-[#171717]"
+                    : "bg-white text-[#292929] border-[#E5E5E0] hover:bg-[#FFF8D6] hover:border-[#E91E63] hover:text-[#171717]"
                 }`}
               >
                 {cat.icon}
@@ -543,7 +543,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
               placeholder="Search by fund name, AMC, or category..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-10 py-3.5 bg-white border border-[#E5E5E0] rounded-2xl text-sm font-medium text-[#171717] focus:border-[#F4C430] focus:ring-2 focus:ring-[#F4C430]/30 outline-none shadow-xs transition-all"
+              className="w-full pl-12 pr-10 py-3.5 bg-white border border-[#E5E5E0] rounded-2xl text-sm font-medium text-[#171717] focus:border-[#E91E63] focus:ring-2 focus:ring-[#E91E63]/20 outline-none shadow-xs transition-all"
             />
             {searchQuery && (
               <button
@@ -564,7 +564,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
               key={fund.schemeCode}
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-white rounded-3xl p-6 border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#F4C430] transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white rounded-3xl p-6 border border-[#E5E5E0] shadow-md hover:shadow-xl hover:border-[#E91E63] transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 <div className="flex justify-between items-start mb-3">
@@ -581,7 +581,7 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-[#171717] group-hover:text-[#F4C430] transition-colors line-clamp-1 mb-1">
+                <h3 className="text-base font-extrabold text-[#E91E63] group-hover:text-[#171717] transition-colors line-clamp-1 mb-1">
                   {fund.name}
                 </h3>
                 <p className="text-xs text-[#6B6B6B] font-normal mb-4">{fund.fundHouse}</p>
@@ -603,14 +603,14 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
 
                 <div className="flex items-center justify-between text-xs text-[#6B6B6B] mb-4">
                   <span>AUM: <strong className="text-[#171717]">{fund.aum}</strong></span>
-                  <span>Rating: <strong className="text-[#F4C430]">{"★".repeat(fund.rating)}</strong></span>
+                  <span>Rating: <strong className="text-[#E91E63]">{"★".repeat(fund.rating)}</strong></span>
                 </div>
               </div>
 
               <div className="flex items-center gap-2 pt-2 border-t border-[#E5E5E0]">
                 <Link
                   href={`/products/mutual-funds/${fund.schemeCode}`}
-                  className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] transition-colors"
+                  className="flex-1 py-2.5 rounded-xl border border-[#E5E5E0] text-center font-bold text-xs text-[#171717] hover:bg-[#FFFDF5] hover:border-[#E91E63] transition-colors"
                 >
                   Details
                 </Link>

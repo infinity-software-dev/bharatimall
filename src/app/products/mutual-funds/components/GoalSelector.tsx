@@ -151,8 +151,9 @@ export default function GoalSelector({
           id="goal-selector-heading"
           className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-[#171717]"
         >
-          Goal-Based <span className="text-[#F4C430]">Investing</span>
+          Goal-Based <span className="text-[#E91E63]">Investing</span>
         </h2>
+        <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full my-3" />
         <p className="text-[#6B6B6B] font-normal max-w-2xl mx-auto text-xs sm:text-sm md:text-base">
           Investing is easier when you do it for a reason. Choose what you are saving for, and we&apos;ll help you find the right mutual funds.
         </p>
@@ -180,23 +181,23 @@ export default function GoalSelector({
               aria-checked={isSelected}
               aria-label={`${goal.title}: ${goal.desc}. Horizon: ${goal.horizon}. Risk: ${goal.risk}`}
               tabIndex={0}
-              className={`relative cursor-pointer rounded-2xl sm:rounded-[1.5rem] md:rounded-[2rem] p-4 sm:p-5 md:p-6 border bg-white transition-all duration-300 flex flex-col justify-between group h-full shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#F4C430]/50 ${
+              className={`relative cursor-pointer rounded-2xl sm:rounded-[1.5rem] md:rounded-[2rem] p-4 sm:p-5 md:p-6 border bg-white transition-all duration-300 flex flex-col justify-between group h-full shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[#E91E63]/50 ${
                 isSelected
-                  ? `ring-2 ring-[#F4C430] border-[#F4C430] bg-[#FFF8D6]/20 shadow-lg`
-                  : "border-[#E5E5E0] hover:border-[#F4C430]/50"
+                  ? `ring-2 ring-[#E91E63] border-[#E91E63] bg-[#FFF8D6]/20 shadow-lg`
+                  : "border-[#E5E5E0] hover:border-[#E91E63]"
               }`}
             >
               <div className="space-y-3 sm:space-y-4">
                 {/* ICON BOX */}
                 <div
-                  className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#F4C430] mx-auto sm:mx-0 shadow-xs"
+                  className="w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-lg sm:rounded-xl flex items-center justify-center bg-[#FFF8D6] text-[#171717] border border-[#F4C430]/40 transition-transform duration-300 group-hover:scale-110 group-hover:bg-[#E91E63] group-hover:text-white mx-auto sm:mx-0 shadow-xs"
                   aria-hidden="true"
                 >
                   <Icon size={20} className="sm:w-[22px] sm:h-[22px] stroke-[2.5]" />
                 </div>
 
                 {/* TITLE */}
-                <h3 className="text-base sm:text-[17px] md:text-[19px] font-bold text-[#171717] group-hover:text-[#F4C430] transition-colors leading-tight text-center sm:text-left">
+                <h3 className={`text-base sm:text-[17px] md:text-[19px] font-bold ${isSelected ? 'text-[#E91E63]' : 'text-[#171717]'} group-hover:text-[#E91E63] transition-colors leading-tight text-center sm:text-left`}>
                   {goal.title}
                 </h3>
 
@@ -220,7 +221,7 @@ export default function GoalSelector({
 
               {/* CARD DECORATIVE BAR */}
               <div
-                className="h-1 sm:h-1.5 w-6 sm:w-8 rounded-full bg-[#F4C430] mt-4 sm:mt-5 group-hover:w-full transition-all duration-300 mx-auto sm:mx-0"
+                className={`h-1 sm:h-1.5 w-6 sm:w-8 rounded-full ${isSelected ? 'bg-[#E91E63] w-full' : 'bg-[#F4C430]'} mt-4 sm:mt-5 group-hover:w-full group-hover:bg-[#E91E63] transition-all duration-300 mx-auto sm:mx-0`}
                 aria-hidden="true"
               />
             </motion.div>

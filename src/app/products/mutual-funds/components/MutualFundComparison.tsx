@@ -173,7 +173,7 @@ const INVESTMENT_STYLES = [
   { label: "Hybrid", key: "Hybrid", icon: "⚖️" },
 ];
 
-const CHART_COLORS = ["#171717", "#F4C430", "#198754", "#6B6B6B"];
+const CHART_COLORS = ["#E91E63", "#F4C430", "#198754", "#6B6B6B"];
 
 export default function MutualFundComparison() {
   const [selectedStyle, setSelectedStyle] = useState<string>("all");
@@ -238,12 +238,12 @@ export default function MutualFundComparison() {
         {/* Header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 mb-3 bg-[#FFF8D6] border border-[#F4C430]/40 rounded-full text-xs font-bold uppercase tracking-wider text-[#171717] shadow-xs">
-            <Activity className="w-3.5 h-3.5 text-[#F4C430]" /> Smart Comparison Engine
+            <Activity className="w-3.5 h-3.5 text-[#E91E63]" /> Smart Comparison Engine
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight">
-            Compare Top <span className="text-[#F4C430]">Mutual Funds</span>
+            Compare Top <span className="text-[#E91E63]">Mutual Funds</span>
           </h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-4" />
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-4" />
           <p className="text-[#6B6B6B] max-w-2xl mx-auto text-base font-normal">
             Select and compare up to 4 funds side-by-side on historical growth, CAGR returns, expense ratios, and risk ratings.
           </p>
@@ -360,8 +360,8 @@ export default function MutualFundComparison() {
                   key={fund.id}
                   className={`p-5 rounded-2xl border transition-all ${
                     isSelected
-                      ? "bg-[#FFF8D6]/30 border-[#F4C430] shadow-md"
-                      : "bg-white border-[#E5E5E0] hover:border-[#F4C430]/60 hover:shadow-md"
+                      ? "bg-[#FFF8D6]/30 border-[#E91E63] shadow-md"
+                      : "bg-white border-[#E5E5E0] hover:border-[#E91E63]/60 hover:shadow-md"
                   }`}
                 >
                   <div className="flex justify-between items-start mb-3">
@@ -369,7 +369,7 @@ export default function MutualFundComparison() {
                       <span className="text-[10px] font-bold uppercase tracking-wider text-[#171717] bg-[#FFF8D6] px-2 py-0.5 rounded-full border border-[#F4C430]/40">
                         {fund.category}
                       </span>
-                      <h4 className="font-bold text-sm text-[#171717] mt-1.5">{fund.name}</h4>
+                      <h4 className="font-bold text-sm text-[#171717] group-hover:text-[#E91E63] mt-1.5">{fund.name}</h4>
                       <p className="text-[11px] text-[#6B6B6B]">{fund.fundHouse}</p>
                     </div>
                   </div>

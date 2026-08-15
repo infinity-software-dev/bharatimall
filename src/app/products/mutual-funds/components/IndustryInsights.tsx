@@ -65,12 +65,12 @@ export default function IndustryInsights() {
         {/* Title */}
         <div className="text-center mb-10 max-w-3xl mx-auto">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-[#FFF8D6] text-[#171717] mb-3 border border-[#F4C430]/40 shadow-xs">
-            <Award className="w-4 h-4 text-[#F4C430]" /> AMFI & Industry Data
+            <Award className="w-4 h-4 text-[#E91E63]" /> AMFI & Industry Data
           </div>
           <h2 className="text-3xl md:text-4xl font-extrabold mb-3 text-[#171717] tracking-tight">
-            Mutual Fund Growth & <span className="text-[#F4C430]">Statistics</span>
+            Mutual Fund Growth & <span className="text-[#E91E63]">Statistics</span>
           </h2>
-          <div className="w-20 h-1 mx-auto bg-[#F4C430] rounded-full mb-3" />
+          <div className="w-20 h-1 mx-auto bg-[#E91E63] rounded-full mb-3" />
           <p className="text-[#6B6B6B] font-normal text-base">
             Understand the immense growth and trust in the Indian Mutual Fund industry, backed by verified AMFI industry figures.
           </p>
@@ -81,14 +81,14 @@ export default function IndustryInsights() {
           {statCards.map((card, idx) => (
             <div
               key={idx}
-              className="bg-white p-6 rounded-2xl border border-[#E5E5E0] shadow-sm hover:shadow-md hover:border-[#F4C430] transition-all flex items-start gap-4"
+              className="bg-white p-6 rounded-2xl border border-[#E5E5E0] shadow-sm hover:shadow-md hover:border-[#E91E63] transition-all flex items-start gap-4 group"
             >
-              <div className={`p-3 rounded-xl ${card.bg} shrink-0`}>
+              <div className={`p-3 rounded-xl ${card.bg} shrink-0 group-hover:scale-105 transition-transform`}>
                 {card.icon}
               </div>
               <div>
                 <h4 className="text-xs font-bold text-[#6B6B6B] uppercase tracking-wider mb-1">{card.title}</h4>
-                <p className="text-2xl font-extrabold text-[#171717] mb-1">{card.value}</p>
+                <p className="text-2xl font-extrabold text-[#171717] group-hover:text-[#E91E63] transition-colors mb-1">{card.value}</p>
                 <p className="text-xs text-[#6B6B6B] font-normal leading-relaxed">{card.desc}</p>
               </div>
             </div>
