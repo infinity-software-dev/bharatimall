@@ -15,7 +15,7 @@ export default function TermsAndConditionsPage() {
       {/* Back Button */}
       <button
         onClick={() => router.back()}
-        className="fixed top-28 left-4 z-50 flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 text-[#2076C7] font-medium border border-gray-100 group cursor-pointer"
+        className="fixed top-28 left-4 z-50 flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 text-[#171717] font-medium border border-[#E5E5E0] group cursor-pointer"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform duration-200">
           <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
@@ -25,25 +25,25 @@ export default function TermsAndConditionsPage() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg flex flex-col hover:shadow-xl transition-shadow duration-300 border border-[#E5E5E0]">
           {/* Header Banner */}
-          <div className="bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white py-8 px-6 text-center shrink-0 rounded-t-xl">
+          <div className="bg-[#171717] text-white py-8 px-6 text-center shrink-0 rounded-t-xl border-b-2 border-[#F4C430]">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">Terms And Conditions</h1>
-            <p className="text-blue-100 italic">Our Terms and Conditions</p>
+            <p className="text-[#FFF8D6] italic">Our Terms and Conditions</p>
           </div>
 
           {/* Content */}
           <div className="p-6 md:p-8 space-y-8">
 
             {/* Important Notice */}
-            <div className="bg-amber-50 p-6 rounded-lg border-l-4 border-amber-400">
+            <div className="bg-[#FFF8D6]/60 p-6 rounded-lg border-l-4 border-[#F4C430]">
               <div className="flex items-start space-x-3">
-                <div className="text-amber-500 mt-1">
+                <div className="text-[#171717] mt-1">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <p className="text-amber-800">
+                <p className="text-[#292929]">
                   Please read the following carefully. These terms and conditions (&quot;Terms and Conditions&quot;) control your use of this website https://bhartisharemarket.com/ (&quot;Website&quot;). In these Terms and Conditions, &quot;Bharti Share Market&quot; is referred to as the &quot;Company&quot;, &quot;us,&quot; or &quot;we.&quot;
                 </p>
               </div>
@@ -51,7 +51,7 @@ export default function TermsAndConditionsPage() {
 
             {/* Terms of Use */}
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-[#2076C7] border-l-4 border-[#1CADA3] pl-4">Terms of Use</h2>
+              <h2 className="text-2xl font-semibold text-[#171717] border-l-4 border-[#F4C430] pl-4">Terms of Use</h2>
               <p className="text-gray-700 leading-relaxed">
                 &apos;You&apos; refers as user or a paying customer. If you are a company or another person who gives access to company products, you agree to take responsibility in full in case of damages or indemnification that could properly lie against the customer.
               </p>
