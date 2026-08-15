@@ -57,7 +57,6 @@ export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [user, setUser] = useState<{ fullName: string; email: string } | null>(null);
 
   const [isProductOpen, setIsProductOpen] = useState(false);
   const [isLoansOpen, setIsLoansOpen] = useState(false);
@@ -68,17 +67,6 @@ export default function Header() {
   const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
 
   const dropdownRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const active = sessionStorage.getItem("bharatimall_active_user");
-    if (active) {
-      try {
-        setUser(JSON.parse(active));
-      } catch (e) {
-        console.error("Failed to parse active user session", e);
-      }
-    }
-  }, []);
 
   // Close dropdown on click outside
   useEffect(() => {
@@ -92,12 +80,6 @@ export default function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
-
-  const handleLogout = () => {
-    sessionStorage.removeItem("bharatimall_active_user");
-    setUser(null);
-    window.location.href = "/"; // Redirect and reload to clear state
-  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -445,40 +427,20 @@ export default function Header() {
         {/* Action Controls */}
         <div className="flex items-center gap-4">
           
-          {/* User Profile / Logout / Enquiry */}
-          {user ? (
-            <div className="hidden sm:flex items-center gap-3">
-              <Link 
-                href="/dashboard"
-                className="text-xs font-bold text-gray-700 flex items-center gap-1.5 bg-white/80 border border-[#1CADA3]/20 hover:border-[#1CADA3]/40 pl-3 pr-3.5 py-2.5 rounded-xl transition-all"
+          {/* Desktop Enquiry Action Button */}
+          <div className="hidden sm:flex items-center space-x-2 xl:space-x-3 pl-1 xl:pl-2">
+            <motion.div
+              whileHover={{ scale: 1.07, y: -2 }}
+              transition={{ type: "tween", duration: 0.1 }}
+            >
+              <Link
+                href="/enquiry"
+                className="font-sans bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer text-sm xl:text-base whitespace-nowrap block"
               >
-                <User className="w-3.5 h-3.5 text-[#2076C7] shrink-0" />
-                Hi, {user.fullName.split(" ")[0]}!
+                Enquiry
               </Link>
-              <button
-                onClick={handleLogout}
-                className="p-2.5 rounded-xl border border-[#1CADA3]/20 hover:border-red-500 hover:text-red-500 text-zinc-400 hover:bg-[#E8F6FA] transition-colors cursor-pointer"
-                title="Sign Out"
-              >
-                <LogOut className="w-4 h-4" />
-              </button>
-            </div>
-          ) : (
-            <div className="hidden sm:flex items-center space-x-2 xl:space-x-3 pl-1 xl:pl-2">
-              
-              <motion.div
-                whileHover={{ scale: 1.07, y: -2 }}
-                transition={{ type: "tween", duration: 0.1 }}
-              >
-                <Link
-                  href="/enquiry"
-                  className="font-sans bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-white py-2 px-4 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer text-sm xl:text-base whitespace-nowrap block"
-                >
-                  Enquiry
-                </Link>
-              </motion.div>
-            </div>
-          )}
+            </motion.div>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
@@ -698,35 +660,15 @@ export default function Header() {
               </div>
 
               {/* Mobile Actions */}
-              {user ? (
-                <div className="flex flex-col gap-2 pt-4 border-t border-[#1CADA3]/10 w-[80%] max-w-xs">
-                  <Link 
-                    href="/dashboard"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="text-xs font-bold text-gray-700 flex items-center justify-center gap-1.5 px-3 py-2.5 bg-white/80 border border-[#1CADA3]/20 rounded-xl hover:border-zinc-300 transition-all font-sans"
-                  >
-                    <User className="w-3.5 h-3.5 text-[#2076C7]" />
-                    Hi, {user.fullName}!
-                  </Link>
-                  <button
-                    onClick={handleLogout}
-                    className="w-full py-3 rounded-xl text-xs font-bold text-white bg-red-500 hover:bg-red-650 text-center flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <LogOut className="w-4 h-4" />
-                    Sign Out
-                  </button>
-                </div>
-              ) : (
-                <div className="flex flex-col gap-2 pt-4 border-t border-[#1CADA3]/10 w-[80%] max-w-xs">
-                  <Link
-                    href="/enquiry"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-center"
-                  >
-                    Enquiry
-                  </Link>
-                </div>
-              )}
+              <div className="flex flex-col gap-2 pt-4 border-t border-[#1CADA3]/10 w-[80%] max-w-xs">
+                <Link
+                  href="/enquiry"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-full py-2.5 rounded-xl text-xs font-bold text-white bg-linear-to-r from-[#2076C7] to-[#1CADA3] text-center"
+                >
+                  Enquiry
+                </Link>
+              </div>
 
             </div>
           </motion.div>
