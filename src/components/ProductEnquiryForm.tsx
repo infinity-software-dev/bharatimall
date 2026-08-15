@@ -199,7 +199,7 @@ export default function ProductEnquiryForm({
               Enquiry Submitted!
             </h3>
             <p className="text-xs sm:text-sm text-[#6B6B6B] mt-1.5 max-w-md mx-auto leading-relaxed">
-              Thank you for choosing Bharati Share Market. Our specialist will review your inquiry and contact you shortly.
+              Thank you for choosing our platform. Our specialist will review your inquiry and contact you shortly.
             </p>
           </div>
 
@@ -275,7 +275,7 @@ export default function ProductEnquiryForm({
           <div className="pb-4 border-b border-[#E5E5E0]">
             <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#FFF8D6] border border-[#F4C430]/50 text-[#171717] text-xs font-bold uppercase tracking-wider mb-2 shadow-xs">
               <Sparkles className="w-3.5 h-3.5 text-[#198754]" />
-              BHARATI SHARE MARKET ENQUIRY
+              PRODUCT ENQUIRY
             </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-[#171717] tracking-tight">
               Get in Touch with Us
