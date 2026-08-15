@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Baby, MoveRight, RefreshCw, ShieldCheck, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -98,14 +99,13 @@ export default function NPSVatsalya({ onPlan }: NPSVatsalyaProps) {
                             </div>
                         </div>
 
-                        <button
-                            type="button"
-                            onClick={onPlan}
+                        <Link
+                            href="/enquiry"
                             className="w-full lg:w-auto px-10 py-5 bg-[#F4C430] text-[#171717] hover:bg-[#FFD21F] rounded-xl font-bold text-base sm:text-lg transition-all shadow-xl flex items-center justify-center gap-3 active:scale-95 cursor-pointer group"
                         >
                             Plan Child&apos;s Future
                             <MoveRight className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </div>
                 </motion.div>
 

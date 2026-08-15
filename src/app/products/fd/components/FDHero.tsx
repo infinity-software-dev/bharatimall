@@ -1,6 +1,7 @@
 "use client";
 
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ShieldCheck, ArrowRight, CalendarDays, UserPlus } from 'lucide-react';
 
@@ -45,9 +46,8 @@ export default function FDHero({ openLogin, onApply, scrollToCalculator }: FDHer
                         </p>
 
                         <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mb-8">
-                            <button
-                                type="button"
-                                onClick={handleApply}
+                            <Link
+                                href="/enquiry"
                                 className="group relative bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] px-8 py-4 rounded-2xl font-extrabold text-base sm:text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 overflow-hidden cursor-pointer active:scale-[0.98]"
                             >
                                 <div className="relative z-10 flex items-center justify-center gap-3">
@@ -57,7 +57,7 @@ export default function FDHero({ openLogin, onApply, scrollToCalculator }: FDHer
                                         className="group-hover:translate-x-1 transition-transform"
                                     />
                                 </div>
-                            </button>
+                            </Link>
                             <button
                                 type="button"
                                 onClick={scrollToCalculator}

@@ -131,13 +131,12 @@ export default function FixedDepositPage() {
             <p className="text-sm sm:text-base md:text-lg mb-8 text-[#6B6B6B] max-w-2xl mx-auto leading-relaxed font-normal">
               Small savings today, bigger security tomorrow. Your money deserves safe and steady growth. Create your Fixed Deposit now and earn up to 9.10% guaranteed returns.
             </p>
-            <button
-              type="button"
-              onClick={() => openModalWithBank("Expert Consultation for Fixed Deposits")}
-              className="bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+            <Link
+              href="/enquiry"
+              className="inline-block bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
             >
               Get a Free Consultation
-            </button>
+            </Link>
           </div>
         </section>
 

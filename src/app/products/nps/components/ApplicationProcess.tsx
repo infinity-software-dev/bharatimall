@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FileText, UserCheck, CreditCard, Send, CheckSquare, Zap, ChevronRight } from 'lucide-react';
 
@@ -120,13 +121,12 @@ export default function ApplicationProcess({ onApply }: ApplicationProcessProps)
                     transition={{ delay: 0.8 }}
                     className="mt-16 sm:mt-20 text-center"
                 >
-                    <button
-                        type="button"
-                        onClick={onApply}
-                        className="px-10 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base sm:text-lg"
+                    <Link
+                        href="/enquiry"
+                        className="inline-block px-10 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-full font-bold hover:shadow-2xl hover:scale-105 transition-all shadow-xl cursor-pointer text-base sm:text-lg"
                     >
                         Start Your NPS Journey Now
-                    </button>
+                    </Link>
                 </motion.div>
 
             </div>
