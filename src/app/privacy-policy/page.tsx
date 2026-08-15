@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       {/* Back Button */}
       <button
         onClick={() => router.back()}
-        className="fixed top-28 left-4 z-50 flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 text-[#2076C7] font-medium border border-gray-100 group cursor-pointer"
+        className="fixed top-28 left-4 z-50 flex items-center gap-2 bg-white px-4 py-2 rounded-full shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 text-[#171717] font-medium border border-[#E5E5E0] group cursor-pointer"
       >
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="group-hover:-translate-x-1 transition-transform duration-200">
           <path d="m12 19-7-7 7-7"/><path d="M19 12H5"/>
@@ -25,11 +25,11 @@ export default function PrivacyPolicyPage() {
 
       {/* Main Content */}
       <div className="container mx-auto px-4 py-8">
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg flex flex-col hover:shadow-xl transition-shadow duration-300">
+        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg flex flex-col hover:shadow-xl transition-shadow duration-300 border border-[#E5E5E0]">
           {/* Header Banner */}
-          <div className="bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white py-8 px-6 text-center shrink-0 rounded-t-xl">
+          <div className="bg-[#171717] text-white py-8 px-6 text-center shrink-0 rounded-t-xl border-b-2 border-[#F4C430]">
             <h1 className="text-3xl md:text-4xl font-bold mb-2">Privacy Policy</h1>
-            <p className="text-blue-100 italic">Our Privacy Policy</p>
+            <p className="text-[#FFF8D6] italic">Our Privacy Policy</p>
           </div>
 
           {/* Scrollable Content */}
@@ -37,7 +37,7 @@ export default function PrivacyPolicyPage() {
 
             {/* Overview */}
             <section className="space-y-4">
-              <h2 className="text-2xl font-semibold text-[#2076C7] border-l-4 border-[#1CADA3] pl-4">Overview</h2>
+              <h2 className="text-2xl font-semibold text-[#171717] border-l-4 border-[#F4C430] pl-4">Overview</h2>
               <p className="text-gray-700 leading-relaxed">
                 We take your privacy seriously and are committed to protect your right to privacy as a user of our website. We have made every effort to ensure your information is secure. This privacy policy information covers what information is collected, what we do with it, and what you can do about it. You can use this information to make your decisions about your privacy.
               </p>
