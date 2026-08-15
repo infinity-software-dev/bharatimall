@@ -22,6 +22,7 @@ import {
   PieChart, 
   ChevronRight, 
   ChevronDown, 
+  ChevronUp,
   ShieldAlert,
   Search,
   SlidersHorizontal,
@@ -34,9 +35,14 @@ export default function UnlistedSharesPage() {
   const [activeFilter, setActiveFilter] = useState<"all" | "popular" | "under500">("all");
   const [displayCount, setDisplayCount] = useState(15);
 
-  // Filtered Unlisted Shares
+  // Filter only unlisted shares that have visible logo images
+  const sharesWithLogosOnly = useMemo(() => {
+    return UNLISTED_SHARES_DATA.filter((share) => Boolean(share.logo_url));
+  }, []);
+
+  // Filtered Unlisted Shares by Search & Active Filter
   const filteredShares = useMemo(() => {
-    return UNLISTED_SHARES_DATA.filter((share) => {
+    return sharesWithLogosOnly.filter((share) => {
       const matchesSearch = share.shares_name.toLowerCase().includes(searchQuery.toLowerCase());
       if (!matchesSearch) return false;
 
@@ -49,7 +55,7 @@ export default function UnlistedSharesPage() {
 
       return true;
     });
-  }, [searchQuery, activeFilter]);
+  }, [sharesWithLogosOnly, searchQuery, activeFilter]);
 
   const visibleShares = useMemo(() => {
     return filteredShares.slice(0, displayCount);
@@ -286,18 +292,18 @@ export default function UnlistedSharesPage() {
           </div>
         </section>
 
-        {/* 2. FEATURED OPPORTUNITIES & FULL UNLISTED SHARES GRID */}
+        {/* 2. FEATURED OPPORTUNITIES & FULL UNLISTED SHARES GRID (LOGOS VISIBLE ONLY) */}
         <section id="featured-opportunities" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-8">
           
           <div className="text-center space-y-2.5 max-w-2xl mx-auto">
             <span className="px-3.5 py-1 rounded-full bg-[#FFF8D6] border border-[#F4C430]/60 text-[#171717] text-xs font-bold uppercase tracking-wider inline-block shadow-xs">
-              UNLISTED SHARES DIRECTORY ({UNLISTED_SHARES_DATA.length} STOCKS)
+              UNLISTED SHARES DIRECTORY ({sharesWithLogosOnly.length} VERIFIED LOGO STOCKS)
             </span>
             <h2 className="text-2xl sm:text-4xl font-bold text-[#171717] tracking-tight">
               Pre-IPO & Unlisted Companies
             </h2>
             <p className="text-xs sm:text-sm text-[#6B6B6B] font-normal leading-relaxed">
-              Discover share prices and lot availability for unlisted companies across India.
+              Discover verified share prices and lot availability for unlisted companies with active logos across India.
             </p>
           </div>
 
@@ -334,7 +340,7 @@ export default function UnlistedSharesPage() {
                       : "bg-white border-[#E5E5E0] text-[#6B6B6B] hover:bg-[#FFF8D6]"
                   }`}
                 >
-                  All ({UNLISTED_SHARES_DATA.length})
+                  All ({sharesWithLogosOnly.length})
                 </button>
                 <button
                   onClick={() => setActiveFilter("popular")}
@@ -370,28 +376,21 @@ export default function UnlistedSharesPage() {
                 >
                   {/* Popular Pill Badge */}
                   {company.is_popular && (
-                    <div className="absolute top-4 right-4 bg-[#FFF8D6] border border-[#F4C430] text-[#171717] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider">
+                    <div className="absolute top-4 right-4 bg-[#FFF8D6] border border-[#F4C430] text-[#171717] text-[10px] font-bold px-2.5 py-0.5 rounded-full uppercase tracking-wider z-10">
                       Popular
                     </div>
                   )}
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-3 pr-14">
-                      <div className="w-10 h-10 rounded-xl bg-[#FFF8D6] border border-[#F4C430]/50 flex items-center justify-center font-bold text-[#171717] text-sm shrink-0 overflow-hidden">
-                        {company.logo_url ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={company.logo_url}
-                            alt={company.shares_name}
-                            className="w-full h-full object-cover"
-                            onError={(e) => {
-                              // Fallback to building icon if image fails to load
-                              (e.target as HTMLElement).style.display = 'none';
-                            }}
-                          />
-                        ) : (
-                          <Building className="w-5 h-5 text-[#171717]" />
-                        )}
+                      {/* Company Visible Logo Frame */}
+                      <div className="w-12 h-12 rounded-xl bg-white border border-[#E5E5E0] p-1.5 flex items-center justify-center shrink-0 overflow-hidden shadow-2xs group-hover:border-[#F4C430] transition-colors">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={company.logo_url!}
+                          alt={company.shares_name}
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <div>
                         <h3 className="text-base font-bold text-[#171717] leading-tight line-clamp-2">
@@ -441,9 +440,9 @@ export default function UnlistedSharesPage() {
             </div>
           )}
 
-          {/* Load More Button */}
-          {filteredShares.length > displayCount && (
-            <div className="text-center pt-6">
+          {/* Pagination Controls (View More / View Less) */}
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-6">
+            {filteredShares.length > displayCount && (
               <button
                 onClick={() => setDisplayCount((prev) => prev + 15)}
                 className="px-8 py-3.5 bg-white border border-[#E5E5E0] text-[#171717] font-bold text-xs rounded-xl hover:bg-[#FFF8D6] hover:border-[#F4C430] shadow-xs transition-all cursor-pointer inline-flex items-center gap-2"
@@ -451,8 +450,18 @@ export default function UnlistedSharesPage() {
                 <span>View More Unlisted Shares ({filteredShares.length - displayCount} Remaining)</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
-            </div>
-          )}
+            )}
+
+            {displayCount > 15 && (
+              <button
+                onClick={() => setDisplayCount(15)}
+                className="px-6 py-3.5 bg-white border border-[#E5E5E0] text-[#6B6B6B] font-bold text-xs rounded-xl hover:bg-[#F5F5F3] hover:text-[#171717] shadow-xs transition-all cursor-pointer inline-flex items-center gap-2"
+              >
+                <span>View Less</span>
+                <ChevronUp className="w-4 h-4" />
+              </button>
+            )}
+          </div>
 
         </section>
 
