@@ -30,12 +30,8 @@ import SIPCalculator from "./components/SIPCalculator";
 import SIPVsFDVsPPFComparison from "./components/SIPVsFDVsPPFComparison";
 import FundTypeComparison from "./components/FundTypeComparison";
 import IndustryInsights from "./components/IndustryInsights";
-import MFConsultModal from "./components/MFConsultModal";
 
 export default function MutualFundsLandingPage() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalTitle, setModalTitle] = useState("Start Your Mutual Fund Investment");
-  const [selectedFundName, setSelectedFundName] = useState("Top Recommended Mutual Fund");
   const [expandedIdx, setExpandedIdx] = useState<number | null>(null);
   const [showAllFaqs, setShowAllFaqs] = useState(false);
   const [selectedGoal, setSelectedGoal] = useState<string | null>(null);
@@ -48,12 +44,6 @@ export default function MutualFundsLandingPage() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const openConsultation = (title: string, fundName: string = "Top Mutual Fund Scheme") => {
-    setModalTitle(title);
-    setSelectedFundName(fundName);
-    setIsModalOpen(true);
-  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -157,13 +147,12 @@ export default function MutualFundsLandingPage() {
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2 w-full">
-                  <button
-                    type="button"
-                    onClick={() => openConsultation("Start Mutual Fund SIP", "Curated Growth SIP")}
-                    className="w-full sm:w-auto text-[#171717] bg-[#F4C430] hover:bg-[#FFD21F] px-8 py-4 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 cursor-pointer"
+                  <Link
+                    href="/enquiry"
+                    className="w-full sm:w-auto text-[#171717] bg-[#F4C430] hover:bg-[#FFD21F] px-8 py-4 rounded-xl font-bold text-base shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 text-center flex items-center justify-center"
                   >
                     Start Investing
-                  </button>
+                  </Link>
                   <a
                     href="#marketplace"
                     className="w-full sm:w-auto bg-white px-8 py-4 rounded-xl font-bold text-base border-2 border-[#E5E5E0] text-[#171717] hover:bg-[#FFF8D6] hover:border-[#E91E63] transform hover:-translate-y-0.5 active:scale-95 transition-all duration-300 shadow-sm hover:shadow-md text-center"
@@ -181,53 +170,12 @@ export default function MutualFundsLandingPage() {
               </div>
 
               {/* Right Hero Metrics Preview Card (Clean, No Image) */}
-              <div className="w-full lg:w-5/12 max-w-md bg-white p-6 sm:p-8 rounded-[2.5rem] border border-[#E5E5E0] shadow-2xl space-y-6">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#6B6B6B] uppercase tracking-widest">Market Overview</span>
-                  <span className="text-xs font-bold text-[#E91E63] bg-[#FFF8D6] px-2.5 py-1 rounded-full border border-[#F4C430]/40 flex items-center gap-1">
-                    <TrendingUp className="w-3.5 h-3.5" /> High Growth
-                  </span>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="p-4 bg-[#FFFDF5] rounded-2xl border border-[#E5E5E0] shadow-xs flex justify-between items-center">
-                    <div>
-                      <p className="text-xs text-[#6B6B6B] font-bold uppercase">Average SIP Returns</p>
-                      <p className="text-2xl font-black text-[#198754]">14.8% p.a.</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-xl bg-[#FFF8D6] flex items-center justify-center text-[#171717] border border-[#F4C430]/30">
-                      <Sparkles className="w-5 h-5 text-[#E91E63]" />
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-[#FFFDF5] rounded-2xl border border-[#E5E5E0] shadow-xs flex justify-between items-center">
-                    <div>
-                      <p className="text-xs text-[#6B6B6B] font-bold uppercase">Minimum Monthly SIP</p>
-                      <p className="text-2xl font-black text-[#171717]">₹500 / mo</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-xl bg-[#FFF8D6] flex items-center justify-center text-[#171717] border border-[#F4C430]/30">
-                      <IndianRupee className="w-5 h-5 text-[#F4C430]" />
-                    </div>
-                  </div>
-
-                  <div className="p-4 bg-[#FFFDF5] rounded-2xl border border-[#E5E5E0] shadow-xs flex justify-between items-center">
-                    <div>
-                      <p className="text-xs text-[#6B6B6B] font-bold uppercase">Tax Saving Under 80C</p>
-                      <p className="text-2xl font-black text-[#198754]">Up to ₹46,800</p>
-                    </div>
-                    <div className="w-10 h-10 rounded-xl bg-[#FFF8D6] flex items-center justify-center text-[#171717] border border-[#F4C430]/30">
-                      <Shield className="w-5 h-5 text-[#198754]" />
-                    </div>
-                  </div>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() => openConsultation("Free Mutual Fund Portfolio Review", "Portfolio Review")}
-                  className="w-full py-3.5 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-xl font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg active:scale-95 transition-all cursor-pointer"
-                >
-                  Get Free Portfolio Review
-                </button>
+              <div className="w-full lg:w-5/12 max-w-md rounded-[2.5rem] overflow-hidden shadow-2xl">
+                <img
+                  src="/images/mutual-funds-hero.jpg"
+                  alt="Mutual Funds"
+                  className="w-full h-[400px] object-cover"
+                />
               </div>
 
             </div>
@@ -248,24 +196,19 @@ export default function MutualFundsLandingPage() {
         {/* 3. MUTUAL FUND MARKETPLACE */}
         <section id="marketplace" className="bg-white border-y border-[#E5E5E0]">
           <Funds
-            onInvestFund={(fundName) => openConsultation(`Start Investment in ${fundName}`, fundName)}
             selectedGoal={selectedGoal}
           />
         </section>
 
         {/* 4. AI VP ROBO BANNER */}
         <section className="bg-white py-4">
-          <VPRoboBanner
-            onConsultRobo={() => openConsultation("Consult VP Robo AI for Mutual Funds", "VP Robo Advisory")}
-          />
+          <VPRoboBanner />
         </section>
 
         {/* 5. FINANCIAL GOAL PLANNER */}
         <section className="py-12 bg-[#F5F5F3] border-b border-[#E5E5E0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <FinancialGoalPlanner
-              onInvest={(goalName) => openConsultation(`Goal Investment for ${goalName}`, goalName)}
-            />
+            <FinancialGoalPlanner />
           </div>
         </section>
 
@@ -419,13 +362,12 @@ export default function MutualFundsLandingPage() {
             <p className="text-sm sm:text-base md:text-lg mb-8 text-white/80 max-w-2xl mx-auto leading-relaxed font-normal">
               Don&apos;t wait to achieve your dreams. Whether it is your home, growing your assets, or protecting your family, we are here to guide you. Get started on your financial success today.
             </p>
-            <button
-              type="button"
-              onClick={() => openConsultation("Free Mutual Fund Consultation", "All Schemes")}
-              className="bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+            <Link
+              href="/enquiry"
+              className="inline-block bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-sm sm:text-base px-8 py-3.5 rounded-xl transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer text-center"
             >
               Get a Consultation
-            </button>
+            </Link>
           </div>
         </section>
 
@@ -441,14 +383,6 @@ export default function MutualFundsLandingPage() {
           </button>
         )}
       </main>
-
-      {/* Consult & Booking Modal */}
-      <MFConsultModal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        title={modalTitle}
-        defaultFund={selectedFundName}
-      />
 
       <Footer />
     </div>

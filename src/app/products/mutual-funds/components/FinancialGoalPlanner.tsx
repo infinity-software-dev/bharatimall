@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Calendar, Target, ArrowRight, IndianRupee } from "lucide-react";
 
@@ -210,14 +211,13 @@ export default function FinancialGoalPlanner({ onInvest }: FinancialGoalPlannerP
                     </div>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => onInvest ? onInvest(goal.name) : alert(`Starting SIP for ${goal.name}`)}
-                    className="w-full flex items-center justify-center gap-2 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-2xl font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer"
+                  <Link
+                    href="/enquiry"
+                    className="w-full flex items-center justify-center gap-2 py-4 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-2xl font-bold text-xs uppercase tracking-widest shadow-md hover:shadow-lg transition-all active:scale-95 cursor-pointer text-center"
                   >
                     Start Investing for Goal
                     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             ))}
