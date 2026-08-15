@@ -29,12 +29,12 @@ const insuranceOptions = [
 ];
 
 const mutualFundOptions = [
-  { label: "Mutual Funds", href: "/products" },
+  { label: "Mutual Funds", href: "/products/mutual-funds" },
 ];
 
 const investmentOptions = [
-  { label: "NPS (National Pension)", href: "/products" },
-  { label: "Fixed Deposits (FD)", href: "/products" },
+  { label: "NPS", href: "/products/nps" },
+  { label: "FD", href: "/products/fd" },
 ];
 
 const realEstateOptions = [
@@ -270,10 +270,17 @@ export default function Header() {
                     onMouseEnter={() => setIsMutualFundOpen(true)}
                     onMouseLeave={() => setIsMutualFundOpen(false)}
                   >
-                    <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
+                    <Link
+                      href="/products/mutual-funds"
+                      onClick={() => {
+                        setIsProductOpen(false);
+                        setIsMutualFundOpen(false);
+                      }}
+                      className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer"
+                    >
                       <span className="text-sm font-medium">Mutual Funds</span>
                       <ChevronRight size={13} className="text-[#6B6B6B]" />
-                    </div>
+                    </Link>
                     <AnimatePresence>
                       {isMutualFundOpen && (
                         <motion.div
@@ -413,7 +420,6 @@ export default function Header() {
 
         {/* Action Controls */}
         <div className="flex items-center gap-3 sm:gap-4">
-
           {/* Desktop Enquiry Action Button */}
           <div className="hidden sm:flex items-center space-x-2 xl:space-x-3 pl-1 xl:pl-2">
             <motion.div

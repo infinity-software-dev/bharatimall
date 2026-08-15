@@ -4,32 +4,32 @@ import React, { useState, useEffect, useMemo, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { 
-  ALL_PRODUCTS_DATA, 
-  OTHER_PRODUCTS_DATA, 
-  INSURANCE_TABS, 
-  InsuranceProduct 
+import {
+  ALL_PRODUCTS_DATA,
+  OTHER_PRODUCTS_DATA,
+  INSURANCE_TABS,
+  InsuranceProduct
 } from "@/lib/productsData";
 import ProductEnquiryModal from "@/components/ProductEnquiryModal";
-import { 
-  Star, 
-  Search, 
-  CheckCircle, 
-  Shield, 
-  HeartHandshake, 
-  Activity, 
-  Car, 
-  Plane, 
-  Flame, 
-  Ship, 
-  Building2, 
-  ShieldAlert, 
-  Dog, 
-  Sparkles, 
-  ArrowRight, 
-  X, 
-  Calculator, 
-  PhoneCall, 
+import {
+  Star,
+  Search,
+  CheckCircle,
+  Shield,
+  HeartHandshake,
+  Activity,
+  Car,
+  Plane,
+  Flame,
+  Ship,
+  Building2,
+  ShieldAlert,
+  Dog,
+  Sparkles,
+  ArrowRight,
+  X,
+  Calculator,
+  PhoneCall,
   CheckCheck
 } from "lucide-react";
 
@@ -132,6 +132,10 @@ function ProductsContent() {
   };
 
   const handleCategoryClick = (catId: string) => {
+    if (catId === "Mutual Fund") {
+      router.push("/products/mutual-funds");
+      return;
+    }
     setSelectedCategory(catId);
     if (catId === "Insurance" && selectedInsuranceTab === "all") {
       router.push(`/products?category=Insurance`);
@@ -163,9 +167,9 @@ function ProductsContent() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-950 text-zinc-100 selection:bg-[#2076C7] selection:text-white">
       <Header />
-      
+
       <main className="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-14 w-full">
-        
+
         {/* Hero & Title Banner */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10 pb-8 border-b border-zinc-900">
           <div>
@@ -192,7 +196,7 @@ function ProductsContent() {
             />
             <Search className="w-4 h-4 text-zinc-400 absolute left-4 top-3.5" />
             {searchTerm && (
-              <button 
+              <button
                 onClick={() => setSearchTerm("")}
                 className="absolute right-3 top-3 text-zinc-500 hover:text-zinc-300"
               >
@@ -210,17 +214,15 @@ function ProductsContent() {
               <button
                 key={cat.id}
                 onClick={() => handleCategoryClick(cat.id)}
-                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${
-                  isActive
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all cursor-pointer ${isActive
                     ? "bg-gradient-to-r from-[#2076C7] to-[#1CADA3] text-white shadow-lg shadow-[#2076C7]/20 scale-100"
                     : "bg-zinc-900/70 border border-zinc-800 text-zinc-400 hover:text-zinc-100 hover:border-zinc-700 hover:bg-zinc-900"
-                }`}
+                  }`}
               >
                 <span>{cat.label}</span>
                 {cat.badge && (
-                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${
-                    isActive ? "bg-white/20 text-white" : "bg-[#2076C7]/20 text-[#2076C7]"
-                  }`}>
+                  <span className={`text-[10px] px-1.5 py-0.5 rounded-full font-extrabold ${isActive ? "bg-white/20 text-white" : "bg-[#2076C7]/20 text-[#2076C7]"
+                    }`}>
                     {cat.badge}
                   </span>
                 )}
@@ -252,11 +254,10 @@ function ProductsContent() {
                   <button
                     key={tab.id}
                     onClick={() => handleInsuranceTabClick(tab.id)}
-                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${
-                      isTabActive
+                    className={`flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-semibold whitespace-nowrap transition-all cursor-pointer ${isTabActive
                         ? "bg-[#2076C7] text-white shadow-md shadow-[#2076C7]/30 ring-1 ring-white/20"
                         : "bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white hover:border-zinc-700 hover:bg-zinc-850"
-                    }`}
+                      }`}
                   >
                     {getTabIcon(tab.id)}
                     <span>{tab.name}</span>
@@ -305,8 +306,8 @@ function ProductsContent() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredProducts.map((product) => {
               return (
-                <div 
-                  key={product.id} 
+                <div
+                  key={product.id}
                   className="glass-card rounded-2xl overflow-hidden p-6 flex flex-col justify-between group hover:border-[#2076C7]/50 transition-all duration-300 relative"
                 >
                   {/* Top Accent Gradient Bar */}
@@ -318,7 +319,7 @@ function ProductsContent() {
                       <div className="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform shadow-inner">
                         {product.icon}
                       </div>
-                      
+
                       {product.badge ? (
                         <span className="text-[10px] font-extrabold uppercase tracking-wider text-amber-400 bg-amber-500/10 px-3 py-1 rounded-full border border-amber-500/25">
                           {product.badge}
@@ -343,11 +344,10 @@ function ProductsContent() {
                       <div className="flex items-center gap-1.5">
                         <div className="flex text-amber-400">
                           {Array.from({ length: 5 }).map((_, i) => (
-                            <Star 
-                              key={i} 
-                              className={`w-3.5 h-3.5 ${
-                                i < Math.floor(product.rating) ? "fill-amber-400 text-amber-400" : "text-zinc-700"
-                              }`} 
+                            <Star
+                              key={i}
+                              className={`w-3.5 h-3.5 ${i < Math.floor(product.rating) ? "fill-amber-400 text-amber-400" : "text-zinc-700"
+                                }`}
                             />
                           ))}
                         </div>
