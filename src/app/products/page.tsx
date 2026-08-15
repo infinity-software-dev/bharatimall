@@ -10,6 +10,7 @@ import {
   INSURANCE_TABS, 
   InsuranceProduct 
 } from "@/lib/productsData";
+import ProductEnquiryModal from "@/components/ProductEnquiryModal";
 import { 
   Star, 
   Search, 
@@ -471,137 +472,12 @@ function ProductsContent() {
         </div>
       </main>
 
-      {/* Quote & Inquiry Modal */}
-      {selectedProductForQuote && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-          <div 
-            onClick={() => setSelectedProductForQuote(null)}
-            className="absolute inset-0 bg-black/80 backdrop-blur-sm" 
-          />
-
-          <div className="relative w-full max-w-lg bg-zinc-900 border border-zinc-800 rounded-3xl overflow-hidden shadow-2xl z-10 animate-scale-in">
-            {/* Modal Header */}
-            <div className="px-6 py-5 bg-zinc-850 border-b border-zinc-800 flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="text-2xl">{selectedProductForQuote.icon}</div>
-                <div>
-                  <span className="text-[10px] font-bold text-[#2076C7] uppercase tracking-wider">
-                    Instant Quote Request
-                  </span>
-                  <h3 className="text-base font-bold text-white leading-snug">
-                    {selectedProductForQuote.title}
-                  </h3>
-                </div>
-              </div>
-              <button
-                onClick={() => setSelectedProductForQuote(null)}
-                className="p-1.5 rounded-full bg-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors cursor-pointer"
-              >
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-6">
-              {quoteSuccess ? (
-                <div className="text-center py-8 space-y-3">
-                  <div className="w-14 h-14 rounded-full bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 flex items-center justify-center mx-auto">
-                    <CheckCheck className="w-8 h-8" />
-                  </div>
-                  <h4 className="text-lg font-bold text-white">Quote Request Received!</h4>
-                  <p className="text-xs text-zinc-400 max-w-xs mx-auto">
-                    Our certified insurance & financial specialist will contact you on <span className="text-white font-semibold">{quoteFormData.phone || "your number"}</span> with personalized quotes and maximum discount benefits.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleQuoteSubmit} className="space-y-4">
-                  <div className="p-3.5 rounded-2xl bg-zinc-950/70 border border-zinc-800/80 flex items-center justify-between text-xs">
-                    <div>
-                      <span className="text-zinc-500 block text-[10px]">Starting Premium</span>
-                      <span className="font-extrabold text-white text-sm">{selectedProductForQuote.startingPrice}</span>
-                      <span className="text-zinc-400 text-[10px]"> /{selectedProductForQuote.period}</span>
-                    </div>
-                    <div className="text-right">
-                      <span className="text-zinc-500 block text-[10px]">Coverage Limit</span>
-                      <span className="font-bold text-[#1CADA3]">{selectedProductForQuote.coverAmount || "High Protection"}</span>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
-                      Full Name *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="e.g. Rahul Sharma"
-                      value={quoteFormData.name}
-                      onChange={(e) => setQuoteFormData({ ...quoteFormData, name: e.target.value })}
-                      className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-[#2076C7]"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <div>
-                      <label className="block text-[11px] font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
-                        Mobile Number *
-                      </label>
-                      <input
-                        type="tel"
-                        required
-                        placeholder="+91 9876543210"
-                        value={quoteFormData.phone}
-                        onChange={(e) => setQuoteFormData({ ...quoteFormData, phone: e.target.value })}
-                        className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-[#2076C7]"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-[11px] font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
-                        Email Address
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="rahul@example.com"
-                        value={quoteFormData.email}
-                        onChange={(e) => setQuoteFormData({ ...quoteFormData, email: e.target.value })}
-                        className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-[#2076C7]"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[11px] font-semibold text-zinc-300 uppercase tracking-wider mb-1.5">
-                      Select Desired Coverage Level
-                    </label>
-                    <select
-                      value={quoteFormData.coverageNeeded}
-                      onChange={(e) => setQuoteFormData({ ...quoteFormData, coverageNeeded: e.target.value })}
-                      className="w-full bg-zinc-950 border border-zinc-800 rounded-xl px-4 py-2.5 text-xs sm:text-sm text-zinc-100 focus:outline-none focus:border-[#2076C7]"
-                    >
-                      <option>Standard (₹1 Crore / Max Benefit)</option>
-                      <option>Enhanced Shield (₹2 Crore + Riders)</option>
-                      <option>Starter Basic Cover (₹25 Lakh to ₹50 Lakh)</option>
-                      <option>Custom Enterprise / High Net Worth</option>
-                    </select>
-                  </div>
-
-                  <p className="text-[10px] text-zinc-500 leading-tight">
-                    🔒 By clicking submit, you authorize certified Bharati Mall / Bharti Share Market advisors to share official quote calculations and discount brochures via WhatsApp or Call.
-                  </p>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 rounded-xl text-xs sm:text-sm font-bold text-white bg-gradient-to-r from-[#2076C7] to-[#1CADA3] hover:shadow-lg hover:shadow-[#2076C7]/25 active:scale-98 transition-all flex items-center justify-center gap-2 cursor-pointer"
-                  >
-                    <span>Calculate Instant Quote & Apply</span>
-                    <ArrowRight className="w-4 h-4" />
-                  </button>
-                </form>
-              )}
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Product Enquiry & Quote Modal */}
+      <ProductEnquiryModal
+        isOpen={!!selectedProductForQuote}
+        onClose={() => setSelectedProductForQuote(null)}
+        product={selectedProductForQuote}
+      />
 
       <Footer />
     </div>
