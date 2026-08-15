@@ -21,7 +21,7 @@ export default function PersonalLoanCTA() {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <Link href="/#contact">
+          <Link href="/enquiry">
             <button
               type="button"
               className="inline-flex items-center gap-2.5 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] px-9 py-4 rounded-xl font-bold text-base md:text-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"

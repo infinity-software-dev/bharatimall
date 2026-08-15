@@ -20,24 +20,21 @@ import { LASComparisonSection } from "./components/LASComparisonSection";
 import CTASection from "../business-loan/components/CTASection";
 import ScrollToTop from "../personal-loan/components/ScrollToTop";
 import FAQSection from "./components/FAQSection";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function LoanAgainstSecuritiesPage() {
   const router = useRouter();
 
   const handleBackHome = () => router.push("/");
 
-  const handleApplyClick = () => {
-    console.log("Loan Against Securities Apply Clicked");
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    } else {
-      router.push("/#contact");
-    }
-  };
+  const handleApplyClick = ()=>{
+    router.push('/enquiry');
+  }
 
   return (
     <main className="min-h-screen bg-[#FFFFFF] flex flex-col font-sans text-[#292929] scroll-smooth">
+      <Header />
 
       {/* Fixed Back to Home Navigation */}
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
@@ -120,7 +117,7 @@ export default function LoanAgainstSecuritiesPage() {
       <CTASection />
 
       <ScrollToTop />
-
+      <Footer />
     </main>
   );
 }

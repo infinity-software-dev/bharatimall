@@ -17,7 +17,7 @@ export default function CTASection({
     buttonText = "Get a Consultation",
     title = "Ready to Secure Your Financial Future?",
     description = "Don't wait to achieve your dreams. Whether it is expanding your business, managing working capital, or investing in infrastructure, we are here to guide you every step of the way.",
-    buttonLink = "/#contact",
+    buttonLink = "/enquiry",
 }: CTAProps) {
     return (
         <section className="bg-[#FFF8D6] font-sans py-16 md:py-20 border-b border-[#E5E5E0]">

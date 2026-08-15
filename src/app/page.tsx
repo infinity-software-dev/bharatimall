@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen bg-zinc-950 text-zinc-100">
       <Header />
-      
+
       <main className="flex-1 flex flex-col items-center justify-center py-20 px-4 max-w-4xl mx-auto text-center relative overflow-hidden">
         {/* Ambient background glows */}
         <div className="absolute top-1/4 left-1/4 w-80 h-80 rounded-full bg-[#2076C7]/10 blur-[100px] pointer-events-none" />
@@ -27,7 +27,7 @@ export default function Home() {
           </h1>
 
           <p className="text-sm text-zinc-400 max-w-xl mx-auto leading-relaxed">
-            Reimagining share market education and advisor resources. Browse our courses, download guides, and elevate your financial potential under Bharti Share Market.
+            Bharati Financial Mall brings a wide range of financial solutions together on one technology-enabled platform, helping you discover the right options for your personal, family and business needs.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

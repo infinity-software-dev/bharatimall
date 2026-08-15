@@ -10,20 +10,20 @@ import EMICalculator from './components/EMICalculator';
 import BenefitsSection from './components/BenefitsSection';
 import FAQSection from './components/FAQSection';
 import ContactSection from './components/ContactSection';
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 
 export default function EducationLoanPage() {
   const router = useRouter();
   const handleBackHome = () => router.push("/");
 
   const handleApplyClick = () => {
-    const element = document.getElementById("calculator-section");
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+    router.push('/enquiry');
+  }
 
   return (
     <main className="min-h-screen bg-slate-50">
+      <Header />
       {/* Fixed Back to Home Navigation */}
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
         {/* Mobile View */}
@@ -50,14 +50,15 @@ export default function EducationLoanPage() {
       </div>
 
       <HeroSection onApplyClick={handleApplyClick} />
-      <LoanTypesSection />
+      <LoanTypesSection  onApplyClick={handleApplyClick}/>
       <EligibilityAndProcess />
       <div id="calculator-section">
-        <EMICalculator />
+        <EMICalculator  onApplyClick={handleApplyClick}/>
       </div>
       <BenefitsSection />
       <FAQSection />
-      <ContactSection />
+      <ContactSection onApplyClick={handleApplyClick} />
+      <Footer />
     </main>
   );
 }

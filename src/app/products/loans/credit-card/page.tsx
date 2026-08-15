@@ -8,13 +8,20 @@ import CardTypesSection from './components/CardTypesSection';
 import BenefitsSection from './components/BenefitsSection';
 import EligibilityAndProcess from './components/EligibilityAndProcess';
 import FAQSection from './components/FAQSection';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function CreditCardPage() {
   const router = useRouter();
   const handleBackHome = () => router.push("/");
 
+  const handleApplyClick = ()=>{
+    router.push('/enquiry');
+  }
+
   return (
     <main className="min-h-screen bg-slate-50">
+      <Header />
       {/* Fixed Back to Home Navigation */}
       <div className="fixed z-50 top-20 left-4 md:top-24 md:left-8">
         {/* Mobile View */}
@@ -40,11 +47,12 @@ export default function CreditCardPage() {
         </button>
       </div>
 
-      <HeroSection />
-      <CardTypesSection />
+      <HeroSection onApplyClick={handleApplyClick}/>
+      <CardTypesSection onApplyClick={handleApplyClick} />
       <BenefitsSection />
-      <EligibilityAndProcess />
+      <EligibilityAndProcess onApplyClick={handleApplyClick} />
       <FAQSection />
+      <Footer />
     </main>
   );
 }

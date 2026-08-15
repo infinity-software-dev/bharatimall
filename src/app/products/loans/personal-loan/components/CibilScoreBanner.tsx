@@ -27,7 +27,7 @@ export default function CibilScoreBanner() {
 
                     {/* CTA Action */}
                     <div className="relative z-10 w-full md:w-auto shrink-0 flex justify-center md:justify-end">
-                        <Link href="/cibil">
+                        <Link href="/enquiry">
                             <button
                                 type="button"
                                 className="group flex items-center gap-2.5 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] px-7 py-4 rounded-xl font-bold uppercase tracking-wider text-sm transition-all duration-200 shadow-xs hover:shadow-md active:scale-95 cursor-pointer"
