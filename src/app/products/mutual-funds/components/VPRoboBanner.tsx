@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Link from "next/link";
 import { ArrowRight, Bot, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -43,14 +44,13 @@ export default function VPRoboBanner({ onConsultRobo }: VPRoboBannerProps) {
         </div>
 
         <div className="relative z-10 w-full md:w-auto shrink-0 flex justify-center md:justify-end">
-          <button
-            type="button"
-            onClick={onConsultRobo}
-            className="group flex items-center gap-3 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] px-8 py-4 rounded-xl font-extrabold uppercase tracking-widest text-sm transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer"
+          <Link
+            href="/enquiry"
+            className="group flex items-center gap-3 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] px-8 py-4 rounded-xl font-extrabold uppercase tracking-widest text-sm transition-all shadow-lg hover:shadow-xl active:scale-95 cursor-pointer text-center"
           >
             Consult VP Robo
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </button>
+          </Link>
         </div>
       </motion.div>
     </section>

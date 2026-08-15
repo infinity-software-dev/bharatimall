@@ -500,13 +500,12 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                   >
                     View Details
                   </Link>
-                  <button
-                    type="button"
-                    onClick={() => onInvestFund ? onInvestFund(fund.name) : alert(`Investing in ${fund.name}`)}
-                    className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer"
+                  <Link
+                    href="/enquiry"
+                    className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer text-center flex items-center justify-center"
                   >
                     Invest Now
-                  </button>
+                  </Link>
                 </div>
               </div>
             )}
@@ -614,13 +613,12 @@ export default function Funds({ onInvestFund, selectedGoal }: FundsProps) {
                 >
                   Details
                 </Link>
-                <button
-                  type="button"
-                  onClick={() => onInvestFund ? onInvestFund(fund.name) : alert(`Investing in ${fund.name}`)}
-                  className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer"
+                <Link
+                  href="/enquiry"
+                  className="flex-1 py-2.5 rounded-xl text-[#171717] font-bold text-xs bg-[#F4C430] hover:bg-[#FFD21F] shadow-sm hover:shadow-md active:scale-95 transition-all cursor-pointer text-center flex items-center justify-center"
                 >
                   Start SIP
-                </button>
+                </Link>
               </div>
             </motion.div>
           ))}
