@@ -85,7 +85,7 @@ export default function Features() {
                                 </div>
 
                                 {/* Title */}
-                                <h3 className="text-lg font-bold mb-3 text-[#171717] group-hover:text-[#F4C430] transition-colors relative z-10">
+                                <h3 className="text-lg font-bold mb-3 text-[#171717] group-hover:text-[#E91E63] transition-colors relative z-10">
                                     {feature.title}
                                 </h3>
 

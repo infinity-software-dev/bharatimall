@@ -31,7 +31,7 @@ export default function Hero({ onApply }: HeroProps) {
                             <span className="block whitespace-nowrap">
                                 Retire Smart
                             </span>
-                            <span className="block whitespace-nowrap text-[#F4C430]">
+                            <span className="block whitespace-nowrap text-[#E91E63]">
                                 with NPS
                             </span>
                         </h1>

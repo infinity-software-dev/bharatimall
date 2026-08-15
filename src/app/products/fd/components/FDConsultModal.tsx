@@ -82,7 +82,7 @@ export default function FDConsultModal({
                 <ShieldCheck className="w-3.5 h-3.5 text-[#F4C430]" />
                 DICGC Insured up to ₹5 Lakhs
               </div>
-              <h3 className="text-xl font-extrabold text-[#171717] tracking-tight">
+              <h3 className="text-xl font-extrabold text-[#E91E63] tracking-tight">
                 {title}
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1 font-normal">
