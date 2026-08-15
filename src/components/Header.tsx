@@ -29,7 +29,7 @@ const insuranceOptions = [
 ];
 
 const mutualFundOptions = [
-  { label: "Mutual Funds & SIPs", href: "/products" },
+  { label: "Mutual Funds", href: "/products" },
 ];
 
 const investmentOptions = [
@@ -38,11 +38,11 @@ const investmentOptions = [
 ];
 
 const realEstateOptions = [
-  { label: "Commercial & Residential Advisory", href: "/products" },
+  { label: "Real Estate", href: "/products" },
 ];
 
 const unlistedOptions = [
-  { label: "Unlisted Equities & Shares", href: "/products" },
+  { label: "Unlisted Shares", href: "/products" },
 ];
 
 export default function Header() {
@@ -165,8 +165,9 @@ export default function Header() {
                 whileHover={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.35 }}
               />
-              <Link
-                href="/products"
+              <button
+                type="button"
+                onClick={() => setIsProductOpen(!isProductOpen)}
                 className={`relative z-10 px-2 xl:px-3 py-2 font-semibold transition-colors duration-300 group-hover:text-[#171717] flex items-center space-x-1 text-sm xl:text-base cursor-pointer ${isProductOpen || pathname.startsWith("/products") ? "text-[#171717] font-bold" : "text-[#292929]"
                   }`}
               >
@@ -175,7 +176,7 @@ export default function Header() {
                   size={14}
                   className={`transition-transform duration-300 ${isProductOpen ? "rotate-180 text-[#F4C430]" : ""}`}
                 />
-              </Link>
+              </button>
               <span className={`absolute left-0 bottom-0 h-0.5 bg-[#F4C430] transition-all duration-300 group-hover:w-full ${isProductOpen || pathname.startsWith("/products") ? "w-full" : "w-0"
                 }`} />
             </motion.div>
@@ -189,16 +190,6 @@ export default function Header() {
                   transition={{ duration: 0.2 }}
                   className="absolute top-full left-0 mt-2 w-52 xl:w-60 bg-white rounded-2xl shadow-xl border border-[#E5E5E0] py-2.5 z-50"
                 >
-                  {/* All Products Catalog Link */}
-                  <Link
-                    href="/products"
-                    onClick={() => setIsProductOpen(false)}
-                    className="flex items-center justify-between px-4 py-2 text-xs font-bold text-[#855F05] bg-[#FFF8D6]/60 hover:bg-[#FFF8D6] mx-2 rounded-xl border border-[#F4C430]/30 transition-colors mb-1.5"
-                  >
-                    <span>All Products Catalog</span>
-                    <ArrowRight className="w-3.5 h-3.5 text-[#F4C430]" />
-                  </Link>
-
                   {/* Insurance Submenu */}
                   <div
                     className="relative"
@@ -354,7 +345,7 @@ export default function Header() {
                     onMouseLeave={() => setIsUnlistedOpen(false)}
                   >
                     <div className="flex items-center justify-between px-4 py-2 text-[#292929] hover:bg-[#FFF8D6] hover:text-[#171717] transition-colors duration-200 cursor-pointer">
-                      <span className="text-sm font-medium">Unlisted Equities</span>
+                      <span className="text-sm font-medium">Unlisted Shares</span>
                       <ChevronRight size={13} className="text-[#6B6B6B]" />
                     </div>
                     <AnimatePresence>
