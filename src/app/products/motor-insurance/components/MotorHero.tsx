@@ -14,10 +14,11 @@ export default function MotorHero() {
 
   return (
     <section className="relative overflow-hidden pt-6 pb-14 lg:pb-20">
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-[#FFF8D6] rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute top-20 right-10 w-80 h-80 bg-[#FFF8D6] rounded-full blur-3xl pointer-events-none" />
+      {/* Background ambient accents placed behind content */}
+      <div className="absolute top-0 right-1/3 w-96 h-96 bg-[#FFF8D6]/60 rounded-full blur-3xl pointer-events-none -z-10" />
+      <div className="absolute top-40 right-0 w-72 h-72 bg-[#FFF8D6]/40 rounded-full blur-3xl pointer-events-none -z-10" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
           
           {/* Left Content */}
@@ -38,7 +39,7 @@ export default function MotorHero() {
 
             {/* Custom SVG Vehicle & Shield Illustration */}
             <div className="pt-2 max-w-md">
-              <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-[#FFF8D6] to-[#FFF8D6] rounded-2xl border border-[#E5E5E0] p-4 flex items-center justify-center overflow-hidden shadow-inner">
+              <div className="relative w-full aspect-[16/9] bg-gradient-to-br from-[#FFFDF5] to-[#FFF8D6] rounded-2xl border border-[#E5E5E0] p-4 flex items-center justify-center overflow-hidden shadow-inner">
                 {/* Shield background */}
                 <div className="absolute z-0 w-32 h-36 bg-[#FFF8D6] rounded-t-full rounded-b-2xl border-4 border-[#F4C430] flex items-center justify-center shadow-lg transform -translate-y-2">
                   <div className="text-[#171717] text-3xl font-black tracking-tighter">
@@ -86,17 +87,17 @@ export default function MotorHero() {
           </div>
 
           {/* Right Card: Get Instant Quote Form */}
-          <div className="lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[#E5E5E0] shadow-xl w-full max-w-[430px] space-y-5">
-              <h3 className="text-xl font-extrabold text-[#171717] tracking-tight">
+          <div className="lg:col-span-5 flex justify-center lg:justify-end relative z-20">
+            <div className="bg-[#FFFFFF] rounded-3xl p-6 sm:p-8 border border-[#E5E5E0] shadow-2xl w-full max-w-[430px] space-y-5 relative">
+              <h3 className="text-2xl font-black text-[#171717] tracking-tight">
                 Get Instant Quote
               </h3>
 
               <div className="space-y-4">
                 {/* Vehicle Registration Number */}
                 <div>
-                  <div className="relative border-2 border-[#F4C430] rounded-xl px-4 py-2 bg-[#FFFFFF]">
-                    <label className="absolute -top-2.5 left-3 bg-[#FFFFFF] px-1.5 text-[10px] font-bold uppercase tracking-wider text-[#171717]">
+                  <div className="relative border-2 border-[#F4C430] rounded-xl px-4 py-2.5 bg-[#FFFFFF] shadow-2xs">
+                    <label className="absolute -top-2.5 left-3 bg-[#FFFFFF] px-2 text-[10px] sm:text-[11px] font-extrabold uppercase tracking-wider text-[#171717]">
                       Vehicle registration number
                     </label>
                     <input
@@ -104,21 +105,21 @@ export default function MotorHero() {
                       placeholder="E.G. MH01AA1234"
                       value={regNo}
                       onChange={(e) => setRegNo(e.target.value.toUpperCase())}
-                      className="w-full text-sm sm:text-base font-bold text-[#292929] tracking-wider outline-none placeholder:text-gray-300 uppercase"
+                      className="w-full text-base font-extrabold text-[#171717] tracking-wider outline-none placeholder:text-gray-400 placeholder:font-semibold uppercase bg-transparent"
                     />
                   </div>
-                  <div className="flex items-center justify-between text-xs text-[#171717] font-semibold mt-1 px-1">
+                  <div className="flex items-center justify-between text-xs text-[#171717] font-bold mt-1.5 px-1">
                     <button
                       type="button"
                       onClick={scrollToComparison}
-                      className="hover:underline cursor-pointer"
+                      className="hover:text-[#E91E63] underline cursor-pointer"
                     >
                       Got a new vehicle
                     </button>
                     <button
                       type="button"
                       onClick={scrollToComparison}
-                      className="hover:underline cursor-pointer"
+                      className="hover:text-[#E91E63] underline cursor-pointer"
                     >
                       View prices
                     </button>
@@ -132,7 +133,7 @@ export default function MotorHero() {
                     placeholder="Enter Email ID"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full h-12 px-4 rounded-xl border border-[#E5E5E0] text-xs sm:text-sm text-[#292929] placeholder-gray-400 focus:ring-2 focus:ring-[#F4C430]/20 focus:border-[#F4C430] outline-none transition-all"
+                    className="w-full h-12 px-4 rounded-xl border border-[#E5E5E0] text-sm font-medium text-[#171717] placeholder:text-gray-400 placeholder:font-medium focus:ring-2 focus:ring-[#F4C430]/30 focus:border-[#F4C430] bg-[#FFFFFF] outline-none transition-all"
                   />
                 </div>
 
@@ -143,17 +144,16 @@ export default function MotorHero() {
                     placeholder="Enter Mobile number"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full h-12 px-4 rounded-xl border border-[#E5E5E0] text-xs sm:text-sm text-[#292929] placeholder-gray-400 focus:ring-2 focus:ring-[#F4C430]/20 focus:border-[#F4C430] outline-none transition-all"
+                    className="w-full h-12 px-4 rounded-xl border border-[#E5E5E0] text-sm font-medium text-[#171717] placeholder:text-gray-400 placeholder:font-medium focus:ring-2 focus:ring-[#F4C430]/30 focus:border-[#F4C430] bg-[#FFFFFF] outline-none transition-all"
                   />
                 </div>
 
-                {/* Static Button */}
+                {/* Button */}
                 <div
-                  className="w-full h-13 text-[#171717] rounded-xl font-bold text-sm tracking-wider uppercase shadow-lg flex items-center justify-center gap-2 select-none"
-                  style={{ background: "#FFF8D6" }}
+                  className="w-full h-13 bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] rounded-xl font-extrabold text-sm sm:text-base tracking-wider uppercase shadow-md border border-[#F4C430] flex items-center justify-center gap-2 select-none cursor-pointer transition-all active:scale-[0.99]"
                 >
-                  <span>Get Your Quote Now</span>
-                  <ArrowRight className="w-4 h-4" />
+                  <span>Get Instant Quote</span>
+                  <ArrowRight className="w-5 h-5 text-[#171717]" />
                 </div>
 
                 {/* Agreement Checkbox */}
@@ -162,10 +162,10 @@ export default function MotorHero() {
                     type="checkbox"
                     id="motor-terms"
                     defaultChecked
-                    className="mt-1 rounded text-[#171717] focus:ring-[#F4C430]"
+                    className="mt-0.5 rounded text-[#171717] focus:ring-[#F4C430]"
                   />
-                  <label htmlFor="motor-terms" className="text-[11px] text-[#6B6B6B] leading-snug">
-                    I agree to the <span className="text-[#171717] underline cursor-pointer">terms and conditions</span> and <span className="text-[#171717] underline cursor-pointer">privacy policy</span>.
+                  <label htmlFor="motor-terms" className="text-xs text-[#292929] font-medium leading-snug">
+                    I agree to the <span className="text-[#171717] font-bold underline cursor-pointer">terms and conditions</span> and <span className="text-[#171717] font-bold underline cursor-pointer">privacy policy</span>.
                   </label>
                 </div>
               </div>

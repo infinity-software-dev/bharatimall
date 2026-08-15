@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 export default function LifeCtaBanner() {
   return (
@@ -16,12 +17,18 @@ export default function LifeCtaBanner() {
           Get personalized term insurance advice and ₹1 Crore cover starting at ₹490/month from certified advisors.
         </p>
         <div className="pt-2 flex flex-wrap items-center justify-center gap-4">
-          <div className="px-7 py-3.5 rounded-xl bg-[#F4C430] text-[#171717] font-bold text-xs sm:text-sm shadow-lg select-none">
-            Talk to an Expert
-          </div>
-          <div className="px-7 py-3.5 rounded-xl bg-black/20 border border-[#E5E5E0] text-[#171717] font-bold text-xs sm:text-sm select-none">
-            Explore All Blueprints
-          </div>
+          <Link
+            href="/enquiry"
+            className="px-7 py-3.5 rounded-xl bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-xs sm:text-sm shadow-lg transition-all cursor-pointer"
+          >
+            Get Instant Quote
+          </Link>
+          <Link
+            href="/enquiry"
+            className="px-7 py-3.5 rounded-xl bg-black/10 border border-[#E5E5E0] hover:bg-black/20 text-[#171717] font-bold text-xs sm:text-sm transition-all cursor-pointer"
+          >
+            Request Callback
+          </Link>
         </div>
       </div>
     </section>

@@ -69,7 +69,7 @@ export default function HealthConsultModal({ plan, onClose }: HealthConsultModal
                 FREE EXPERT CONSULTATION
               </span>
               <h3 className="text-xl font-extrabold text-[#171717] tracking-tight mt-1">
-                Get Quotes for {plan.title}
+                Get Quotes for <span className="text-[#E91E63]">{plan.title}</span>
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1">
                 Starting from {plan.startingAt}/mo with {plan.cashlessHospitals} cashless hospitals.

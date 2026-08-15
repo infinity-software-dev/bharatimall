@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import {
     ChevronDown,
     ShieldCheck,
@@ -101,7 +102,7 @@ export default function TermCalculator() {
         <section className="py-16 md:py-24 bg-[#FFFFFF] relative overflow-hidden font-sans" id="calculator">
             <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
                 <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                    <h2 className="text-3xl md:text-4xl font-extrabold font-sans drop-shadow-xs text-[#171717]">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight">
                         Term Insurance Calculator
                     </h2>
                     <p className="text-[#6B6B6B] text-base sm:text-lg font-normal leading-relaxed">
@@ -305,18 +306,13 @@ export default function TermCalculator() {
                                 </div>
 
                                 <div className="space-y-4">
-                                    <button
-                                        onClick={() => {
-                                            const el = document.getElementById("blueprints-section");
-                                            if (el) {
-                                                el.scrollIntoView({ behavior: "smooth" });
-                                            }
-                                        }}
-                                        className="w-full py-4 md:py-5 bg-[#FFF8D6] hover:from-[#F4C430] hover:to-[#FFD21F] text-[#171717] rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 md:gap-3 cursor-pointer"
+                                    <Link
+                                        href="/enquiry"
+                                        className="w-full py-4 md:py-5 bg-[#FFF8D6] hover:bg-[#F4C430] text-[#171717] rounded-2xl font-black text-xs md:text-sm uppercase tracking-[0.2em] shadow-xl shadow-blue-500/20 hover:scale-[1.02] active:scale-95 transition-all flex items-center justify-center gap-2 md:gap-3 cursor-pointer"
                                     >
-                                        <span>Check Your Premium</span>
+                                        <span>Get Instant Quote</span>
                                         <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
-                                    </button>
+                                    </Link>
                                     <p className="text-[10px] text-[#6B6B6B] font-bold uppercase tracking-widest flex items-center justify-center gap-2">
                                         <ShieldCheck className="w-4 h-4 text-[#171717]" /> Secure SSL Connection
                                     </p>

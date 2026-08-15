@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import { Search, X, CheckCircle2, ArrowRight, Activity } from "lucide-react";
 
 export interface HealthPlan {
@@ -344,11 +345,10 @@ export default function HealthPlansGrid() {
                 <button
                   key={cat}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
-                    isSelected
+                  className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${isSelected
                       ? "text-[#171717] shadow-sm"
                       : "bg-[#F5F5F3] hover:bg-[#F5F5F3] text-[#6B6B6B] border border-[#E5E5E0]"
-                  }`}
+                    }`}
                   style={isSelected ? { background: "linear-gradient(to right, #F4C430, #FFD21F)" } : {}}
                 >
                   {cat}
@@ -406,7 +406,7 @@ export default function HealthPlansGrid() {
                     {plan.targetAudience}
                   </p>
 
-                  <h3 className="text-sm sm:text-base font-extrabold text-[#171717] text-center tracking-tight leading-snug min-h-[44px] flex items-center justify-center uppercase">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#E91E63] text-center tracking-tight leading-snug min-h-[44px] flex items-center justify-center uppercase">
                     {plan.title}
                   </h3>
 
@@ -462,20 +462,22 @@ export default function HealthPlansGrid() {
                 </div>
 
                 <div className="pt-2 space-y-2">
-                  <div
-                    className="group relative w-full h-11 text-[#171717] rounded-xl font-bold text-xs tracking-wider shadow-md flex items-center justify-center gap-1.5 overflow-hidden select-none"
+                  <Link
+                    href="/enquiry"
+                    className="group relative w-full h-11 text-[#171717] rounded-xl font-bold text-xs tracking-wider shadow-md flex items-center justify-center gap-1.5 overflow-hidden select-none hover:bg-[#FFD21F] transition-colors cursor-pointer"
                     style={{ background: "#F4C430" }}
                   >
                     <span className="relative z-10 flex items-center gap-1.5">
                       Consult an Advisor
                     </span>
-                  </div>
+                  </Link>
 
-                  <div
-                    className="w-full text-center text-[10px] font-bold uppercase tracking-widest text-[#6B6B6B] py-1 select-none"
+                  <Link
+                    href="/enquiry"
+                    className="block w-full text-center text-[10px] font-bold uppercase tracking-widest text-[#6B6B6B] hover:text-[#171717] py-1 select-none cursor-pointer"
                   >
                     TALK TO ADVISOR
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}

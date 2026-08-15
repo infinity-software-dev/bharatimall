@@ -70,10 +70,10 @@ export default function LifeQuoteModal({ blueprint, onClose }: LifeQuoteModalPro
                 {blueprint.category}
               </div>
               <h3 className="text-xl font-bold text-[#171717]">
-                Request Quote: {blueprint.title}
+                Request Quote: <span className="text-[#E91E63]">{blueprint.title}</span>
               </h3>
               <p className="text-xs text-[#6B6B6B]">
-                Insurer: <strong className="text-[#292929]">{blueprint.insurer}</strong> | CSR: <strong className="text-[#198754]">{blueprint.settlementCsr}</strong>
+                Insurer: <strong className="text-[#E91E63]">{blueprint.insurer}</strong> | CSR: <strong className="text-[#198754]">{blueprint.settlementCsr}</strong>
               </p>
             </div>
 

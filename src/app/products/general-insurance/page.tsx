@@ -198,29 +198,29 @@ export default function GeneralInsurancePage() {
   // Top Business Risks in India Donut Chart Data
   const riskData = [
     { label: "Cyber Attacks", percentage: 35, color: "#F4C430", offset: 0 },
-    { label: "Employee Health", percentage: 25, color: "#FFD21F", offset: 35 },
-    { label: "Legal Liability", percentage: 20, color: "#3b82f6", offset: 60 },
-    { label: "Property Damage", percentage: 15, color: "#14b8a6", offset: 80 },
-    { label: "Theft & Fraud", percentage: 5, color: "#6366f1", offset: 95 }
+    { label: "Employee Health", percentage: 25, color: "#E91E63", offset: 35 },
+    { label: "Legal Liability", percentage: 20, color: "#FFD21F", offset: 60 },
+    { label: "Property Damage", percentage: 15, color: "#292929", offset: 80 },
+    { label: "Theft & Fraud", percentage: 5, color: "#6B6B6B", offset: 95 }
   ];
 
   // Enterprise Premium Distribution Donut Chart Data
   const distData = [
     { label: "Cyber & Liability", percentage: 42, color: "#F4C430", offset: 0 },
-    { label: "Property & Fire", percentage: 22, color: "#FFD21F", offset: 42 },
-    { label: "Group Health (GMC)", percentage: 18, color: "#3b82f6", offset: 64 },
-    { label: "Marine & Cargo", percentage: 10, color: "#14b8a6", offset: 82 },
-    { label: "Engineering/Other", percentage: 8, color: "#6366f1", offset: 92 }
+    { label: "Property & Fire", percentage: 22, color: "#E91E63", offset: 42 },
+    { label: "Group Health (GMC)", percentage: 18, color: "#FFD21F", offset: 64 },
+    { label: "Marine & Cargo", percentage: 10, color: "#292929", offset: 82 },
+    { label: "Engineering/Other", percentage: 8, color: "#6B6B6B", offset: 92 }
   ];
 
   // Claim Settlement Ratio FY25 Bar Chart Data
   const csrData = [
     { name: "ICICI Lombard", ratio: 95, color: "bg-[#F4C430]" },
-    { name: "Bajaj Allianz", ratio: 92, color: "bg-[#F4C430]" },
-    { name: "Tata AIG", ratio: 88, color: "bg-[#F5F5F3]0" },
-    { name: "HDFC ERGO", ratio: 86, color: "bg-[#F5F5F3]0" },
-    { name: "goDigit", ratio: 82, color: "bg-indigo-500" },
-    { name: "SBI General", ratio: 80, color: "bg-cyan-500" }
+    { name: "Bajaj Allianz", ratio: 92, color: "bg-[#E91E63]" },
+    { name: "Tata AIG", ratio: 88, color: "bg-[#F4C430]" },
+    { name: "HDFC ERGO", ratio: 86, color: "bg-[#FFD21F]" },
+    { name: "goDigit", ratio: 82, color: "bg-[#E91E63]" },
+    { name: "SBI General", ratio: 80, color: "bg-[#292929]" }
   ];
 
   // Financial Impact (Liability Costs) Line Chart Data points
@@ -237,20 +237,20 @@ export default function GeneralInsurancePage() {
       <Header />
 
       <main className="flex-1">
-        {/* Top Breadcrumb Navigation */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 pb-2">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-semibold text-[#6B6B6B] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            Back to Home
-          </Link>
-        </div>
-
         {/* 1. Hero Section */}
-        <section className="relative overflow-hidden py-14 lg:py-20 bg-[#FFFFFF] border-b border-[#E5E5E0]">
+        <section className="relative overflow-hidden pt-6 pb-14 lg:pb-20 bg-[#FFFFFF] border-b border-[#E5E5E0]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Top Breadcrumb Navigation */}
+            <div className="pb-6">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-semibold text-[#6B6B6B] hover:text-[#171717] hover:border-[#F4C430] shadow-xs transition-all"
+              >
+                <ArrowLeft className="w-3.5 h-3.5" />
+                Back to Home
+              </Link>
+            </div>
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
               {/* Left Column: Text Content */}
               <div className="lg:col-span-7 space-y-6 text-left">
@@ -354,7 +354,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase text-center">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight text-center">
                 Premium Calculators
               </h2>
               <p className="text-sm sm:text-base text-[#6B6B6B] font-semibold max-w-2xl mx-auto text-center">
@@ -837,7 +837,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
             {/* Header */}
             <div className="max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Leading Commercial & General Insurers in India
               </h2>
               <p className="text-sm sm:text-base text-[#6B6B6B] font-semibold max-w-3xl mx-auto">
@@ -882,8 +882,8 @@ export default function GeneralInsurancePage() {
                   slogan: "Public Sector Reliability",
                   logo: (
                     <div className="flex items-center gap-1.5 font-sans">
-                      <span className="bg-blue-600 text-[#171717] rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-black">N</span>
-                      <span className="text-[#F4C430] font-black text-[11px]">New India</span>
+                      <span className="bg-[#F4C430] text-[#171717] rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-black">N</span>
+                      <span className="text-[#292929] font-black text-[11px]">New India</span>
                     </div>
                   )
                 },
@@ -896,7 +896,7 @@ export default function GeneralInsurancePage() {
                   logo: (
                     <div className="flex items-center gap-1 font-sans">
                       <span className="text-[#F4C430] font-black text-xs">TATA</span>
-                      <span className="bg-[#F5F5F3]0 text-[#171717] px-1.5 py-0.5 text-[9px] font-black rounded-xs">AIG</span>
+                      <span className="bg-[#F5F5F3] text-[#171717] px-1.5 py-0.5 text-[9px] font-black rounded-xs">AIG</span>
                     </div>
                   )
                 },
@@ -921,8 +921,8 @@ export default function GeneralInsurancePage() {
                   slogan: "Wide Reach & Trust",
                   logo: (
                     <div className="flex items-center gap-1 font-sans">
-                      <span className="bg-indigo-650 text-[#171717] px-2 py-0.5 text-[10px] font-black rounded-xs">SBI</span>
-                      <span className="text-indigo-850 font-bold text-xs">General</span>
+                      <span className="bg-[#F4C430] text-[#171717] px-2 py-0.5 text-[10px] font-black rounded-xs">SBI</span>
+                      <span className="text-indigo-800 font-bold text-xs">General</span>
                     </div>
                   )
                 },
@@ -971,7 +971,7 @@ export default function GeneralInsurancePage() {
                   slogan: "Retail & SME General Plans",
                   logo: (
                     <div className="flex items-center gap-1 font-sans">
-                      <span className="bg-red-650 text-[#171717] px-2 py-0.5 text-[10px] font-black rounded-xs">FUTURE</span>
+                      <span className="bg-red-600 text-[#FFFFFF] px-2 py-0.5 text-[10px] font-black rounded-xs">FUTURE</span>
                       <span className="text-[#292929] font-bold text-xs">GENERALI</span>
                     </div>
                   )
@@ -1008,9 +1008,14 @@ export default function GeneralInsurancePage() {
                   className="bg-[#FFFFFF] rounded-3xl p-6 border border-[#E5E5E0] shadow-xs hover:shadow-md transition-all flex flex-col justify-between text-left space-y-4"
                 >
                   <div className="space-y-4">
-                    {/* Logo Area */}
-                    <div className="h-12 flex items-center justify-center border-b border-[#E5E5E0] pb-3">
-                      {ins.logo}
+                    {/* Logo Area & Bank Name */}
+                    <div className="flex flex-col items-center justify-center border-b border-[#E5E5E0] pb-3 gap-1">
+                      <div className="h-8 flex items-center justify-center">
+                        {ins.logo}
+                      </div>
+                      <h4 className="text-sm font-bold text-[#E91E63] text-center">
+                        {ins.name}
+                      </h4>
                     </div>
 
                     {/* Stats List */}
@@ -1057,7 +1062,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
             {/* Header */}
             <div className="max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Insurance Products
               </h2>
             </div>
@@ -1072,7 +1077,7 @@ export default function GeneralInsurancePage() {
                     setShowAllProducts(false);
                   }}
                   className={`px-5 py-2 rounded-full text-xs font-bold transition-all cursor-pointer border ${selectedProductCategory === cat
-                      ? "bg-[#0D9488] border-[#0D9488] text-[#171717] shadow-md shadow-[#0D9488]/15"
+                      ? "bg-[#F4C430] border-[#F4C430] text-[#171717] shadow-md shadow-[#F4C430]/15"
                       : "bg-[#FFFFFF] border-[#E5E5E0] text-[#6B6B6B] hover:bg-[#F5F5F3]"
                     }`}
                 >
@@ -1093,12 +1098,12 @@ export default function GeneralInsurancePage() {
                   >
                     <div className="space-y-3">
                       {/* Product Icon */}
-                      <div className="w-10 h-10 rounded-full bg-[#F5F5F3] text-[#0D9488] flex items-center justify-center mx-auto shadow-xs border border-[#E5E5E0]">
+                      <div className="w-10 h-10 rounded-full bg-[#F4C430] text-[#171717] flex items-center justify-center mx-auto shadow-xs border border-[#E5E5E0]">
                         {prod.icon}
                       </div>
 
                       {/* Product Name */}
-                      <h3 className="text-sm font-extrabold text-[#292929]">{prod.name}</h3>
+                      <h3 className="text-sm font-extrabold text-[#E91E63]">{prod.name}</h3>
 
                       {/* Description */}
                       <p className="text-xs text-[#6B6B6B] font-semibold leading-relaxed">
@@ -1125,7 +1130,7 @@ export default function GeneralInsurancePage() {
               <div className="flex justify-center pt-6">
                 <button
                   onClick={() => setShowAllProducts(!showAllProducts)}
-                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-bold text-[#0D9488] hover:bg-[#F5F5F3] transition-all shadow-xs cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 rounded-full border border-[#E5E5E0] bg-[#FFFFFF] text-xs font-bold text-[#171717] hover:bg-[#F5F5F3] transition-all shadow-xs cursor-pointer"
                 >
                   <span>{showAllProducts ? "Show Less —" : "View More +"}</span>
                 </button>
@@ -1140,7 +1145,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {/* Section Header */}
             <div className="text-center max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase text-center">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight text-center">
                 Why General Insurance Matters
               </h2>
               <p className="text-sm sm:text-base text-[#6B6B6B] font-semibold max-w-2xl mx-auto text-center">
@@ -1196,7 +1201,7 @@ export default function GeneralInsurancePage() {
               </div>
 
               <div className="bg-[#FFFFFF] rounded-2xl p-6 border border-[#E5E5E0] shadow-xs flex flex-col justify-between hover:shadow-md transition-shadow text-left">
-                <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold mb-4">
+                <div className="w-10 h-10 rounded-xl bg-[#FFF8D6] text-[#171717] flex items-center justify-center font-bold mb-4 border border-[#E5E5E0]">
                   <AlertTriangle className="w-5 h-5" />
                 </div>
                 <div>
@@ -1221,7 +1226,7 @@ export default function GeneralInsurancePage() {
                       <Shield className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight uppercase">
+                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight">
                         Top Business Risks in India
                       </h3>
                       <p className="text-xs text-[#6B6B6B] font-bold uppercase tracking-wider">
@@ -1295,7 +1300,7 @@ export default function GeneralInsurancePage() {
                       <TrendingUp className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight uppercase">
+                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight">
                         Financial Impact (Liability Costs)
                       </h3>
                       <p className="text-xs text-[#6B6B6B] font-bold uppercase tracking-wider">
@@ -1305,12 +1310,12 @@ export default function GeneralInsurancePage() {
                   </div>
 
                   {/* Clean SVG Area Chart representation */}
-                  <div className="h-44 sm:h-52 w-full mt-4 flex items-end relative border-b border-l border-[#E5E5E0] pb-2 pl-2">
-                    <div className="absolute inset-0 flex flex-col justify-between text-[10px] text-[#6B6B6B] pointer-events-none select-none pl-6 pt-2">
-                      <div className="border-t border-dashed border-[#E5E5E0] w-full text-left">₹200k</div>
-                      <div className="border-t border-dashed border-[#E5E5E0] w-full text-left">₹150k</div>
-                      <div className="border-t border-dashed border-[#E5E5E0] w-full text-left">₹100k</div>
-                      <div className="border-t border-dashed border-[#E5E5E0] w-full text-left">₹50k</div>
+                  <div className="h-44 sm:h-52 w-full mt-4 flex items-end relative border-b-2 border-l-2 border-[#171717]/20 pb-2 pl-2">
+                    <div className="absolute inset-0 flex flex-col justify-between text-[10px] font-bold text-[#171717] pointer-events-none select-none pl-6 pt-2">
+                      <div className="border-t border-dashed border-slate-300 w-full text-left">₹200k</div>
+                      <div className="border-t border-dashed border-slate-300 w-full text-left">₹150k</div>
+                      <div className="border-t border-dashed border-slate-300 w-full text-left">₹100k</div>
+                      <div className="border-t border-dashed border-slate-300 w-full text-left">₹50k</div>
                       <div className="text-left">₹0k</div>
                     </div>
 
@@ -1318,17 +1323,22 @@ export default function GeneralInsurancePage() {
                       {liabilityTimeline.map((item) => (
                         <div key={item.year} className="flex flex-col items-center group flex-1">
                           <div className="relative w-full flex flex-col items-center justify-end h-32">
+                            {/* Always visible label */}
+                            <span className="text-[10px] font-extrabold text-[#E91E63] mb-1 group-hover:scale-110 transition-transform">
+                              ₹{item.value}k
+                            </span>
+
                             {/* Area marker bar */}
                             <div
-                              className="w-4 bg-gradient-to-t from-[#F5F5F3] to-[#E5E5E0] rounded-t-sm group-hover:brightness-110 transition-all duration-500"
+                              className="w-5 bg-gradient-to-t from-[#F4C430] to-[#E91E63] rounded-t-md group-hover:brightness-110 transition-all duration-300 shadow-md"
                               style={{ height: item.height }}
                             />
                             {/* Hover tooltip */}
-                            <div className="absolute -top-6 bg-zinc-900 text-[#171717] text-[9px] font-black px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                            <div className="absolute -top-7 bg-slate-900 text-white text-[9px] font-black px-2 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity shadow-md z-20">
                               ₹{item.value}k
                             </div>
                           </div>
-                          <span className="text-[10px] font-bold text-[#6B6B6B] mt-2">{item.year}</span>
+                          <span className="text-[10px] font-bold text-[#171717] mt-2">{item.year}</span>
                         </div>
                       ))}
                     </div>
@@ -1352,7 +1362,7 @@ export default function GeneralInsurancePage() {
                       <Award className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight uppercase">
+                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight">
                         Claim Settlement Ratios (FY25)
                       </h3>
                       <p className="text-xs text-[#6B6B6B] font-bold uppercase tracking-wider">
@@ -1370,7 +1380,7 @@ export default function GeneralInsurancePage() {
                             className={`w-6 ${item.color} rounded-t-lg transition-all duration-700 ease-out group-hover:brightness-105`}
                             style={{ height: `${item.ratio}%` }}
                           />
-                          <div className="absolute -top-6 bg-zinc-900 text-[#171717] text-[9px] font-black px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                          <div className="absolute -top-6 bg-[#171717] text-[#FFFFFF] text-[9px] font-black px-1.5 py-0.5 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                             {item.ratio}%
                           </div>
                         </div>
@@ -1395,7 +1405,7 @@ export default function GeneralInsurancePage() {
                       <Layers className="w-5 h-5" />
                     </div>
                     <div className="text-left">
-                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight uppercase">
+                      <h3 className="text-base sm:text-lg font-bold text-[#292929] tracking-tight">
                         Enterprise Premium Distribution
                       </h3>
                       <p className="text-xs text-[#6B6B6B] font-bold uppercase tracking-wider">
@@ -1506,8 +1516,8 @@ export default function GeneralInsurancePage() {
                 </p>
               </div>
 
-              <div className="bg-[#F5F5F3] rounded-2xl p-8 border border-[#E5E5E0] shadow-xs hover:border-indigo-500/30 hover:shadow-md transition-all text-left space-y-4">
-                <div className="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold">
+              <div className="bg-[#F5F5F3] rounded-2xl p-8 border border-[#E5E5E0] shadow-xs hover:border-[#F4C430]/60 hover:shadow-md transition-all text-left space-y-4">
+                <div className="w-12 h-12 rounded-xl bg-[#F4C430] text-[#171717] flex items-center justify-center font-bold">
                   <TrendingUp className="w-6 h-6" />
                 </div>
                 <h3 className="text-lg font-extrabold text-[#292929] leading-snug">
@@ -1704,7 +1714,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
             {/* Header */}
             <div className="max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Industries We Serve
               </h2>
             </div>
@@ -1789,7 +1799,7 @@ export default function GeneralInsurancePage() {
               <span className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider block">
                 Insurance Process
               </span>
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 How It Works
               </h2>
               <p className="text-sm sm:text-base text-[#6B6B6B] font-semibold max-w-2xl mx-auto">
@@ -1931,7 +1941,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 text-center">
             {/* Header */}
             <div className="max-w-3xl mx-auto space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Benefits
               </h2>
               <p className="text-sm sm:text-base text-[#6B6B6B] font-semibold max-w-2xl mx-auto">
@@ -2016,7 +2026,7 @@ export default function GeneralInsurancePage() {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
             {/* Header */}
             <div className="text-center space-y-2">
-              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight uppercase">
+              <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
                 Frequently Asked Questions
               </h2>
             </div>
@@ -2078,11 +2088,12 @@ export default function GeneralInsurancePage() {
             <p className="text-sm sm:text-base text-[#171717]/90 max-w-2xl mx-auto leading-relaxed text-center">
               Consult with our certified General Insurance experts to structure a highly compliant, cost-effective policy that covers your business end-to-end.
             </p>
-            <div
-              className="inline-block px-8 py-3.5 rounded-xl font-bold bg-[#F4C430] text-[#171717] shadow-lg select-none"
+            <Link
+              href="/enquiry"
+              className="inline-block px-8 py-3.5 rounded-xl font-bold bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] shadow-lg transition-all cursor-pointer"
             >
-              Get Free Consultation
-            </div>
+              Talk to Advisor
+            </Link>
           </div>
         </section>
       </main>

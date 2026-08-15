@@ -20,7 +20,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "term",
       icon: Shield,
-      iconBg: "bg-emerald-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "PURE PROTECTION",
       title: "Term Insurance",
       desc: "High life cover at the lowest premium. Foundation of security.",
@@ -29,9 +29,9 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "1cr",
       badge: "TRENDING",
-      badgeColor: "bg-emerald-600 text-[#171717]",
+      badgeColor: "bg-[#F4C430] text-[#171717]",
       icon: Star,
-      iconBg: "bg-blue-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "HIGH VALUE",
       title: "1 Crore Term Plan",
       desc: "Standard high-value coverage for your family's big dreams.",
@@ -40,7 +40,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "zero-cost",
       icon: Zap,
-      iconBg: "bg-emerald-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "TROP BENEFIT",
       title: "Zero Cost Term",
       desc: "Get 100% of your premiums back if you survive the term.",
@@ -49,7 +49,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "whole-life",
       icon: Gem,
-      iconBg: "bg-blue-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "COVER TILL 100",
       title: "Whole Life Insurance",
       desc: "Lifetime protection that leaves a massive legacy for children.",
@@ -58,7 +58,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "saral-jeevan",
       icon: ShieldAlert,
-      iconBg: "bg-emerald-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "STANDARD PLAN",
       title: "Saral Jeevan Bima",
       desc: "Simple and standardized term plan as per IRDAI guidelines.",
@@ -67,7 +67,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "salaried",
       icon: Briefcase,
-      iconBg: "bg-blue-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "EXCLUSIVE RATES",
       title: "Term Plan (Salaried)",
       desc: "Special discounted rates and easy KYC for salaried professionals.",
@@ -76,7 +76,7 @@ export default function CategoryGrid({ onSelectCategory }: { onSelectCategory?: 
     {
       id: "women",
       icon: Heart,
-      iconBg: "bg-emerald-600 text-[#171717]",
+      iconBg: "bg-[#F4C430] text-[#171717]",
       tag: "SPECIAL BENEFITS",
       title: "Women Term Life",
       desc: "Lower premium rates and wellness benefits exclusively for women.",

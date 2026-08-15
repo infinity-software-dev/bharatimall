@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import {
   User,
   Clock,
@@ -21,7 +22,7 @@ export default function SimpleSteps() {
         
         {/* Section Heading */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-sans drop-shadow-xs text-[#171717]">
+          <h2 className="text-3xl md:text-4xl font-bold font-sans drop-shadow-xs text-[#171717]">
             Simple Steps to Secure Life
           </h2>
           <p className="text-[#6B6B6B] text-sm sm:text-base font-normal leading-relaxed">
@@ -158,16 +159,13 @@ export default function SimpleSteps() {
             </div>
 
             <div className="pt-6">
-              <button
-                onClick={() => {
-                  const el = document.getElementById("calculator");
-                  if (el) el.scrollIntoView({ behavior: "smooth" });
-                }}
+              <Link
+                href="/enquiry"
                 className="w-full py-3.5 rounded-xl bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all active:scale-[0.98] flex items-center justify-center gap-2 cursor-pointer"
               >
-                <span>Start Application</span>
+                <span>Get Instant Quote</span>
                 <ArrowRight className="w-4 h-4" />
-              </button>
+              </Link>
             </div>
           </div>
 
