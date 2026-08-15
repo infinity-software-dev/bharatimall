@@ -72,7 +72,7 @@ export default function NPSConsultModal({ isOpen, onClose, title = "Start Your N
                 <ShieldCheck className="w-3.5 h-3.5 text-[#F4C430]" />
                 PFRDA Regulated Advisory
               </div>
-              <h3 className="text-xl font-extrabold text-[#171717] tracking-tight">
+              <h3 className="text-xl font-extrabold text-[#E91E63] tracking-tight">
                 {title}
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1 font-normal">

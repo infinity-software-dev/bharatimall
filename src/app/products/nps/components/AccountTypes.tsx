@@ -18,8 +18,8 @@ export default function AccountTypes() {
                         <thead>
                             <tr className="bg-[#FFF8D6] border-b border-[#E5E5E0]">
                                 <th className="p-5 text-[#171717] font-extrabold uppercase tracking-wider text-xs w-1/4">Feature</th>
-                                <th className="p-5 text-[#171717] font-extrabold uppercase tracking-wider text-xs w-1/3">Tier I (Pension Account)</th>
-                                <th className="p-5 text-[#171717] font-extrabold uppercase tracking-wider text-xs w-1/3">Tier II (Investment Account)</th>
+                                <th className="p-5 text-[#E91E63] font-extrabold uppercase tracking-wider text-xs w-1/3">Tier I (Pension Account)</th>
+                                <th className="p-5 text-[#E91E63] font-extrabold uppercase tracking-wider text-xs w-1/3">Tier II (Investment Account)</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-[#E5E5E0]">

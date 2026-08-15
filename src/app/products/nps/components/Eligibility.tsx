@@ -5,22 +5,22 @@ import { motion } from 'framer-motion';
 
 const eligibilityItems = [
     {
-        dot: 'bg-[#F4C430]',
+        dot: 'bg-[#E91E63]',
         label: 'Citizenship',
         value: 'Indian Citizens, NRIs & OCI Card Holders',
     },
     {
-        dot: 'bg-[#F4C430]',
+        dot: 'bg-[#E91E63]',
         label: 'Age Limit',
         value: '18 – 70 Years (at the time of entry)',
     },
     {
-        dot: 'bg-[#F4C430]',
+        dot: 'bg-[#E91E63]',
         label: 'Account Types',
         value: 'Available for both Tier I & Tier II Accounts',
     },
     {
-        dot: 'bg-[#F4C430]',
+        dot: 'bg-[#E91E63]',
         label: 'Employment',
         value: 'Applicable to Government, Corporate & Individual Subscribers',
     },
@@ -59,7 +59,7 @@ export default function Eligibility() {
                         <div className="bg-[#171717] px-8 py-5">
                             <div className="flex items-center gap-3">
                                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
-                                    <CheckCircle2 size={20} className="text-[#F4C430]" />
+                                    <CheckCircle2 size={20} className="text-[#E91E63]" />
                                 </div>
                                 <h3 className="text-lg font-black text-white">Eligibility Criteria</h3>
                             </div>
@@ -74,7 +74,7 @@ export default function Eligibility() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.08 }}
-                                    className="flex items-start gap-4 p-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] hover:border-[#F4C430] transition-all duration-200"
+                                    className="flex items-start gap-4 p-4 bg-[#FFFDF5] rounded-xl border border-[#E5E5E0] hover:border-[#E91E63] transition-all duration-200"
                                 >
                                     <div className={`w-3 h-3 rounded-full ${item.dot} mt-1.5 shrink-0`} />
                                     <div>
@@ -97,7 +97,7 @@ export default function Eligibility() {
                         <div className="bg-[#292929] px-8 py-5">
                             <div className="flex items-center gap-3">
                                 <div className="w-9 h-9 bg-white/10 rounded-xl flex items-center justify-center">
-                                    <FileText size={20} className="text-[#F4C430]" />
+                                    <FileText size={20} className="text-[#E91E63]" />
                                 </div>
                                 <h3 className="text-lg font-black text-white">Required Documents</h3>
                             </div>
