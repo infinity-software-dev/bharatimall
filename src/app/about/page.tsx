@@ -231,15 +231,13 @@ export default function AboutPage() {
               </div>
               <div className="flex items-center gap-3 shrink-0">
                 <Link
-                  href="/products"
-                  className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] shadow-md transition-all whitespace-nowrap"
-                >
+                  href="/products/term-life-insurance"
+                  className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#374151] bg-[#F4C430] hover:bg-[#FFD21F] shadow-md transition-all whitespace-nowrap">
                   Browse Products
                 </Link>
                 <Link
                   href="/contact"
-                  className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#E91E63] bg-[#FFFFFF] border border-[#FBCFE8] hover:bg-[#FDF2F8] transition-all whitespace-nowrap"
-                >
+                  className="px-6 py-3.5 rounded-xl text-xs font-bold text-[#E91E63] bg-[#FFFFFF] border border-[#FBCFE8] hover:bg-[#FDF2F8] transition-all whitespace-nowrap">
                   Contact Us
                 </Link>
               </div>
