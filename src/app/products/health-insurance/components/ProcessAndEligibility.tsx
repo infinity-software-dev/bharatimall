@@ -22,7 +22,7 @@ export default function ProcessAndEligibility() {
       icon: Search,
       title: "Choosing Plan",
       desc: "Select based on coverage, premium & hospitals.",
-      bg: "bg-[#F5F5F3]0"
+      bg: "bg-[#F4C430]"
     },
     {
       icon: ClipboardList,
@@ -34,13 +34,13 @@ export default function ProcessAndEligibility() {
       icon: Stethoscope,
       title: "Medical Check",
       desc: "Required for higher age or specific cases.",
-      bg: "bg-[#F5F5F3]0"
+      bg: "bg-[#F4C430]"
     },
     {
       icon: Zap,
       title: "Policy Issuance",
       desc: "Pay premium & receive your policy instantly.",
-      bg: "bg-teal-600"
+      bg: "bg-[#F4C430]"
     },
   ];
 

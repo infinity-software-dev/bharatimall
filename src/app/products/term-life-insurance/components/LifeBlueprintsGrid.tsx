@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import Link from "next/link";
 import {
   Shield,
   ShieldCheck,
@@ -173,7 +174,7 @@ export default function LifeBlueprintsGrid({
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-[#171717] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#171717] tracking-tight">
             Insurance Blueprints
           </h2>
           <p className="text-sm sm:text-base text-[#6B6B6B]">
@@ -272,7 +273,7 @@ export default function LifeBlueprintsGrid({
                     {renderIcon(item.iconType)}
                   </div>
 
-                  <h3 className="text-lg font-bold text-[#171717] tracking-tight group-hover:text-[#171717] transition-colors line-clamp-1">
+                  <h3 className="text-lg font-bold text-[#E91E63] tracking-tight transition-colors line-clamp-1">
                     {item.title}
                   </h3>
                 </div>
@@ -282,7 +283,7 @@ export default function LifeBlueprintsGrid({
                     <div className="text-[10px] font-bold text-[#6B6B6B] uppercase tracking-wider">
                       INSURER
                     </div>
-                    <div className="font-semibold text-[#292929] truncate mt-0.5">
+                    <div className="font-semibold text-[#E91E63] truncate mt-0.5">
                       {item.insurer}
                     </div>
                   </div>
@@ -328,11 +329,12 @@ export default function LifeBlueprintsGrid({
                 </div>
 
                 <div className="pt-4 border-t border-[#E5E5E0]">
-                  <div
-                    className="w-full py-2.5 rounded-xl bg-[#F4C430] text-[#171717] text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-2xs select-none"
+                  <Link
+                    href="/enquiry"
+                    className="w-full py-2.5 rounded-xl bg-[#F4C430] text-[#171717] text-xs font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-2xs select-none hover:bg-[#FFD21F] transition-colors cursor-pointer"
                   >
                     <span>QUOTE</span>
-                  </div>
+                  </Link>
                 </div>
               </div>
             ))}

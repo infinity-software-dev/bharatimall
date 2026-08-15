@@ -65,10 +65,10 @@ export default function BlueprintComparison() {
   return (
     <section className="py-16 md:py-24 bg-[#fbfcfe] relative overflow-hidden font-sans border-t border-[#E5E5E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Header */}
         <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <h2 className="text-3xl md:text-4xl font-extrabold font-sans text-[#171717] tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold font-sans text-[#171717] tracking-tight">
             Insurance Blueprints Comparison
           </h2>
           <p className="text-[#6B6B6B] text-sm sm:text-base font-normal leading-relaxed">
@@ -80,7 +80,7 @@ export default function BlueprintComparison() {
         <div className="max-w-6xl mx-auto bg-[#FFFFFF] rounded-3xl border border-[#E5E5E0] shadow-lg overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[760px]">
-              
+
               {/* Header Row */}
               <thead>
                 <tr className="bg-[#FFF8D6] text-[#171717]">
@@ -89,8 +89,8 @@ export default function BlueprintComparison() {
                   </th>
                   {plans.map((p, idx) => (
                     <th key={idx} className="py-5 px-4 font-bold text-center w-[15.6%]">
-                      <div className="text-sm font-black tracking-tight leading-tight">{p.name}</div>
-                      <div className="text-[10px] font-bold tracking-widest text-[#292929]/90 uppercase mt-0.5">
+                      <div className="text-sm font-black text-[#E91E63] tracking-tight leading-tight">{p.name}</div>
+                      <div className="text-[10px] font-bold tracking-widest text-[#E91E63] uppercase mt-0.5">
                         {p.insurer}
                       </div>
                     </th>

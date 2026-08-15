@@ -1,10 +1,11 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { ArrowRight, ShieldCheck, Building2, Heart } from "lucide-react";
 
 interface LifeHeroProps {
-  onApplyNow: () => void;
+  onApplyNow?: () => void;
 }
 
 export default function LifeHero({ onApplyNow }: LifeHeroProps) {
@@ -37,14 +38,13 @@ export default function LifeHero({ onApplyNow }: LifeHeroProps) {
 
             {/* CTA Action */}
             <div className="pt-2">
-              <button
-                type="button"
-                onClick={onApplyNow}
-                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#F4C430] hover:from-[#F4C430] hover:to-[#FFD21F] text-[#171717] font-semibold text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer group"
+              <Link
+                href="/enquiry"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl bg-[#F4C430] hover:bg-[#FFD21F] text-[#171717] font-semibold text-sm shadow-md hover:shadow-lg transition-all active:scale-[0.98] cursor-pointer group"
               >
-                <span>Apply Now</span>
+                <span>Get Instant Quote</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats */}

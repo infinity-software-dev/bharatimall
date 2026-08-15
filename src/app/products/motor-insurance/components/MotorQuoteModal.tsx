@@ -68,7 +68,7 @@ export default function MotorQuoteModal({ plan, initialRegNo, onClose }: MotorQu
                 MOTOR POLICY DETAILS
               </span>
               <h3 className="text-xl font-extrabold text-[#171717] tracking-tight mt-1">
-                {plan.name} {plan.planType}
+                <span className="text-[#E91E63]">{plan.name}</span> {plan.planType}
               </h3>
               <p className="text-xs text-[#6B6B6B] mt-1">
                 Starting from <strong className="text-[#171717] font-bold">₹{plan.price.toLocaleString('en-IN')}/year</strong> with instant cashless garage access.

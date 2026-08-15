@@ -532,7 +532,7 @@ export default function MotorPriceComparison({
                       {plan.logoText}
                     </div>
                     <div>
-                      <h4 className="text-base font-bold text-[#171717] group-hover:text-[#171717] transition-colors">
+                      <h4 className="text-base font-bold text-[#E91E63] transition-colors">
                         {plan.name}
                       </h4>
                       <p className="text-xs text-[#171717] font-medium">

@@ -32,7 +32,7 @@ export default function MarketInsights() {
 
               {/* Bar Chart */}
               <div className="pt-6 pb-2">
-                <div className="h-48 flex items-end justify-between gap-3 px-2 border-b border-[#E5E5E0]">
+                <div className="h-48 flex items-end justify-between gap-3 px-2 border-b-2 border-l-2 border-[#171717]/20">
                   {[
                     { name: "HDFC ERGO", csr: 98, height: "92%" },
                     { name: "Tata AIG", csr: 98, height: "92%" },
@@ -41,21 +41,21 @@ export default function MarketInsights() {
                     { name: "Niva Bupa", csr: 96, height: "76%" },
                     { name: "Care Health", csr: 95, height: "68%" },
                   ].map((item, idx) => (
-                    <div key={idx} className="flex-1 flex flex-col items-center gap-2 h-full justify-end group">
-                      <span className="text-[10px] font-bold text-[#292929] opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div key={idx} className="flex-1 flex flex-col items-center gap-1 h-full justify-end group">
+                      <span className="text-[10px] font-extrabold text-[#E91E63] group-hover:scale-110 transition-transform">
                         {item.csr}%
                       </span>
                       <div
-                        className="w-full rounded-t-lg transition-all duration-500 group-hover:brightness-110"
+                        className="w-full rounded-t-lg transition-all duration-500 group-hover:brightness-110 shadow-md"
                         style={{
                           height: item.height,
-                          background: "linear-gradient(to top, #FFD21F, #F4C430)"
+                          background: "linear-gradient(to top, #F4C430, #E91E63)"
                         }}
                       />
                     </div>
                   ))}
                 </div>
-                <div className="flex items-center justify-between gap-1 pt-2 px-1 text-[9px] font-bold text-[#6B6B6B] text-center">
+                <div className="flex items-center justify-between gap-1 pt-2 px-1 text-[9px] font-extrabold text-[#171717] text-center">
                   <span className="flex-1 truncate">HDFC ERGO</span>
                   <span className="flex-1 truncate">Tata AIG</span>
                   <span className="flex-1 truncate">ICICI Lombard</span>
@@ -66,9 +66,9 @@ export default function MarketInsights() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#F5F5F3] rounded-xl border border-[#E5E5E0] text-xs text-[#6B6B6B] flex items-start gap-2">
+            <div className="p-3 bg-[#FFF8D6] rounded-xl border border-[#F4C430] text-xs text-[#171717] flex items-start gap-2 shadow-2xs">
               <Info className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
-              <p>
+              <p className="font-medium">
                 <strong className="text-[#171717]">Why CSR Matters:</strong> Higher Claim Settlement Ratio indicates reliability. We partner with insurers maintaining 95%+ CSR.
               </p>
             </div>
@@ -89,17 +89,17 @@ export default function MarketInsights() {
 
               {/* Line Chart */}
               <div className="pt-6 pb-2">
-                <div className="h-48 relative flex items-end">
+                <div className="h-48 relative flex items-end border-b-2 border-l-2 border-[#171717]/20 pb-1">
                   <svg className="w-full h-full overflow-visible" viewBox="0 0 400 160">
-                    <line x1="0" y1="20" x2="400" y2="20" stroke="#f1f5f9" strokeDasharray="3" />
-                    <line x1="0" y1="60" x2="400" y2="60" stroke="#f1f5f9" strokeDasharray="3" />
-                    <line x1="0" y1="100" x2="400" y2="100" stroke="#f1f5f9" strokeDasharray="3" />
-                    <line x1="0" y1="140" x2="400" y2="140" stroke="#e2e8f0" />
+                    <line x1="0" y1="20" x2="400" y2="20" stroke="#cbd5e1" strokeDasharray="3" />
+                    <line x1="0" y1="60" x2="400" y2="60" stroke="#cbd5e1" strokeDasharray="3" />
+                    <line x1="0" y1="100" x2="400" y2="100" stroke="#cbd5e1" strokeDasharray="3" />
+                    <line x1="0" y1="140" x2="400" y2="140" stroke="#94a3b8" />
 
                     <defs>
                       <linearGradient id="inflationGrad" x1="0" y1="0" x2="0" y2="1">
-                        <stop offset="0%" stopColor="#F4C430" stopOpacity="0.25" />
-                        <stop offset="100%" stopColor="#FFD21F" stopOpacity="0.0" />
+                        <stop offset="0%" stopColor="#E91E63" stopOpacity="0.3" />
+                        <stop offset="100%" stopColor="#F4C430" stopOpacity="0.05" />
                       </linearGradient>
                     </defs>
 
@@ -110,19 +110,19 @@ export default function MarketInsights() {
                     <path
                       d="M 20 145 Q 100 135 180 105 T 380 25"
                       fill="none"
-                      stroke="#F4C430"
-                      strokeWidth="3"
+                      stroke="#E91E63"
+                      strokeWidth="4"
                       strokeLinecap="round"
                     />
 
-                    <circle cx="20" cy="145" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
-                    <circle cx="100" cy="138" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
-                    <circle cx="180" cy="105" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
-                    <circle cx="280" cy="65" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
-                    <circle cx="380" cy="25" r="4" fill="#ffffff" stroke="#F4C430" strokeWidth="2.5" />
+                    <circle cx="20" cy="145" r="4.5" fill="#F4C430" stroke="#E91E63" strokeWidth="2.5" />
+                    <circle cx="100" cy="138" r="4.5" fill="#F4C430" stroke="#E91E63" strokeWidth="2.5" />
+                    <circle cx="180" cy="105" r="4.5" fill="#F4C430" stroke="#E91E63" strokeWidth="2.5" />
+                    <circle cx="280" cy="65" r="4.5" fill="#F4C430" stroke="#E91E63" strokeWidth="2.5" />
+                    <circle cx="380" cy="25" r="5.5" fill="#E91E63" stroke="#171717" strokeWidth="2.5" />
                   </svg>
                 </div>
-                <div className="flex items-center justify-between text-[10px] font-bold text-[#6B6B6B] pt-2 px-1">
+                <div className="flex items-center justify-between text-[10px] font-extrabold text-[#171717] pt-2 px-1">
                   <span>2014 (~₹2.5L)</span>
                   <span>2016</span>
                   <span>2019</span>
@@ -132,10 +132,10 @@ export default function MarketInsights() {
               </div>
             </div>
 
-            <div className="p-3 bg-[#F5F5F3] rounded-xl border border-[#E5E5E0] text-xs text-[#6B6B6B] flex items-start gap-2">
+            <div className="p-3 bg-[#FFF8D6] rounded-xl border border-[#F4C430] text-xs text-[#171717] flex items-start gap-2 shadow-2xs">
               <Activity className="w-4 h-4 text-[#171717] shrink-0 mt-0.5" />
-              <p>
-                <strong className="text-[#F4C430]">The Urgency:</strong> Healthcare costs in India are rising at <strong>14% annually</strong>. Early coverage secures your financial future.
+              <p className="font-medium">
+                <strong className="text-[#E91E63]">The Urgency:</strong> Healthcare costs in India are rising at <strong>14% annually</strong>. Early coverage secures your financial future.
               </p>
             </div>
           </div>

@@ -23,11 +23,11 @@ export default function HealthComparisonTable() {
               <thead>
                 <tr style={{ background: "#FFF8D6" }} className="text-[#171717]">
                   <th className="py-4 px-6 text-xs font-bold uppercase tracking-wider">PLAN FEATURE</th>
-                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">HDFC OPTIMA</th>
-                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">NIVA BUPA</th>
-                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">ICICI ELEVATE</th>
-                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">CARE SUPREME</th>
-                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center">STAR HEALTH</th>
+                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center text-[#E91E63]">HDFC OPTIMA</th>
+                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center text-[#E91E63]">NIVA BUPA</th>
+                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center text-[#E91E63]">ICICI ELEVATE</th>
+                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center text-[#E91E63]">CARE SUPREME</th>
+                  <th className="py-4 px-4 text-xs font-bold uppercase tracking-wider text-center text-[#E91E63]">STAR HEALTH</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-100 text-xs sm:text-sm font-medium text-[#292929]">
